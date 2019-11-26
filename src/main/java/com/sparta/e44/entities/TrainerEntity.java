@@ -2,12 +2,13 @@ package com.sparta.e44.entities;
 
 import java.time.LocalDate;
 
-public class TrainerEntity extends AbstractPersonEntity
-{
+public class TrainerEntity extends AbstractPersonEntity {
+    private int trainerId;
     private String specialization;
     private String employmentType;
 
-    public TrainerEntity() {}
+    public TrainerEntity() {
+    }
 
     public TrainerEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
                          char gender, LocalDate startDate, String specialization, String employmentType) {
@@ -30,5 +31,13 @@ public class TrainerEntity extends AbstractPersonEntity
 
     public void setEmploymentType(String employmentType) {
         this.employmentType = employmentType;
+    }
+
+    public int getTrainerId() {
+        return trainerId;
+    }
+
+    public void setTrainerId(int trainerId) {
+        this.trainerId = trainerId;
     }
 }
