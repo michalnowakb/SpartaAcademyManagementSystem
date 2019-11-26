@@ -1,9 +1,17 @@
-package com.sparta.e44.controllers.entities;
+package com.sparta.e44.entities;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
 public class TraineeEntity extends AbstractPersonEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int traineeId;
     private String currentCourse;
     private String placement;
     private String currentGrade;
@@ -14,6 +22,10 @@ public class TraineeEntity extends AbstractPersonEntity {
         this.currentCourse = currentCourse;
         this.placement = placedOrNot;
         this.currentCourse = currentGrade;
+    }
+
+    public TraineeEntity() {
+
     }
 
     public String getCurrentCourse() {
@@ -38,5 +50,9 @@ public class TraineeEntity extends AbstractPersonEntity {
 
     public void setCurrentGrade(String currentGrade) {
         this.currentGrade = currentGrade;
+    }
+
+    public int getTraineeId() {
+        return traineeId;
     }
 }

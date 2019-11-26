@@ -1,8 +1,11 @@
-package com.sparta.e44.controllers.entities;
+package com.sparta.e44.entities;
 
+import com.sparta.e44.entities.state.Gender;
+
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
+@MappedSuperclass
 public abstract class AbstractPersonEntity {
     //    @Column
     private int id;
@@ -11,7 +14,7 @@ public abstract class AbstractPersonEntity {
     private LocalDate dateOfBirth;
     private String email;
     private String contactNumber;
-    private char gender;
+    private Gender gender;
     private LocalDate startDate;
 
     public AbstractPersonEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDate startDate) {
@@ -68,12 +71,16 @@ public abstract class AbstractPersonEntity {
         this.contactNumber = contactNumber;
     }
 
-    public char getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public void setGender(char gender){
+        this.gender = Gender.getGender(gender);
     }
 
     public LocalDate getStartDate() {

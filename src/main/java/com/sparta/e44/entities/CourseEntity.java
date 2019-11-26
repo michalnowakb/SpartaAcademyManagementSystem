@@ -1,4 +1,4 @@
-package com.sparta.e44.controllers.entities;
+package com.sparta.e44.entities;
 
 public class CourseEntity
 {

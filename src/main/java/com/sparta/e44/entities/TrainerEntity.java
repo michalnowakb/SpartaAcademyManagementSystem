@@ -1,7 +1,6 @@
-package com.sparta.e44.controllers.entities;
+package com.sparta.e44.entities;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class TrainerEntity extends AbstractPersonEntity
 {
