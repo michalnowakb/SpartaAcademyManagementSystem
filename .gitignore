@@ -30,8 +30,12 @@ hs_err_pid*
 
 *.iws
 
- 
 
+# Local configuration file (sdk path, etc)
+local.properties
+.properties
+
+ 
 #Mac
 
 .DS_Store
