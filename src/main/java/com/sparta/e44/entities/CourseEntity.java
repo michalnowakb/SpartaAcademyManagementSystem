@@ -1,18 +1,27 @@
 package com.sparta.e44.entities;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class CourseEntity
 {
-//    private int/string courseid;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int courseId;
     private String courseName;
     private String courseDescription;
-    private String durationInWeeks;
+    private int durationInWeeks;
 
     public CourseEntity() {}
 
-    public CourseEntity(String coursename, String coursedescription, String durationinweeks) {
-        this.courseName = coursename;
-        this.courseDescription = coursedescription;
-        this.durationInWeeks = durationinweeks;
+    public CourseEntity(String courseName, String courseDescription, int durationInWeeks) {
+        this.courseName = courseName;
+        this.courseDescription = courseDescription;
+        this.durationInWeeks = durationInWeeks;
     }
 
     public String getCourseName() {
@@ -31,11 +40,19 @@ public class CourseEntity
         this.courseDescription = courseDescription;
     }
 
-    public String getDurationInWeeks() {
+    public int getDurationInWeeks() {
         return durationInWeeks;
     }
 
-    public void setDurationInWeeks(String durationInWeeks) {
+    public void setDurationInWeeks(int durationInWeeks) {
         this.durationInWeeks = durationInWeeks;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }
