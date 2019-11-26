@@ -15,6 +15,11 @@ public abstract class AbstractPerson
     private char gender;
     private LocalDateTime startDate;
 
+    public AbstractPerson(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDateTime startDate) {
+    }
+    public AbstractPerson(){}
+
+
     public int getiD() {
         return iD;
     }
