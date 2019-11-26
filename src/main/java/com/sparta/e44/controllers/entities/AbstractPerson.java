@@ -3,9 +3,8 @@ package com.sparta.e44.controllers.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public abstract class AbstractPerson
-{
-//    @Column
+public abstract class AbstractPerson {
+    //    @Column
     private int iD;
     private String firstName;
     private String lastName;
@@ -14,6 +13,13 @@ public abstract class AbstractPerson
     private String contactNumber;
     private char gender;
     private LocalDateTime startDate;
+
+    public AbstractPerson(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDateTime startDate) {
+    }
+
+    public AbstractPerson() {
+    }
+
 
     public int getiD() {
         return iD;
