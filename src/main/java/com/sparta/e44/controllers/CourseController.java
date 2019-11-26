@@ -11,28 +11,31 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private CourseService courseService;
-     @GetMapping("/course")
-    public List<CourseEntity> getCourses(){
-         return courseService.getAllCourses();
-     }
-     @GetMapping("/course/{id}")
-    public CourseEntity getCourse(@PathVariable int id){
-         return courseService.getCourse(id);
-     }
 
-     @PostMapping("/course/newCourse")
-    public String addCourse(@RequestBody CourseEntity newCourse){
-         courseService.addCourse(newCourse);
-         return "Added course";
-     }
+    @GetMapping("/course")
+    public List<CourseEntity> getCourses() {
+        return courseService.getAllCourses();
+    }
 
-     @DeleteMapping("/course/removeCourse")
-    public String removeCourse(@RequestBody CourseEntity removeEntity){
-         courseService.removeCourse(removeEntity);
-         return "Removed course";
-     }
+    @GetMapping("/course/{id}")
+    public CourseEntity getCourse(@PathVariable int id) {
+        return courseService.getCourse(id);
+    }
+
+    @PostMapping("/course/newCourse")
+    public String addCourse(@RequestBody CourseEntity newCourse) {
+        courseService.addCourse(newCourse);
+        return "Added course";
+    }
+
+    @DeleteMapping("/course/removeCourse")
+    public String removeCourse(@RequestBody CourseEntity removeEntity) {
+        courseService.removeCourse(removeEntity);
+        return "Removed course";
+    }
+
     @PutMapping("/course/updateCourse/{id}")
     public void editCourse(@PathVariable int id, @RequestBody CourseEntity editCourse) {
-         courseService.editCourse(editCourse,id);
+        courseService.editCourse(editCourse, id);
     }
 }

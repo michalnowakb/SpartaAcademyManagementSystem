@@ -18,17 +18,20 @@ public class CourseService {
         courseRepository.findAll().forEach(courseEntity -> courses.add(courseEntity));
         return courses;
     }
-    public CourseEntity getCourse(int courseId){
+
+    public CourseEntity getCourse(int courseId) {
         return courseRepository.findById(courseId).get();
     }
-    public void addCourse(CourseEntity newCourse){
+
+    public void addCourse(CourseEntity newCourse) {
         courseRepository.save(newCourse);
     }
 
-    public void removeCourse(CourseEntity removeCourse){
+    public void removeCourse(CourseEntity removeCourse) {
         courseRepository.delete(removeCourse);
     }
-    public CourseEntity editCourse( CourseEntity editEntity,int id) {
+
+    public CourseEntity editCourse(CourseEntity editEntity, int id) {
         editEntity.setCourseId(id);
         courseRepository.save(editEntity);
         return editEntity;
