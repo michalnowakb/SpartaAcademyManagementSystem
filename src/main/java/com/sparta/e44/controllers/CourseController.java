@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CourseController {
-    @GetMapping("/courses")
+    @GetMapping("/courses/")
     public String viewCoursePage(){
-        return "course/coursePage";
+        return "coursePage";
     }
 
     @GetMapping("/courses/add")
     public String addCoursePage(){
-        return "course/registerCoursePage";
+        return "registerCoursePage";
     }
 
 }
