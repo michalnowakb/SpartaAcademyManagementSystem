@@ -3,7 +3,7 @@ package com.sparta.e44.controllers.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public abstract class AbstractPerson {
+public abstract class AbstractPersonEntity {
     //    @Column
     private int iD;
     private String firstName;
@@ -14,10 +14,10 @@ public abstract class AbstractPerson {
     private char gender;
     private LocalDateTime startDate;
 
-    public AbstractPerson(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDateTime startDate) {
+    public AbstractPersonEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDateTime startDate) {
     }
 
-    public AbstractPerson() {
+    public AbstractPersonEntity() {
     }
 
 
