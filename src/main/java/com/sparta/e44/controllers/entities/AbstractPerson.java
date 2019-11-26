@@ -1,13 +1,15 @@
 package com.sparta.e44.controllers.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class AbstractPerson
 {
+//    @Column
     private int iD;
     private String firstName;
-    private String lastname;
-    private LocalDateTime dateOfBirth;
+    private String lastName;
+    private LocalDate dateOfBirth;
     private String email;
     private String contactNumber;
     private char gender;
@@ -29,19 +31,19 @@ public abstract class AbstractPerson
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public LocalDateTime getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDateTime dateOfBirth) {
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
