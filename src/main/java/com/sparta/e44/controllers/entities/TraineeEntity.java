@@ -8,14 +8,16 @@ public class TraineeEntity extends AbstractPerson {
     private String currentCourse;
     private String placedOrNot;
     private String currentGrade;
+
     public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
                          char gender, LocalDateTime startDate, String currentCourse, String placedOrNot, String currentGrade) {
-        super(id, firstName, lastName,dateOfBirth,email,contactNumber,gender,startDate);
+        super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
         this.currentCourse = currentCourse;
         this.placedOrNot = placedOrNot;
-        this.currentCourse=currentGrade;
+        this.currentCourse = currentGrade;
     }
-    public TraineeEntity(){
+
+    public TraineeEntity() {
     }
 
     public String getCurrentCourse() {
