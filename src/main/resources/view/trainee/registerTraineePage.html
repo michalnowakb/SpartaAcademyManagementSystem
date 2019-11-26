@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register Page</title>
 </head>
 <body>
+    <h1>Register Trainee</h1>
 
+    <form th:action="" th:object="" method="post">
+        <table>
+
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" th:field=""/> </td>
+                <td>
+                    <span th:if="" th:errors=""></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Surname</td>
+                <td><input type="text" th:field=""/> </td>
+                <td>
+                    <span th:if="" th:errors=""></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Date Of Birth</td>
+                <td><input type="date" /> </td>
+            </tr>
+
+            <tr>
+                <td>E-mail</td>
+                <td><input type="text" /> </td>
+            </tr>
+
+            <tr>
+                <td>Contact Number</td>
+                <td><input type="text" /> </td>
+            </tr>
+
+
+            <tr>
+                <td>Start Date</td>
+                <td><input type="text" /> </td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <select th:field="">
+                        <option value="">Select Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </td>
+            </tr>
+
+            <input type="submit" value="Submit" />
+        </table>
+    </form>
 </body>
 </html>
