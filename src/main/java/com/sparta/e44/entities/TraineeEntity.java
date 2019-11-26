@@ -55,4 +55,8 @@ public class TraineeEntity extends AbstractPersonEntity {
     public int getTraineeId() {
         return traineeId;
     }
+
+    public void setTraineeId(int id){
+        this.traineeId=id;
+    }
 }

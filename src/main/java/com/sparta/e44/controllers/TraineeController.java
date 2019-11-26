@@ -13,20 +13,26 @@ public class TraineeController {
     @Autowired
     private TraineeService traineeService;
 
-    @GetMapping("/trainees")
+    @GetMapping("/trainee/getTrainees")
     public List<TraineeEntity> getTrainees(){
         return traineeService.getAll();
     }
 
-    @GetMapping("/trainee/{id}")
+    @GetMapping("/trainee/getTrainee/{id}")
     public TraineeEntity getTrainee(@PathVariable int id){
         return traineeService.getById(id);
     }
 
 
-    @PostMapping("/newTrainee")
+    @PostMapping("/trainee/addTrainee")
     public String addTrainee(@RequestBody TraineeEntity newTrainee){
         traineeService.addTrainee(newTrainee);
         return "Added trainee";
+    }
+
+    @PutMapping("/trainee/editTrainee/{id}")
+    public TraineeEntity editTrainee(@RequestBody TraineeEntity editedTrainee, @PathVariable int id){
+        traineeService.editTrainee(editedTrainee,id);
+        return traineeService.getById(id);
     }
 }

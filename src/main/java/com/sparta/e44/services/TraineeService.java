@@ -27,4 +27,14 @@ public class TraineeService {
     public void addTrainee(TraineeEntity newTrainee){
         traineeRepository.save(newTrainee);
     }
+
+    public void removeTrainee(int id){
+        traineeRepository.deleteById(id);
+    }
+
+    public TraineeEntity editTrainee(TraineeEntity editedTrainee, int id){
+        editedTrainee.setTraineeId(id);
+        traineeRepository.save(editedTrainee);
+        return editedTrainee;
+    }
 }
