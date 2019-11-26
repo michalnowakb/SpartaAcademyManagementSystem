@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sparta Academy Management System - Register a new course</title>
 </head>
+
 <body>
 
+<h1>Register a new course</h1>
+<form th:action="@{/registerCourse}" th:object="${course}" method="post">
+    <table>
+        <tr>
+            <td>Course name</td>
+            <td><input type="text" th:field="*{courseName}"/></td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+
+        <tr>
+            <td>Duration</td>
+            <td><input type="text" th:field="*{duration}"/></td>
+        </tr>
+
+        <tr>
+            <td>Modules</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="moduleCheckbox">Dev ops<br></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="moduleCheckbox">C#<br></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="moduleCheckbox">Software developement - Java<br></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="moduleCheckbox">SDET - Java<br></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="moduleCheckbox">Business<br></td>
+        </tr>
+
+    </table>
+
+    <p><input type="submit" value="Submit"/></p>
+
+</form>
 </body>
+
 </html>
+
+<!--        <tr>-->
+<!--            <td>Modules</td>-->
+<!--            <td>-->
+<!--                <select th:field="*{gender}">-->
+<!--                    <option value="&#45;&#45;">&#45;&#45;</option>-->
+<!--                    <option value="M">Male</option>-->
+<!--                    <option value="F">Female</option>-->
+<!--                </select>-->
+<!--            </td>-->
+<!--        </tr>-->
