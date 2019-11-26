@@ -2,34 +2,40 @@ package com.sparta.e44.controllers.entities;
 
 public class CourseEntity
 {
-//    private int/String courseId;
-    private String courseName;
-    private String courseDescription;
-    private String durationInWeeks;
+//    private int/string courseid;
+    private String coursename;
+    private String coursedescription;
+    private String durationinweeks;
 
+    public CourseEntity() {}
 
-
-    public String getCourseName() {
-        return courseName;
+    public CourseEntity(String coursename, String coursedescription, String durationinweeks) {
+        this.coursename = coursename;
+        this.coursedescription = coursedescription;
+        this.durationinweeks = durationinweeks;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public String getCoursename() {
+        return coursename;
     }
 
-    public String getCourseDescription() {
-        return courseDescription;
+    public void setCoursename(String coursename) {
+        this.coursename = coursename;
     }
 
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
+    public String getCoursedescription() {
+        return coursedescription;
     }
 
-    public String getDurationInWeeks() {
-        return durationInWeeks;
+    public void setCoursedescription(String coursedescription) {
+        this.coursedescription = coursedescription;
     }
 
-    public void setDurationInWeeks(String durationInWeeks) {
-        this.durationInWeeks = durationInWeeks;
+    public String getDurationinweeks() {
+        return durationinweeks;
+    }
+
+    public void setDurationinweeks(String durationinweeks) {
+        this.durationinweeks = durationinweeks;
     }
 }

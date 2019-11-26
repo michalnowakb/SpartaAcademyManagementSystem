@@ -4,20 +4,17 @@ package com.sparta.e44.controllers.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class TraineeEntity extends AbstractPerson {
+public class TraineeEntity extends AbstractPersonEntity {
     private String currentCourse;
     private String placedOrNot;
     private String currentGrade;
 
     public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDateTime startDate, String currentCourse, String placedOrNot, String currentGrade) {
+                         char gender, LocalDate startDate, String currentCourse, String placedOrNot, String currentGrade) {
         super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
         this.currentCourse = currentCourse;
         this.placedOrNot = placedOrNot;
         this.currentCourse = currentGrade;
-    }
-
-    public TraineeEntity() {
     }
 
     public String getCurrentCourse() {

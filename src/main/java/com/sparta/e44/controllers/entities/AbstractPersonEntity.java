@@ -5,28 +5,27 @@ import java.time.LocalDateTime;
 
 public abstract class AbstractPersonEntity {
     //    @Column
-    private int iD;
+    private int id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
     private String email;
     private String contactNumber;
     private char gender;
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
     public AbstractPersonEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDateTime startDate) {
     }
 
-    public AbstractPersonEntity() {
+    public AbstractPersonEntity() {}
+
+
+    public int getId() {
+        return id;
     }
 
-
-    public int getiD() {
-        return iD;
-    }
-
-    public void setiD(int iD) {
-        this.iD = iD;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -77,11 +76,11 @@ public abstract class AbstractPersonEntity {
         this.gender = gender;
     }
 
-    public LocalDateTime getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 }
