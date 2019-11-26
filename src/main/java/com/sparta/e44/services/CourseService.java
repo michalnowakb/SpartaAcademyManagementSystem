@@ -19,7 +19,7 @@ public class CourseService {
         return courses;
     }
 
-    public CourseEntity getCourse(int courseId) {
+    public CourseEntity getById(int courseId) {
         return courseRepository.findById(courseId).get();
     }
 
@@ -27,8 +27,8 @@ public class CourseService {
         courseRepository.save(newCourse);
     }
 
-    public void removeCourse(CourseEntity removeCourse) {
-        courseRepository.delete(removeCourse);
+    public void removeCourse(int id) {
+        courseRepository.deleteById(id);
     }
 
     public CourseEntity editCourse(CourseEntity editEntity, int id) {

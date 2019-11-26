@@ -19,7 +19,7 @@ public class CourseController {
 
     @GetMapping("/course/{id}")
     public CourseEntity getCourse(@PathVariable int id) {
-        return courseService.getCourse(id);
+        return courseService.getById(id);
     }
 
     @PostMapping("/course/newCourse")
@@ -28,9 +28,9 @@ public class CourseController {
         return "Added course";
     }
 
-    @DeleteMapping("/course/removeCourse")
-    public String removeCourse(@RequestBody CourseEntity removeEntity) {
-        courseService.removeCourse(removeEntity);
+    @DeleteMapping("/course/removeCourse/{id}")
+    public String removeCourse(@PathVariable int id) {
+        courseService.removeCourse(id);
         return "Removed course";
     }
 
