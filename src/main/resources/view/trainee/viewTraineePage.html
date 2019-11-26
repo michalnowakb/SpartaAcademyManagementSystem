@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Trainee Page</title>
 </head>
 <body>
+    <h1>Trainee's Information</h1></br>
+    <table border="2">
+<!--        <tr>-->
+<!--            <td>First Name</td>-->
+<!--            <td>Surname</td>-->
+<!--            <td>Email</td>-->
+<!--            <td>Contact Number</td>-->
+<!--            <td>Date Of Birth</td>-->
+<!--            <td>Gender</td>-->
+<!--            <td>Start Date</td>-->
+<!--        </tr>-->
+
+        <tr th:each="">
+            <td th:text="">First Name</td>
+            <td th:text="">Surname</td>
+            <td th:text="">Email</td>
+            <td th:text="">Contact Number</td>
+            <td th:text="">Date Of Birth</td>
+            <td th:text="">Gender</td>
+            <td th:text="">Start Date</td>
+        </tr>
+    </table>
 
 </body>
 </html>
