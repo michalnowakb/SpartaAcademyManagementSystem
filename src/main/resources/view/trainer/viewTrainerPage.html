@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">>
+    <title>Title </title>
 </head>
+<h1> View Trainer Page </h1>
 <body>
-
+<form>
+    <table>
+        <tr th:each="trainer : ${trainerList}">
+            <th th:text="${trainer?.FirstName}">Fist Name</th>
+            <th th:text="${trainer?.LastName}">Last Name</th>
+            <th th:text="${trainer?.Email}">Email</th>
+            <th th:text="${trainer?.ContactNumber}">Contact Number</th>
+            <th th:text="${trainer?.Gender}">Gender</th>
+            <th th:text="${trainer?.StartDate}">Start Date</th>
+            <th th:text="${trainer?.Specialization}">Specialization</th>
+            <th th:text="${trainer?.CurrentCourse}">Current Course</th>
+            <th th:text="${trainer?.EmploymentType}">Employment Type</th>
+            <td> <button> Update </button> </td>
+            <td> <button> Delete </button></td>
+            <td> <button> Add </button></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>
