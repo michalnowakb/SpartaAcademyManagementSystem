@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<h1> Register a Trainer</h1>
 <body>
+
+<th:form th:action ="" th:object="" method="">
+
+    <table>
+        <tr>
+            <td> First Name </td>
+            <td> <input type="text" name=""></td>
+        </tr>
+        <tr>
+            <td> Surname </td>
+            <td> <input type="text" name=""></td>
+        </tr>
+        <tr>
+            <td> Date Of Birth </td>
+            <td> <input type="date" name=""></td>
+        </tr>
+        <tr>
+            <td> Email </td>
+            <td> <input type="email" name=""></td>
+        </tr>
+        <tr>
+            <td> Contact Number </td>
+            <td> <input type="tel" name=""></td>
+        </tr>
+        <tr>
+            <td> Gender </td>
+            <td>
+                <select name="">
+                    <option value="T-rex"> T-Rex</option>
+                    <option value="T-rex"> Attack Helicopter</option>
+                    <option value="Male"> Male </option>
+                    <option value="Female"> Female</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Start Date </td>
+            <td> <input type="date" name=""></td>
+        </tr>
+        <tr>
+            <td> Specialization </td>
+            <td>
+                <select name="">
+                    <option value=""> Java </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Current Course </td>
+            <td>
+                <select name="">
+                    <option value=""> Java </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> Employment type </td>
+            <td>
+               <select name="">
+                   <option value=""> Full Time</option>
+                   <option value=""> Part Time</option>
+               </select>
+            </td>
+        </tr>
+    </table>
+    <button>Submit</button>
+</th:form>
 
 </body>
 </html>
