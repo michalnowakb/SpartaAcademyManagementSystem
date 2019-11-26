@@ -4,7 +4,28 @@
     <meta charset="UTF-8">
     <title>Sparta Academy Management System</title>
 </head>
+
 <body>
+<h1>All courses</h1>
+<br>
+<table>
+    <tr>
+        <td>Course name</td>
+        <td>Description</td>
+        <td>Duration</td>
+        <td>Modules</td>
+    </tr>
+
+    <tr th:each="course : ${courseList}">
+        <td th:text="${course?.courseName}">name</td>
+        <td th:text="${course?.description}">description</td>
+        <td th:text="${course?.duration}">duration</td>
+        <td th:text="${course?.//}">modules</td>
+        <!--        get list of modules will go here-->
+        <td><button type="button" th:action="">Update course</button></td>
+        <td><button type="button" th:action="">Delete course</button></td>
+    </tr>
+</table>
 
 </body>
 </html>
