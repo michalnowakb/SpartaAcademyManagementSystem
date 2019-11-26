@@ -7,8 +7,7 @@ import java.time.LocalDate;
 
 @MappedSuperclass
 public abstract class AbstractPersonEntity {
-    //    @Column
-    private int id;
+
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
@@ -21,15 +20,6 @@ public abstract class AbstractPersonEntity {
     }
 
     public AbstractPersonEntity() {}
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
