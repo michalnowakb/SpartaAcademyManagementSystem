@@ -11,7 +11,7 @@ public class TrainerEntity extends AbstractPersonEntity
     public TrainerEntity() {}
 
     public TrainerEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDateTime startDate, String specialization, String employmentType) {
+                         char gender, LocalDate startDate, String specialization, String employmentType) {
         super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
         this.specialization = specialization;
         this.employmentType = employmentType;
