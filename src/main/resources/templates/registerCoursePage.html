@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+
+
+
+<head th:fragment="header">
     <meta charset="UTF-8">
     <title>Sparta Academy Management System - Register a new course</title>
+    <!-- Latest compiled and minified CSS -->
+    <img th:src="@{images/spartaLogo.png}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 
 <body>
 
 <h1>Register a new course</h1>
-<form th:action="@{/registerCourse}" th:object="${course}" method="post">
+<form th:action="@{/registerCourse}" method="post">
     <table>
         <tr>
             <td>Course name</td>
-            <td><input type="text" th:field="*{courseName}"/></td>
+            <td><input type="text" /></td>
         </tr>
 
         <tr>
             <td>Description</td>
-            <td><input type="text" th:field="*{description}"/></td>
+            <td><input type="text" /></td>
         </tr>
 
         <tr>
             <td>Duration</td>
-            <td><input type="text" th:field="*{duration}"/></td>
+            <td><input type="text" /></td>
         </tr>
 
         <tr>
