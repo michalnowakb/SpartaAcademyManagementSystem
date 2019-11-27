@@ -1,5 +1,7 @@
 package com.sparta.e44.entities;
 
+import com.sparta.e44.entities.state.Gender;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +20,9 @@ public class TrainerEntity extends AbstractPersonEntity {
     public TrainerEntity() {
     }
 
-    public TrainerEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDate startDate, String specialization, String employmentType) {
-        super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
+    public TrainerEntity(String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
+                         Gender gender, LocalDate startDate, String specialization, String employmentType) {
+        super(firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
         this.specialization = specialization;
         this.employmentType = employmentType;
     }
