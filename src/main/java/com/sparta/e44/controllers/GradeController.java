@@ -5,9 +5,18 @@ import com.sparta.e44.services.GradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@RestController
 public class GradeController {
     @Autowired
     private GradeService gradeService;
+
+    @GetMapping("/grade/allGrades")
+    public List<GradeEntity> getAllGrades(){
+        return gradeService.getAllGrades();
+    }
+
     @GetMapping("/grade/{id}")
     public GradeEntity getGrade(@PathVariable int id) {
         return gradeService.getById(id);
@@ -19,8 +28,8 @@ public class GradeController {
         return "New grade added";
     }
 
-    @PutMapping("/course/updateCourse/{id}")
-    public void setEditGrade(@PathVariable int id, @RequestBody GradeEntity editGrade) {
-
-    }
+//    @PutMapping("/course/updateCourse/{id}")
+//    public void setEditGrade(@PathVariable int id, @RequestBody GradeEntity editGrade) {
+//
+//    }
 }
