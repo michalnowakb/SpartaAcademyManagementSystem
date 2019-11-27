@@ -1,5 +1,7 @@
 package com.sparta.e44.entities;
 
+import com.sparta.e44.entities.state.Gender;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -17,7 +19,7 @@ public class TrainerEntity extends AbstractPersonEntity {
     }
 
     public TrainerEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDate startDate, String specialization, String employmentType) {
+                         Gender gender, LocalDate startDate, String specialization, String employmentType) {
         super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
         this.specialization = specialization;
         this.employmentType = employmentType;

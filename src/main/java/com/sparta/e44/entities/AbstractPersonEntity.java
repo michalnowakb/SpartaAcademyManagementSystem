@@ -16,7 +16,8 @@ public abstract class AbstractPersonEntity {
     private Gender gender;
     private LocalDate startDate;
 
-    public AbstractPersonEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, char gender, LocalDate startDate) {
+    public AbstractPersonEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, Gender gender, LocalDate startDate) {
+
     }
 
     public AbstractPersonEntity() {}

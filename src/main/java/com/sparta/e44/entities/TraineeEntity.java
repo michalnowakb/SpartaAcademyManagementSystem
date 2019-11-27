@@ -1,6 +1,8 @@
 package com.sparta.e44.entities;
 
 
+import com.sparta.e44.entities.state.Gender;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -12,17 +14,14 @@ public class TraineeEntity extends AbstractPersonEntity {
     private int traineeId;
     private String placement;
 
+    public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
+                         Gender gender, LocalDate startDate, String placedOrNot) {
+        super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender,startDate);
+        this.placement = placedOrNot;
+    }
 
     @OneToMany(mappedBy = "gradeId.trainee")
     private List<GradeEntity> grades;
-
-    public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDate startDate,  String placedOrNot) {
-        super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender,startDate);
-//        this.currentCourse = currentCourse;
-        this.placement = placedOrNot;
-//        this.currentCourse = currentGrade;
-    }
 
     public TraineeEntity() {
 
@@ -59,15 +58,4 @@ public class TraineeEntity extends AbstractPersonEntity {
     public void setTraineeId(int id){
         this.traineeId=id;
     }
-
-
-    public List<GradeEntity> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(List<GradeEntity> grades) {
-        this.grades = grades;
-    }
-
-
 }

@@ -36,12 +36,32 @@ public class TeachingGroupEntity {
     )
     private List<TrainerEntity> trainers;
 
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name = "classroom_id")
+    private ClassroomEntity classroomEntity;
+
+    public ClassroomEntity getClassroomEntity() {
+        return classroomEntity;
+    }
+
+    public void setClassroomEntity(ClassroomEntity classroomEntity) {
+        this.classroomEntity = classroomEntity;
+    }
+
     public List<TrainerEntity> getTrainers() {
         return trainers;
     }
 
     public void setTrainers(List<TrainerEntity> trainers) {
         this.trainers = trainers;
+    }
+
+    public void addTrainer(TrainerEntity trainer){
+        this.trainers.add(trainer);
+    }
+
+    public void removeTrainer(TrainerEntity trainer){
+        this.trainers.remove(trainer);
     }
 
 
