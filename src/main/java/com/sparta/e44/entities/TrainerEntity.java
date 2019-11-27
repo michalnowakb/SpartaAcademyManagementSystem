@@ -1,14 +1,12 @@
 package com.sparta.e44.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-
 public class TrainerEntity extends AbstractPersonEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int trainerId;
@@ -23,6 +21,18 @@ public class TrainerEntity extends AbstractPersonEntity {
         super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
         this.specialization = specialization;
         this.employmentType = employmentType;
+    }
+
+    @ManyToMany(mappedBy = "trainers")
+    private List<TeachingGroupEntity> groups;
+
+
+    public List<TeachingGroupEntity> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<TeachingGroupEntity> groups) {
+        this.groups = groups;
     }
 
     public String getSpecialization() {
