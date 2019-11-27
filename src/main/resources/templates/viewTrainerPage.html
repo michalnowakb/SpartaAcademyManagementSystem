@@ -1,30 +1,41 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.w3.org/1999/html">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">>
-    <title>Title </title>
+    <meta charset="UTF-8">
+    <title> Title </title>
 </head>
 <div th:replace="fragments/header :: header"></div>
 <
 <body>
+
 <h1> View Trainer Page </h1>
-<form>
-    <table>
-        <tr th:each="trainer : ${trainerList}">
-            <th th:text="${trainer?.FirstName}">Fist Name</th>
-            <th th:text="${trainer?.LastName}">Last Name</th>
-            <th th:text="${trainer?.Email}">Email</th>
-            <th th:text="${trainer?.ContactNumber}">Contact Number</th>
-            <th th:text="${trainer?.Gender}">Gender</th>
-            <th th:text="${trainer?.StartDate}">Start Date</th>
-            <th th:text="${trainer?.Specialization}">Specialization</th>
-            <th th:text="${trainer?.CurrentCourse}">Current Course</th>
-            <th th:text="${trainer?.EmploymentType}">Employment Type</th>
-            <td> <button> Update </button> </td>
-            <td> <button> Delete </button></td>
-            <td> <button> Add </button></td>
-        </tr>
+
+<table border="2">
+    <tr>
+        <td>First Name</td>
+        <td>Surname</td>
+        <td>Email</td>
+        <td>Contact Number</td>
+        <td>Date Of Birth</td>
+        <td>Gender</td>
+        <td>Start Date</td>
+        <td>Specialization</td>
+        <td>Employment Type</td>
+    </tr>
+
+    <tr th:each="trainer : ${@trainerController.trainers}">
+        <td th:text="${trainer.getTrainerId()}">Trainee ID</td>
+        <td th:text="${trainer.getFirstName()}">First Name</td>
+        <td th:text="${trainer.getLastName()}">Surname</td>
+        <td th:text="${trainer.getEmail()}">Email</td>
+        <td th:text="${trainer.getContactNumber()}">Contact Number</td>
+        <td th:text="${trainer.getDateOfBirth()}">Date Of Birth</td>
+        <td th:text="${trainer.getGender()}">Gender</td>
+        <td th:text="${trainer.getStartDate()}">Start Date</td>
+        <td th:text="${trainer.getSpecialization()}">Specialization</td>
+        <td th:text="${trainer.getEmploymentType()}">Employment type</td>
+    </tr>
     </table>
-</form>
+
 </body>
 </html>
