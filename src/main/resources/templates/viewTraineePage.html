@@ -5,28 +5,29 @@
     <title>Trainee Page</title>
 </head>
 <body>
-    <h1>Trainee's Information</h1></br>
-    <table border="2">
-<!--        <tr>-->
-<!--            <td>First Name</td>-->
-<!--            <td>Surname</td>-->
-<!--            <td>Email</td>-->
-<!--            <td>Contact Number</td>-->
-<!--            <td>Date Of Birth</td>-->
-<!--            <td>Gender</td>-->
-<!--            <td>Start Date</td>-->
-<!--        </tr>-->
+<h1>Trainee's Information</h1></br>
 
-        <tr th:each="">
-            <td th:text="">First Name</td>
-            <td th:text="">Surname</td>
-            <td th:text="">Email</td>
-            <td th:text="">Contact Number</td>
-            <td th:text="">Date Of Birth</td>
-            <td th:text="">Gender</td>
-            <td th:text="">Start Date</td>
-        </tr>
-    </table>
+<table border="2">
+    <tr>
+        <td>First Name</td>
+        <td>Surname</td>
+        <td>Email</td>
+        <td>Contact Number</td>
+        <td>Date Of Birth</td>
+        <td>Gender</td>
+        <td>Start Date</td>
+    </tr>
+
+    <tr th:each="trainee : ${@traineeController.getTrainees()}">
+        <td th:text="${trainee.getFirstName()}">First Name</td>
+        <td th:text="${trainee.getLastName()}">Surname</td>
+        <td th:text="${trainee.getEmail()}">Email</td>
+        <td th:text="${trainee.getContactNumber()}">Contact Number</td>
+        <td th:text="${trainee.getDateOfBirth()}">Date Of Birth</td>
+        <td th:text="${trainee.getGender()}">Gender</td>
+        <td th:text="${trainee.getStartDate()}">Start Date</td>
+    </tr>
+</table>
 
 </body>
 </html>

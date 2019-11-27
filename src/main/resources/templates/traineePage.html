@@ -7,6 +7,12 @@
 <body>
     <h1>Welcome to the Trainee Page</h1>
 
+    <form id = "viewTraineePage" th:action="@{/viewTraineePage}" method="post">
+        <input type="submit" value="View Trainees" class="btn"/>
+    </form>
 
+    <form id = "registerTraineePage" th:action="@{/registerTraineePage}" method="post">
+        <input type="submit" value="Register Trainee" class="btn"/>
+    </form>
 </body>
 </html>
