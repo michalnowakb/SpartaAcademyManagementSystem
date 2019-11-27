@@ -1,6 +1,8 @@
 package com.sparta.e44.entities;
 
 
+import com.sparta.e44.entities.state.Gender;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,7 @@ public class TraineeEntity extends AbstractPersonEntity {
     private String placement;
 
     public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDate startDate,  String placedOrNot) {
+                         Gender gender, LocalDate startDate, String placedOrNot) {
         super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender,startDate);
 //        this.currentCourse = currentCourse;
         this.placement = placedOrNot;
