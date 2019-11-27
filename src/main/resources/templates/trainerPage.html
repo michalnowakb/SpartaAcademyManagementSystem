@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.w3.org/1999/html">>
+<html lang="en"  xmlns:th="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">>
+    <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">
     <title>Trainer Page</title>
 </head>
 <body>
 <h1> Trainer Page </h1>
-<th:form>
-    <button> Register Trainer </button>
-    <button> View Trainer </button>
-</th:form>
+
+<h1>Sparta Global Trainer Menu</h1>
+<form id = "viewTrainer" th:action="@{/viewTrainerPage}" method="post">
+    <input type="submit" value="View All trainer" class="btn"/>
+</form>
+
+<form id = "registerTrainer" th:action="@{/registerTrainerPage}" method="post">
+    <input type="submit" value="Register a new trainer" class="btn"/>
+</form>
+
 </body>
 </html>
