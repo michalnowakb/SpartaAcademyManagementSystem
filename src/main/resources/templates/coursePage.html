@@ -15,6 +15,8 @@
 <form id = "registerCourses" th:action="@{/registerCoursePage}" method="post">
     <input type="submit" value="Register a new course" class="btn"/>
 </form>
-
+<form id = "back" th:action="@{/}" method="get">
+<input type="submit" value="Back" class="btn" onclick="history(-1)"/>
+</form>
 </body>
 </html>
