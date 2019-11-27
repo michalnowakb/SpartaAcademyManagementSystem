@@ -39,8 +39,7 @@ public class CourseService {
         editEntity.setCourseId(id);
         courseRepository.save(editEntity);
         return editEntity;
-
-
+        
     }
 
     public void addModule(int courseId, int moduleId) {
