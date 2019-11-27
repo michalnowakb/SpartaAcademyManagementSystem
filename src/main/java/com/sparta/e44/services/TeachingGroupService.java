@@ -2,6 +2,7 @@ package com.sparta.e44.services;
 
 import com.sparta.e44.entities.TeachingGroupEntity;
 import com.sparta.e44.entities.TrainerEntity;
+import com.sparta.e44.repositories.ClassroomRepository;
 import com.sparta.e44.repositories.TeachingGroupRepository;
 import com.sparta.e44.repositories.TrainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class TeachingGroupService {
 
     public List<TeachingGroupEntity> getAllTeachingGroups(){
         List<TeachingGroupEntity> teachingGroups = new ArrayList<>();
-        teachingGroupRepository.findAll().forEach(teachingGroup -> teachingGroups.add(teachingGroup);
+        teachingGroupRepository.findAll().forEach(teachingGroup -> teachingGroups.add(teachingGroup));
         return teachingGroups;
     }
 
