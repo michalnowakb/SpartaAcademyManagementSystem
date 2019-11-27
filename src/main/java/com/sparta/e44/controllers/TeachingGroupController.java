@@ -18,7 +18,7 @@ public class TeachingGroupController {
         return teachingGroupService.getAllTeachingGroups();
     }
 
-    @GetMapping("/teachingGroups/getTeachingGroup/{id}")
+    @GetMapping("/teachingGroup/getTeachingGroup/{id}")
     public TeachingGroupEntity getTeachingGroup(@PathVariable int id){
         return teachingGroupService.getTeachingGroup(id);
     }
