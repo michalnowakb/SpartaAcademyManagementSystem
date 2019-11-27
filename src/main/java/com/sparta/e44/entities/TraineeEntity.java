@@ -1,11 +1,9 @@
 package com.sparta.e44.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class TraineeEntity extends AbstractPersonEntity {
@@ -13,6 +11,10 @@ public class TraineeEntity extends AbstractPersonEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int traineeId;
     private String placement;
+
+
+    @OneToMany(mappedBy = "gradeId.trainee")
+    private List<GradeEntity> grades;
 
     public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
                          char gender, LocalDate startDate,  String placedOrNot) {
@@ -57,4 +59,15 @@ public class TraineeEntity extends AbstractPersonEntity {
     public void setTraineeId(int id){
         this.traineeId=id;
     }
+
+
+    public List<GradeEntity> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(List<GradeEntity> grades) {
+        this.grades = grades;
+    }
+
+
 }

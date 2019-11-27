@@ -1,6 +1,7 @@
 package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.GradeEntity;
+import com.sparta.e44.entities.holders.GradeHolder;
 import com.sparta.e44.services.GradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +18,12 @@ public class GradeController {
         return gradeService.getAllGrades();
     }
 
-    @GetMapping("/grade/{id}")
-    public GradeEntity getGrade(@PathVariable int id) {
-        return gradeService.getById(id);
+    @GetMapping("/grade/{traineeId}/{moduleId}")
+    public GradeEntity getGrade(@PathVariable int traineeId, @PathVariable int moduleId) {
+        return gradeService.getById(traineeId,moduleId);
     }
+
+
 
     @PostMapping("/grade/newGrade")
     public String addGrade(@RequestBody GradeEntity newGrade){
@@ -28,8 +31,15 @@ public class GradeController {
         return "New grade added";
     }
 
-//    @PutMapping("/course/updateCourse/{id}")
-//    public void setEditGrade(@PathVariable int id, @RequestBody GradeEntity editGrade) {
-//
-//    }
+    @PostMapping("/grade/newGrade/alt")
+    public String addGrade(@RequestBody GradeHolder gradeHolder){
+        gradeService.addGrade(gradeHolder);
+        return "added Grade";
+    }
+
+    @DeleteMapping("/grade/removeGrade/{traineeId}/{moduleId}")
+    public String removeGrade(@PathVariable int traineeId, @PathVariable int moduleId){
+        gradeService.removeGrade(traineeId,moduleId);
+        return "removed Grade";
+    }
 }

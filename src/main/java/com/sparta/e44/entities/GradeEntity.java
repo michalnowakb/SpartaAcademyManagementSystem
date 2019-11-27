@@ -5,26 +5,21 @@ import com.sparta.e44.entities.state.Grade;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-
 @Entity
-@IdClass(GradeId.class)
 public class GradeEntity {
 
     private Grade grade;
-    @Id
-    private int traineeId;
-    @Id
-    private int moduleId;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "trainee_id")
-    private TraineeEntity traineeEntity;
+    @EmbeddedId
+    private GradeId gradeId;
 
+    public GradeEntity() {
+    }
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name = "module_id")
-    private ModuleEntity moduleEntity;
-
+    public GradeEntity(GradeId gradeId, String grade) {
+        this.gradeId = gradeId;
+        this.grade = Grade.getGrade(grade);
+    }
 
     public Grade getGrade() {
         return grade;
@@ -34,40 +29,15 @@ public class GradeEntity {
         this.grade = grade;
     }
 
-    public void setGrade(String grade){this.grade= Grade.getGrade(grade);}
-
-    public TraineeEntity getTraineeEntity() {
-        return traineeEntity;
+    public GradeId getGradeId() {
+        return gradeId;
     }
 
-    public void setTraineeEntity(TraineeEntity traineeEntity) {
-        this.traineeEntity = traineeEntity;
+    public void setGrade(String g) {
+        this.grade = Grade.getGrade(g);
     }
 
-    public ModuleEntity getModuleEntity() {
-        return moduleEntity;
+    public void setGradeId(GradeId gradeId) {
+        this.gradeId = gradeId;
     }
-
-    public void setModuleEntity(ModuleEntity moduleEntity) {
-        this.moduleEntity = moduleEntity;
-    }
-
-
-    public int getTraineeId() {
-        return traineeId;
-    }
-
-    public void setTraineeId(int traineeId) {
-        this.traineeId = traineeId;
-    }
-
-    public int getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(int moduleId) {
-        this.moduleId = moduleId;
-    }
-
-
 }

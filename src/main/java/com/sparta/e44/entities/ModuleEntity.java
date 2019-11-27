@@ -16,6 +16,8 @@ public class ModuleEntity {
     @ManyToMany(mappedBy = "modules")
     private List<CourseEntity> courses;
 
+    @OneToMany(mappedBy = "gradeId.module")
+    private List<GradeEntity> grades;
 
     public ModuleEntity(){}
 
