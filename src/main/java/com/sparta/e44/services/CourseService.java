@@ -1,7 +1,9 @@
 package com.sparta.e44.services;
 
 import com.sparta.e44.entities.CourseEntity;
+import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.repositories.CourseRepository;
+import com.sparta.e44.repositories.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import java.util.List;
 public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
+    @Autowired
+    private ModuleRepository moduleRepository;
 
     public List<CourseEntity> getAllCourses() {
         ArrayList<CourseEntity> courses = new ArrayList<>();
@@ -37,5 +41,20 @@ public class CourseService {
         return editEntity;
 
 
+    }
+
+    public void addModule(int courseId, int moduleId) {
+        CourseEntity course = courseRepository.findById(courseId).get();
+        ModuleEntity module = moduleRepository.findById(moduleId).get();
+        course.addModule(module);
+        courseRepository.save(course);
+
+    }
+
+    public void removeModule(int courseId, int moduleId) {
+        CourseEntity course = courseRepository.findById(courseId).get();
+        ModuleEntity module = moduleRepository.findById(moduleId).get();
+        course.removeModule(module);
+        courseRepository.save(course);
     }
 }

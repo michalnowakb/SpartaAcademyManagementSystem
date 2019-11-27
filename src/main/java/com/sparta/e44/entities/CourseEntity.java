@@ -15,13 +15,13 @@ public class CourseEntity
     private String courseDescription;
     private int durationInWeeks;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "course_modules",
-//            joinColumns = @JoinColumn(name = "course_id"),
-//            inverseJoinColumns = @JoinColumn(name = "module_id")
-//    )
-//    private List<ModuleEntity> modules;
+    @ManyToMany//(targetEntity = ModuleEntity.class)
+    @JoinTable(
+            name = "course_modules",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "module_id")
+    )
+    private List<ModuleEntity> modules;
 
 
     public CourseEntity() {}
@@ -62,5 +62,22 @@ public class CourseEntity
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
+    }
+
+
+    public List<ModuleEntity> getModules() {
+        return modules;
+    }
+
+    public void setModules(List<ModuleEntity> modules) {
+        this.modules = modules;
+    }
+
+    public void addModule(ModuleEntity module){
+        this.modules.add(module);
+    }
+
+    public void removeModule(ModuleEntity module){
+        this.modules.remove(module);
     }
 }
