@@ -18,7 +18,8 @@
         <td>Start Date</td>
     </tr>
 
-    <tr th:each="trainee : ${@traineeController.getTrainees()}">
+    <tr th:each="trainee : ${@traineeController.trainees}">
+        <td th:text="${trainee.getTraineeId()}">Trainee ID</td>
         <td th:text="${trainee.getFirstName()}">First Name</td>
         <td th:text="${trainee.getLastName()}">Surname</td>
         <td th:text="${trainee.getEmail()}">Email</td>
