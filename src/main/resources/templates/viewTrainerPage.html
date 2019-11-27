@@ -4,8 +4,10 @@
     <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">>
     <title>Title </title>
 </head>
-<h1> View Trainer Page </h1>
+<div th:replace="fragments/header :: header"></div>
+<
 <body>
+<h1> View Trainer Page </h1>
 <form>
     <table>
         <tr th:each="trainer : ${trainerList}">

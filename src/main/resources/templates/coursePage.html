@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <Title>Sparta Academy Management System</Title>
-    <h2><div style="text-align: center;">Course dashboard</div></h2>
+
 
 </head>
+
 <body>
+<div th:replace="fragments/header :: header"></div>
 <h1>Sparta Global Courses Menu</h1>
+<h2><div style="text-align: center;">Course dashboard</div></h2>
 <form id = "viewCourses" th:action="@{/viewCoursePage}" method="post">
     <input type="submit" value="View All Courses" class="btn"/>
 </form>
