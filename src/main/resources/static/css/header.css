@@ -13,7 +13,7 @@
 .header h1 {
     padding: 10px;
     font-size: 50px;
-    color: #000000;
+    color: red;
     margin: 0px;
     /*text-align: center;*/
 }
@@ -21,3 +21,4 @@
 .headerTitle {
     text-align: right;
 }
+
