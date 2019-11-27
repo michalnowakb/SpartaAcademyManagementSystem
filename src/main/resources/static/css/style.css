@@ -1,7 +1,10 @@
-body{
-    background-color:cornsilk;
+.navbar-collapse{
+    background-color:blue;
+}
+.navbar{
+    background-color:blue;
 }
 
-title{
-    text-align:center
+.navbar-expand-lg{
+    background-color:blue;
 }
