@@ -7,9 +7,14 @@
 
 </head>
 <body>
+<h1>Sparta Global Courses Menu</h1>
+<form id = "viewCourses" th:action="@{/viewCoursePage}" method="post">
+    <input type="submit" value="View All Courses" class="btn"/>
+</form>
 
-<button type="button" th:action="">Register new course</button>
-<button type="button" th:action="">View all courses</button>
+<form id = "registerCourses" th:action="@{/registerCoursePage}" method="post">
+    <input type="submit" value="Register a new course" class="btn"/>
+</form>
 
 </body>
 </html>
