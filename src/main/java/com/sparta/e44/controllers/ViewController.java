@@ -11,9 +11,18 @@ public class ViewController {
         return "trainerPage";
     }
 
+    @RequestMapping("/coursePage")
+    public String connectToCoursePage(){
+        return "coursePage";
+    }
+
+    @RequestMapping("/traineePage")
+    public String connectToTraineePage(){
+        return "traineePage";
+    }
+
     @RequestMapping("/registerCoursePage")
     public String connectToRegisterCoursePage(){
         return "registerCoursePage";
     }
-
 }
