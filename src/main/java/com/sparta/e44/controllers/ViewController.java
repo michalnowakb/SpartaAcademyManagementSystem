@@ -15,4 +15,5 @@ public class ViewController {
     public String connectToRegisterCoursePage(){
         return "registerCoursePage";
     }
+
 }

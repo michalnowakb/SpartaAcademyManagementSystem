@@ -16,10 +16,10 @@
         <td>Modules</td>
     </tr>
 
-    <tr th:each="course : ${courseList}">
+    <tr th:each="course : ${@courseController.getCourses()}">
         <td th:text="${course?.courseName}">name</td>
-        <td th:text="${course?.description}">description</td>
-        <td th:text="${course?.duration}">duration</td>
+        <td th:text="${course?.courseDescription}">description</td>
+        <td th:text="${course?.durationInWeeks}">duration</td>
         <td th:text="${course?.//}">modules</td>
         <!--        get list of modules will go here-->
         <td><button type="button" th:action="">Update course</button></td>
