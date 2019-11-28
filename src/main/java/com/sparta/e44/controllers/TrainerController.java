@@ -18,20 +18,20 @@ public class TrainerController {
     private TrainerService trainerService;
 
 
-    @GetMapping("trainer/getTrainers")
+    @GetMapping("/trainer/getTrainers")
     public String getTrainers(Model model) {
         model.addAttribute("trainers", trainerService.getAll());
         return "";
     }
 
-    @GetMapping("trainer/getTrainer/{id}")
+    @GetMapping("/trainer/getTrainer/{id}")
     public String getTrainer(@PathVariable("id") int id, Model model) {
 
         model.addAttribute("trainer", trainerService.getById(id));
         return "";
     }
 
-    @PostMapping("trainer/addTrainer")
+    @PostMapping("/trainer/addTrainer")
     public String addTrainer(@Valid TrainerEntity trainer) {
         trainerService.addTrainer(trainer);
         return "";
@@ -49,13 +49,13 @@ public class TrainerController {
         return "";
     }
 
-    @PutMapping("trainer/addQualifiedModule/{trainerId},{moduleId}")
+    @PutMapping("/trainer/addQualifiedModule/{trainerId},{moduleId}")
     public TrainerEntity addQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
         trainerService.addQualifiedModule(trainerId, moduleId);
         return trainerService.getById(trainerId);
     }
 
-    @PutMapping("trainer/removeQualifiedModule/{trainerId},{moduleId}")
+    @PutMapping("/trainer/removeQualifiedModule/{trainerId},{moduleId}")
     public TrainerEntity removeQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
         trainerService.removeQualifiedModule(trainerId, moduleId);
         return trainerService.getById(trainerId);
