@@ -12,7 +12,7 @@ public class TeachingGroupEntity {
     private String groupName;
 
 
-    private int classroomId;
+    //private int classroomId;
 
     private LocalDate startDate;
 
@@ -21,7 +21,7 @@ public class TeachingGroupEntity {
     public TeachingGroupEntity(int groupId, String groupName, int classroomId, LocalDate startDate, LocalDate endDate) {
         this.groupId = groupId;
         this.groupName = groupName;
-        this.classroomId = classroomId;
+        //this.classroomId = classroomId;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -36,9 +36,12 @@ public class TeachingGroupEntity {
     )
     private List<TrainerEntity> trainers;
 
-    @ManyToOne
+    @OneToOne
     @PrimaryKeyJoinColumn(name = "classroom_id")
     private ClassroomEntity classroomEntity;
+
+    @OneToMany(mappedBy = "teachingGroup")
+    private List<TraineeEntity> trainees;
 
     public ClassroomEntity getClassroomEntity() {
         return classroomEntity;
@@ -80,14 +83,14 @@ public class TeachingGroupEntity {
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
-
-    public int getClassroomId() {
-        return classroomId;
-    }
-
-    public void setClassroomId(int classroomId) {
-        this.classroomId = classroomId;
-    }
+//
+//    public int getClassroomId() {
+//        return classroomId;
+//    }
+//
+//    public void setClassroomId(int classroomId) {
+//        this.classroomId = classroomId;
+//    }
 
     public LocalDate getStartDate() {
         return startDate;
@@ -103,5 +106,13 @@ public class TeachingGroupEntity {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public List<TraineeEntity> getTrainees() {
+        return trainees;
+    }
+
+    public void setTrainees(List<TraineeEntity> trainees) {
+        this.trainees = trainees;
     }
 }

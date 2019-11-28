@@ -12,16 +12,24 @@ public class TrainerEntity extends AbstractPersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int trainerId;
-    private String specialization;
+
+    @ManyToMany
+    @JoinTable(
+            name = "qualified_modules",
+            joinColumns = @JoinColumn(name = "trainer_id"),
+            inverseJoinColumns = @JoinColumn(name = "module_id")
+    )
+    private List<ModuleEntity> qualifiedModules;
+
     private String employmentType;
 
     public TrainerEntity() {
     }
 
-    public TrainerEntity(String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         Gender gender, LocalDate startDate, String specialization, String employmentType) {
-        super(firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
-        this.specialization = specialization;
+    public TrainerEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
+                         Gender gender, LocalDate startDate, List qualifiedModules, String employmentType) {
+        super( firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
+        this.qualifiedModules = qualifiedModules;
         this.employmentType = employmentType;
     }
 
@@ -37,12 +45,12 @@ public class TrainerEntity extends AbstractPersonEntity {
         this.groups = groups;
     }
 
-    public String getSpecialization() {
-        return specialization;
+    public List<ModuleEntity> getQualifiedModules() {
+        return qualifiedModules;
     }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public void setQualifiedModules(List<ModuleEntity> qualifiedModules) {
+        this.qualifiedModules = qualifiedModules;
     }
 
     public String getEmploymentType() {
@@ -59,5 +67,14 @@ public class TrainerEntity extends AbstractPersonEntity {
 
     public void setTrainerId(int trainerId) {
         this.trainerId = trainerId;
+    }
+
+
+    public void addModule(ModuleEntity module) {
+        this.qualifiedModules.add(module);
+    }
+
+    public void removeModule(ModuleEntity module) {
+        this.qualifiedModules.remove(module);
     }
 }

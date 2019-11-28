@@ -1,45 +1,48 @@
 package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.ModuleEntity;
-import com.sparta.e44.entities.TraineeEntity;
 import com.sparta.e44.services.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
-@RestController
+@Controller
 public class ModuleController {
     @Autowired
     private ModuleService moduleService;
 
     @GetMapping("/module/getModules")
-    public List<ModuleEntity> getModules(){
-        return moduleService.getAll();
+    public String getModules(Model model) {
+        model.addAttribute("module", moduleService.getAll());
+        return "";
     }
 
     @GetMapping("/module/getModule/{id}")
-    public ModuleEntity getModule(@PathVariable int id){
-        return moduleService.getById(id);
+    public String getModule(@PathVariable("id") int id, Model model) {
+        model.addAttribute("modules", moduleService.getById(id));
+        return "";
     }
 
 
     @PostMapping("/module/addModule")
-    public String addModule(@RequestBody ModuleEntity newModule){
+    public String addModule(@Valid ModuleEntity newModule) {
         moduleService.addModule(newModule);
-        return "Added module";
+        return "";
     }
 
-    @PutMapping("/module/editModule/{id}")
-    public ModuleEntity editModule(@RequestBody ModuleEntity editedModule, @PathVariable int id){
-        moduleService.editModule(editedModule,id);
-        return moduleService.getById(id);
+    @GetMapping("/module/editModule/{id}")
+    public String editModule(@Valid ModuleEntity editedModule, @PathVariable("id") int id) {
+        moduleService.editModule(editedModule, id);
+        return "";
     }
 
-    @DeleteMapping("/module/removeModule/{id}")
-    public void removeModule(@PathVariable int id){
+    @GetMapping("/module/removeModule/{id}")
+    public String removeModule(@PathVariable("id") int id) {
         moduleService.removeModule(id);
+        return "";
     }
 
 }
