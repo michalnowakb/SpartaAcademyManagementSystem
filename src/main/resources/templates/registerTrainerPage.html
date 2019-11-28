@@ -34,9 +34,14 @@
             <td> Gender </td>
             <td>
                 <select name="">
+                    <<<<<<< HEAD
+                    <option value="M"> Male </option>
+                    <option value="F"> Female</option>
+                    =======
                     <option value="Male"> Male </option>
                     <option value="Female"> Female</option>
                     <option value="Other"> Other</option>
+                    >>>>>>> 4cae1ac87f993c03211b7f87ec8f74aaeaac0505
                 </select>
             </td>
         </tr>
@@ -55,18 +60,22 @@
         <tr>
             <td> Employment type </td>
             <td>
-               <select name="">
-                   <option value=""> Full Time</option>
-                   <option value=""> Part Time</option>
-               </select>
+                <select name="">
+                    <option value=""> Full Time</option>
+                    <option value=""> Part Time</option>
+                </select>
             </td>
         </tr>
     </table>
-    <button>Submit</button>
 </th:form>
 
 <div th:replace="fragments/footer :: footer"></div>
 
+
+<!--This form below will be changed once bean is created, only keeping so i can change later-->
+<form action="#" th:action="@{trainer/addTrainer}" method="post">
+    <input type="submit" value="Add Trainer">
+</form>
 
 </body>
 </html>
