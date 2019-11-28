@@ -43,6 +43,10 @@ public class TeachingGroupService {
         teachingGroupRepository.deleteById(id);
     }
 
+    public void removeTeachingGroup(TeachingGroupEntity group){
+        teachingGroupRepository.delete(group);
+    }
+
     public TeachingGroupEntity editTeachingGroup(TeachingGroupEntity teachingGroup, int id){
         teachingGroup.setGroupId(id);
         teachingGroupRepository.save(teachingGroup);
@@ -52,6 +56,10 @@ public class TeachingGroupService {
     public void addTrainer(int teachingGroupId, int trainerId){
         TeachingGroupEntity teachingGroup = teachingGroupRepository.findById(teachingGroupId).get();
         TrainerEntity trainer = trainerRepository.findById(trainerId).get();
+        addTrainer(teachingGroup,trainer);
+    }
+
+    public void addTrainer(TeachingGroupEntity teachingGroup, TrainerEntity trainer){
         teachingGroup.addTrainer(trainer);
         teachingGroupRepository.save(teachingGroup);
     }
@@ -59,6 +67,10 @@ public class TeachingGroupService {
     public void removeTrainer(int teachingGroupId, int trainerId){
         TeachingGroupEntity teachingGroup = teachingGroupRepository.findById(teachingGroupId).get();
         TrainerEntity trainer = trainerRepository.findById(trainerId).get();
+        removeTrainer(teachingGroup,trainer);
+    }
+
+    public void removeTrainer(TeachingGroupEntity teachingGroup, TrainerEntity trainer){
         teachingGroup.removeTrainer(trainer);
         teachingGroupRepository.save(teachingGroup);
     }
@@ -66,6 +78,10 @@ public class TeachingGroupService {
     public TeachingGroupEntity addClassroom(int groupId, int classroomId){
         ClassroomEntity newRoom = classroomRepository.findById(classroomId).get();
         TeachingGroupEntity group = teachingGroupRepository.findById(groupId).get();
+        return addClassroom(group,newRoom);
+    }
+
+    public TeachingGroupEntity addClassroom(TeachingGroupEntity group, ClassroomEntity newRoom){
         group.setClassroomEntity(newRoom);
         teachingGroupRepository.save(group);
         return group;
@@ -73,6 +89,10 @@ public class TeachingGroupService {
 
     public TeachingGroupEntity removeClassroom(int groupId){
         TeachingGroupEntity group = teachingGroupRepository.findById(groupId).get();
+        return removeClassroom(group);
+    }
+
+    public TeachingGroupEntity removeClassroom(TeachingGroupEntity group){
         group.setClassroomEntity(null);
         teachingGroupRepository.save(group);
         return group;

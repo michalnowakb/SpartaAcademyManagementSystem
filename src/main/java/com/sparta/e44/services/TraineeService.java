@@ -36,6 +36,10 @@ public class TraineeService {
         traineeRepository.deleteById(id);
     }
 
+    public void removeTrainee(TraineeEntity trainee){
+        traineeRepository.delete(trainee);
+    }
+
     public TraineeEntity editTrainee(TraineeEntity editedTrainee, int id){
         editedTrainee.setTraineeId(id);
         traineeRepository.save(editedTrainee);
@@ -45,6 +49,10 @@ public class TraineeService {
     public TraineeEntity addGroup(int traineeId, int groupId){
         TeachingGroupEntity group = teachingGroupRepository.findById(groupId).get();
         TraineeEntity trainee = traineeRepository.findById(traineeId).get();
+        return addGroup(trainee,group);
+    }
+
+    public TraineeEntity addGroup(TraineeEntity trainee, TeachingGroupEntity group){
         trainee.setTeachingGroup(group);
         traineeRepository.save(trainee);
         return trainee;
@@ -54,6 +62,11 @@ public class TraineeService {
         TraineeEntity trainee = traineeRepository.findById(traineeId).get();
         trainee.setTeachingGroup(null);
         traineeRepository.save(trainee);
+        return trainee;
+    }
+
+    public TraineeEntity removeGroup(TraineeEntity trainee){
+        trainee.setTeachingGroup(null);
         return trainee;
     }
 }

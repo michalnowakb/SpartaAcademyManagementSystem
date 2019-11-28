@@ -33,6 +33,10 @@ public class ClassroomService {
         classroomRepository.deleteById(id);
     }
 
+    public void removeClassroom(ClassroomEntity classroom){
+        classroomRepository.delete(classroom);
+    }
+
     public ClassroomEntity editClassroom(ClassroomEntity editClassroom, int id){
         editClassroom.setClassroomId(id);
         classroomRepository.save(editClassroom);

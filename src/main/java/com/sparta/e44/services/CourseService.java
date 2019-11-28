@@ -35,6 +35,10 @@ public class CourseService {
         courseRepository.deleteById(id);
     }
 
+    public void removeCourse(CourseEntity courseEntity){
+        courseRepository.delete(courseEntity);
+    }
+
     public CourseEntity editCourse(CourseEntity editEntity, int id) {
         editEntity.setCourseId(id);
         courseRepository.save(editEntity);
@@ -45,14 +49,23 @@ public class CourseService {
     public void addModule(int courseId, int moduleId) {
         CourseEntity course = courseRepository.findById(courseId).get();
         ModuleEntity module = moduleRepository.findById(moduleId).get();
-        course.addModule(module);
-        courseRepository.save(course);
+        addModule(course,module);
 
     }
 
     public void removeModule(int courseId, int moduleId) {
         CourseEntity course = courseRepository.findById(courseId).get();
         ModuleEntity module = moduleRepository.findById(moduleId).get();
+        course.removeModule(module);
+        courseRepository.save(course);
+    }
+
+    public void addModule(CourseEntity course, ModuleEntity module){
+        course.addModule(module);
+        courseRepository.save(course);
+    }
+
+    public void removeModule(CourseEntity course, ModuleEntity module){
         course.removeModule(module);
         courseRepository.save(course);
     }

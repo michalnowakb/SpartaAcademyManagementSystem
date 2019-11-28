@@ -29,6 +29,10 @@ public class GradeService {
         return gradeRepository.findById(gradeId).get();
     }
 
+    public GradeEntity getById(GradeId gradeId){
+        return gradeRepository.findById(gradeId).get();
+    }
+
     public void addGrade(GradeEntity newGrade){
         gradeRepository.save(newGrade);
     }
@@ -48,12 +52,19 @@ public class GradeService {
         gradeRepository.save(newGrade);
     }
 
+
+
     public void removeGrade(int traineeId, int moduleId) {
         TraineeEntity trainee = traineeRepository.findById(traineeId).get();
         ModuleEntity module = moduleRepository.findById(moduleId).get();
         GradeId gradeId = new GradeId(trainee,module);
         gradeRepository.deleteById(gradeId);
     }
+
+    public void removeGrade(GradeId gradeId){
+        gradeRepository.deleteById(gradeId);
+    }
+
     public void removeGrade(GradeEntity toRemove){
         gradeRepository.delete(toRemove);
     }

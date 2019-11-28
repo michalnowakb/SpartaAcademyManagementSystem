@@ -32,6 +32,10 @@ public class ModuleService {
         moduleRepository.deleteById(id);
     }
 
+    public void removeModule(ModuleEntity module){
+        moduleRepository.delete(module);
+    }
+
     public ModuleEntity editModule(ModuleEntity editedModule, int id){
         editedModule.setModuleId(id);
         moduleRepository.save(editedModule);
