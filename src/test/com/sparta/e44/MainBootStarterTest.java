@@ -22,12 +22,12 @@ public class MainBootStarterTest {
     @Mock
     TrainerEntity firstTrainer;
     @Before
-    public void setup(){
-        firstTrainer =
-                new TrainerEntity ("Mike","McDonald", LocalDate.parse("2007-12-03"),
-                        "md@gmail.com","073112339891", Gender.MALE,LocalDate.parse("2019-11-11"),
-                        "Java","N/A");
-    }
+//    public void setup(){
+//        firstTrainer =
+//                new TrainerEntity ("Mike","McDonald", LocalDate.parse("2007-12-03"),
+//                        "md@gmail.com","073112339891", Gender.MALE,LocalDate.parse("2019-11-11"),
+//                        "Java","N/A",);
+//    }
 
     @Test
     public void testAdd(){
