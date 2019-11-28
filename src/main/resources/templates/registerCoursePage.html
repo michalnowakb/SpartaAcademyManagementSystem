@@ -5,57 +5,44 @@
     <meta charset="UTF-8">
     <title>Sparta Academy Management System - Register a new course</title>
     <!-- Latest compiled and minified CSS -->
-
-
 </head>
+
 <div th:replace="fragments/header :: header"></div>
+
 <body>
 
-<h1>Register a new course</h1>
-<form th:action="@{/registerCourse}" method="post">
-    <table>
-        <tr>
-            <td>Course name</td>
-            <td><input type="text" placeholder="Name"/></td>
-        </tr>
+<h1 style="text-align: center; margin-top: 5%">Register a new course</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center" style="border: solid 2px black; padding: 10% 0 5% 0">
 
-        <tr>
-            <td>Description</td>
-            <td><input type="text"/></td>
-        </tr>
+            <th:form th:action="@{/course/addCourse}">
+                <div class="form-row">
+                    <div class="form-group col-4 ">
+                        <input type="text" placeholder="Name"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4 ">
+                        <input type="text" placeholder="Description"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-4 ">
+                        <input type="text" placeholder="Duration"/>
+                    </div>
+                </div>
+                <div class="form-row justify-content-center">
+                    <input type="submit" value="Submit" class="btn btn-danger"/>
+                </div>
 
-        <tr>
-            <td>Duration</td>
-            <td><input type="text" placeholder="Duration"/></td>
-        </tr>
+<!--                STILL NEED TO ADD MODULES-->
+            </th:form>
+        </div>
+    </div>
+</div>
 
-        <tr>
-            <td>Modules</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="moduleCheckbox">Dev ops<br></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="moduleCheckbox">C#<br></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="moduleCheckbox">Software developement - Java<br></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="moduleCheckbox">SDET - Java<br></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" name="moduleCheckbox">Business<br></td>
-        </tr>
-
-    </table>
-
-    <p><input type="submit" value="Submit" class="btn btn-danger"/></p>
-
-    <div th:replace="fragments/footer :: footer"></div>
-
-
-</form>
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>
