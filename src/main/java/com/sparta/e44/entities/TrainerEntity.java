@@ -1,36 +1,56 @@
 package com.sparta.e44.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sparta.e44.entities.state.Gender;
+
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-
 public class TrainerEntity extends AbstractPersonEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int trainerId;
-    private String specialization;
+
+    @ManyToMany
+    @JoinTable(
+            name = "qualified_modules",
+            joinColumns = @JoinColumn(name = "trainer_id"),
+            inverseJoinColumns = @JoinColumn(name = "module_id")
+    )
+    private List<ModuleEntity> qualifiedModules;
+
     private String employmentType;
 
     public TrainerEntity() {
     }
 
     public TrainerEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
-                         char gender, LocalDate startDate, String specialization, String employmentType) {
-        super(id, firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
-        this.specialization = specialization;
+                         Gender gender, LocalDate startDate, List qualifiedModules, String employmentType) {
+        super( firstName, lastName, dateOfBirth, email, contactNumber, gender, startDate);
+        this.qualifiedModules = qualifiedModules;
         this.employmentType = employmentType;
     }
 
-    public String getSpecialization() {
-        return specialization;
+    @ManyToMany(mappedBy = "trainers")
+    private List<TeachingGroupEntity> groups;
+
+
+    public List<TeachingGroupEntity> getGroups() {
+        return groups;
     }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public void setGroups(List<TeachingGroupEntity> groups) {
+        this.groups = groups;
+    }
+
+    public List<ModuleEntity> getQualifiedModules() {
+        return qualifiedModules;
+    }
+
+    public void setQualifiedModules(List<ModuleEntity> qualifiedModules) {
+        this.qualifiedModules = qualifiedModules;
     }
 
     public String getEmploymentType() {
@@ -47,5 +67,14 @@ public class TrainerEntity extends AbstractPersonEntity {
 
     public void setTrainerId(int trainerId) {
         this.trainerId = trainerId;
+    }
+
+
+    public void addModule(ModuleEntity module) {
+        this.qualifiedModules.add(module);
+    }
+
+    public void removeModule(ModuleEntity module) {
+        this.qualifiedModules.remove(module);
     }
 }
