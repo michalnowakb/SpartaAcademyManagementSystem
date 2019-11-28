@@ -21,5 +21,7 @@
 <form id = "back" th:action="@{/}" method="get">
 <input type="submit" value="Back" class="btn" onclick="history(-1)"/>
 </form>
+<div th:replace="fragments/footer :: footer"></div>
+
 </body>
 </html>
