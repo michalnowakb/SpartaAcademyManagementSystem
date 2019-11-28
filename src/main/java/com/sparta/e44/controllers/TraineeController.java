@@ -5,11 +5,12 @@ import com.sparta.e44.services.TraineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@RestController
+@Controller
 public class TraineeController {
 
     @Autowired
