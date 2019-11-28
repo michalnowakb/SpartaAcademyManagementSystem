@@ -55,18 +55,22 @@
         <tr>
             <td> Employment type </td>
             <td>
-               <select name="">
-                   <option value=""> Full Time</option>
-                   <option value=""> Part Time</option>
-               </select>
+                <select name="">
+                    <option value=""> Full Time</option>
+                    <option value=""> Part Time</option>
+                </select>
             </td>
         </tr>
     </table>
-    <button>Submit</button>
 </th:form>
 
 <div th:replace="fragments/footer :: footer"></div>
 
+
+<!--This form below will be changed once bean is created, only keeping so i can change later-->
+<form action="#" th:action="@{trainer/addTrainer}" method="post">
+    <input type="submit" value="Add Trainer">
+</form>
 
 </body>
 </html>
