@@ -2,24 +2,24 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Title </title>
+    <title> Sparta Academy Management System - Trainers </title>
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body>
 
-<h1 style="text-align: center; margin: 10px 0px 0px">Trainers</h1>
+<h1 style="text-align: center; margin: 10px 0px 20px 0px">Trainers</h1>
 
-<table border="2" class="table">
+<table border="2" class="table" style="width: 100%">
     <tr>
-        <td>First Name</td>
+        <td width="10%">First Name</td>
         <td>Surname</td>
         <td>Email</td>
-        <td>Contact Number</td>
-        <td>Date Of Birth</td>
-        <td>Gender</td>
-        <td>Start Date</td>
+        <td width="12%">Contact Number</td>
+        <td width="8%">Date Of Birth</td>
+        <td width="5%">Gender</td>
+        <td width="10%">Start Date</td>
         <td>Specialization</td>
-        <td>Employment Type</td>
+        <td width="10%">Employment Type</td>
     </tr>
 
     <tr th:each="trainer : ${trainers}">
