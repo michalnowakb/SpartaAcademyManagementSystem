@@ -35,4 +35,10 @@ public class TraineeController {
         traineeService.editTrainee(editedTrainee,id);
         return traineeService.getById(id);
     }
+
+    @DeleteMapping("/trainee/removeTrainee/{id}")
+    public String removeCourse(@PathVariable int id) {
+        traineeService.removeTrainee(id);
+        return "Removed trainee";
+    }
 }

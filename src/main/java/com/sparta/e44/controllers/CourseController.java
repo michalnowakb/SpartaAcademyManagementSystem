@@ -38,4 +38,17 @@ public class CourseController {
     public void editCourse(@PathVariable int id, @RequestBody CourseEntity editCourse) {
         courseService.editCourse(editCourse, id);
     }
+
+
+    @PutMapping("/course/addModule/{courseId}/{moduleId}")
+    public CourseEntity addModule(@PathVariable int courseId, @PathVariable int moduleId){
+        courseService.addModule(courseId,moduleId);
+        return courseService.getById(courseId);
+    }
+
+    @PutMapping("/course/removeModule/{courseId}/{moduleId}")
+    public CourseEntity removeModule(@PathVariable int courseId, @PathVariable int moduleId){
+        courseService.removeModule(courseId,moduleId);
+        return courseService.getById(courseId);
+    }
 }
