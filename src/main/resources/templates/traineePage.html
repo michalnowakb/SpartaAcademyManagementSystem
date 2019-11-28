@@ -6,16 +6,21 @@
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body>
-    <h1>Welcome to the Trainee Page</h1>
-
-    <form id = "viewTraineePage" th:action="@{/viewTraineePage}" method="post">
-        <input type="submit" value="View Trainees" class="btn"/>
-    </form>
-
-    <form id = "registerTraineePage" th:action="@{/registerTraineePage}" method="post">
-        <input type="submit" value="Register Trainee" class="btn"/>
-    </form>
+<div class="container">
+    <h1 style="text-align: center; margin: 5% 0 10% 0"> Welcome to the Trainee Page</h1>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center">
+            <form id="viewTraineePage" th:action="@{/viewTraineePage}" method="post">
+                <input type="submit" value="View Trainees" class="btn"/>
+            </form>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <form id="registerTraineePage" th:action="@{/registerTraineePage}" method="post">
+                <input type="submit" value="Register Trainee" class="btn"/>
+            </form>
+        </div>
+    </div>
     <div th:replace="fragments/footer :: footer"></div>
-
+</div>
 </body>
 </html>
