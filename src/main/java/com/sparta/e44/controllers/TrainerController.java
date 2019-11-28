@@ -49,20 +49,20 @@ public class TrainerController {
         return "";
     }
 
-    @GetMapping("trainer/addQualifiedModule/{trainerId},{moduleId}")
-    public TrainerEntity addQualifiedModule(@PathVariable int trainerId, @PathVariable int moduleId) {
+    @PutMapping("trainer/addQualifiedModule/{trainerId},{moduleId}")
+    public TrainerEntity addQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
         trainerService.addQualifiedModule(trainerId, moduleId);
         return trainerService.getById(trainerId);
     }
 
-    @DeleteMapping("trainer/removeQualifiedModule/{trainerId},{moduleId}")
-    public TrainerEntity removeQualifiedModule(@PathVariable int trainerId, @PathVariable int moduleId) {
+    @PutMapping("trainer/removeQualifiedModule/{trainerId},{moduleId}")
+    public TrainerEntity removeQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
         trainerService.removeQualifiedModule(trainerId, moduleId);
         return trainerService.getById(trainerId);
     }
 
-    @GetMapping("trainer/getAllQualifiedModules/{trainerId}")
-    public List<ModuleEntity> getAllQualifiedModules(@PathVariable int trainerId) {
-        return trainerService.getAllQualifiedModules(trainerId);
-    }
+//    @GetMapping("trainer/getAllQualifiedModules/{trainerId}")
+//    public List<ModuleEntity> getAllQualifiedModules(@PathVariable int trainerId) {
+//        return trainerService.getAllQualifiedModules(trainerId);
+//    }
 }
