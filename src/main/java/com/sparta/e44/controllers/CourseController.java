@@ -33,26 +33,26 @@ public class CourseController {
         return "";
     }
 
-    @DeleteMapping("/course/removeCourse/{id}")
+    @GetMapping("/course/removeCourse/{id}")
     public String removeCourse(@PathVariable("id") int id) {
         courseService.removeCourse(id);
         return "";
     }
 
-    @PutMapping("/course/editCourse/{id}")
+    @GetMapping("/course/editCourse/{id}")
     public String editCourse(@PathVariable("id") int id, @Valid CourseEntity editCourse) {
         courseService.editCourse(editCourse, id);
         return "";
     }
 
 
-    @PutMapping("/course/addModule/{courseId}/{moduleId}")
+    @PostMapping("/course/addModule/{courseId}/{moduleId}")
     public String addModule(@PathVariable("courseId") int courseId, @PathVariable("moduleId") int moduleId){
         courseService.addModule(courseId,moduleId);
         return "";
     }
 
-    @PutMapping("/course/removeModule/{courseId}/{moduleId}")
+    @GetMapping("/course/removeModule/{courseId}/{moduleId}")
     public String removeModule(@PathVariable("courseId") int courseId, @PathVariable("moduleId") int moduleId){
         courseService.removeModule(courseId,moduleId);
         return "";

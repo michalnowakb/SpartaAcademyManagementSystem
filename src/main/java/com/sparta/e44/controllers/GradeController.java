@@ -50,19 +50,19 @@ public class GradeController {
         return "";
     }
 
-    @PutMapping("/grade/editGrade/alt/{traineeId}/{moduleId}")
+    @GetMapping("/grade/editGrade/alt/{traineeId}/{moduleId}")
     public String editGrade(@Valid GradeHolder grade, @PathVariable("traineeId") int traineeId, @PathVariable("moduleId") int moduleId){
         gradeService.editGrade(grade.getGrade(),traineeId,moduleId);
         return "";
     }
 
-    @PutMapping("/grade/editGrade/{traineeId}/{moduleId}")
+    @GetMapping("/grade/editGrade/{traineeId}/{moduleId}")
     public String editGrade(@Valid GradeEntity grade, @PathVariable("traineeId") int traineeId, @PathVariable("moduleId") int moduleId){
         gradeService.editGrade(grade,traineeId,moduleId);
         return "";
     }
 
-    @PutMapping("/grade/editGrade")
+    @GetMapping("/grade/editGrade")
     public String editGrade(@Valid GradeEntity grade, @Valid TraineeEntity trainee, @Valid ModuleEntity module){
         gradeService.editGrade(grade,trainee,module);
         return "";
