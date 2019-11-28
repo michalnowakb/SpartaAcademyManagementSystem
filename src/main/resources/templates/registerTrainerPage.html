@@ -3,67 +3,74 @@
 <head>
     <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">
     <title>Title</title>
-
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body>
-<h1> Register a Trainer</h1>
-<form th:action="@{/trainer/addTrainer}"  method="post">
-<!--    th:object="${trainers}"-->
-    <table>
-        <tr>
-            <td> First Name </td>
-            <td> <input type="text" name="firstName"></td>
-        </tr>
-        <tr>
-            <td> Surname </td>
-            <td> <input type="text" name="lastName"></td>
-        </tr>
-        <tr>
-            <td> Date Of Birth </td>
-            <td> <input type="date" name="dateOfBirth" required pattern="\y{4}-\m{2}-\d{2}"></td>
-        </tr>
-        <tr>
-            <td> Email </td>
-            <td> <input type="email" name="email"></td>
-        </tr>
-        <tr>
-            <td> Contact Number </td>
-            <td> <input type="tel" name="contactNumber"></td>
-        </tr>
-        <tr>
-            <td> Gender </td>
-            <td>
-                <select name="">
-                    <option value="Male"> Male </option>
-                    <option value="Female"> Female</option>
-                    <option value="Other"> Other</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td> Start Date </td>
-            <td> <input type="date" name="" required pattern="\y{4}-\m{2}-\d{2}"></td>
-        </tr>
-        <tr>
-            <td> Specialization </td>
-            <td>
-                <select name="">
-                    <option value=""> Java </option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td> Employment type </td>
-            <td>
-                <select name="">
-                    <option value=""> Full Time</option>
-                    <option value=""> Part Time</option>
-                </select>
-            </td>
-        </tr>
-    </table>
-        <input type="submit" value="Add Trainer">
+
+<h1 style="text-align: center; margin-top: 5%"> Register a Trainer</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center"  style="border: solid 2px black; padding: 10% 0 5% 0">
+
+            <form th:action="@{/trainer/addTrainer}" method="post">
+            <div class="form-row">
+                    <div class="form-group col-6 ">
+                        <input type="text" name="firstName" placeholder="First Name"/>
+                    </div>
+
+
+                    <div class="form-group col-6">
+
+                        <input type="text" name="lastName" placeholder="Last Name"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+
+                        <input type="date" name="dateOfBirth" placeholder="Date Of Birth" required pattern="\y{4}-\m{2}-\d{2}"/>
+                    </div>
+
+                    <div class="form-group col-6">
+
+                        <input type="email" name="email" placeholder="E-mail"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+
+                        <input type="tel" name="contactNumber" placeholder="Contact Number"/>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <input type="date" name="" placeholder="Start Date" required pattern="\y{4}-\m{2}-\d{2}"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6 ">
+                        <select name="" class="custom-select">
+                            <option selected>Select Gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6 ">
+                        <select name="" class="custom-select">
+                            <option selected>Select Modules</option>
+                            <option value="Java">Java</option>
+                            <option value="AN">Another Module</option>
+                            <option value="AN">Another Module</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center">
+                    <input type="submit" value="Add Trainer" class="btn btn-danger"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 </form>
 
 <div th:replace="fragments/footer :: footer"></div>
