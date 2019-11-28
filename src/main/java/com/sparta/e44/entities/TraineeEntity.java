@@ -3,10 +3,7 @@ package com.sparta.e44.entities;
 
 import com.sparta.e44.entities.state.Gender;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,7 +17,6 @@ public class TraineeEntity extends AbstractPersonEntity {
     public TraineeEntity(int id, String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber,
                          Gender gender, LocalDate startDate, String currentCourse, String placedOrNot, String currentGrade) {
         super(firstName, lastName, dateOfBirth, email, contactNumber, gender,startDate);
-        this.currentCourse = currentCourse;
         this.placement = placedOrNot;
     }
 
