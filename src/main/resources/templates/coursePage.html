@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <Title>Sparta Academy Management System</Title>
-
-
 </head>
 
 <body>
 <div th:replace="fragments/header :: header"></div>
-<h1>Sparta Global Courses Menu</h1>
-<h2><div style="text-align: center;">Course dashboard</div></h2>
-<form id = "viewCourses" th:action="@{/viewCoursePage}" method="post">
+
+<h1 style="text-align: center; margin: 5% 0 0 0">Course dashboard</h1>
+<div class="row" style="padding:10% 0 10% 0">
+
+<div class="container">
+<form id="viewCourses" th:action="@{/viewCoursePage}" method="post">
     <input type="submit" value="View All Courses" class="btn"/>
 </form>
 
-<form id = "registerCourses" th:action="@{/registerCoursePage}" method="post">
+<form id="registerCourses" th:action="@{/registerCoursePage}" method="post">
     <input type="submit" value="Register a new course" class="btn"/>
 </form>
-<form id = "back" th:action="@{/}" method="get">
-<input type="submit" value="Back" class="btn" onclick="history(-1)"/>
-</form>
+</div>
+
 <div th:replace="fragments/footer :: footer"></div>
 
 </body>
