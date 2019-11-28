@@ -9,17 +9,17 @@
 <body>
 
 <h1 style="text-align: center; margin: 5% 0 0 0">Trainer dashboard</h1>
-<div class="row" style="padding:10% 0 10% 0">
+<div class="row">
 
-    <div class="col-6">
+    <div class="col-6 d-flex justify-content-center">
         <form id="viewTrainer" th:action="@{/viewTrainerPage}" method="post">
-            <input type="submit" value="View All trainer" class="btn" style="margin: 0 40% 0 40%; font-size: x-large"/>
+            <input type="submit" value="View All trainer" class="btn" style="font-size: x-large"/>
         </form>
     </div>
 
-    <div class="col-6">
+    <div class="col-6 d-flex justify-content-center">
         <form id="registerTrainer" th:action="@{/registerTrainerPage}" method="post">
-            <input type="submit" value="Register a new trainer" class="btn" style="margin: 0 40% 0 40%; font-size: x-large"/>
+            <input type="submit" value="Register a new trainer" class="btn" style="font-size: x-large"/>
         </form>
     </div>
 
