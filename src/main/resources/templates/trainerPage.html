@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">
+    <meta charset="UTF-8" xmlns:th="http://www.w3.org/1999/html">
     <title>Trainer Page</title>
 </head>
 
 <div th:replace="fragments/header :: header"></div>
 <body>
-<h1> Trainer Page </h1>
 
-<h1>Sparta Global Trainer Menu</h1>
-<form id = "viewTrainer" th:action="@{/viewTrainerPage}" method="post">
-    <input type="submit" value="View All trainer" class="btn"/>
-</form>
+<h1 style="text-align: center; margin: 5% 0 0 0">Trainer dashboard</h1>
+<div class="row">
 
-<form id = "registerTrainer" th:action="@{/registerTrainerPage}" method="post">
-    <input type="submit" value="Register a new trainer" class="btn"/>
-</form>
+    <div class="col-6 d-flex justify-content-center">
+        <form id="viewTrainer" th:action="@{/viewTrainerPage}" method="post">
+            <input type="submit" value="View All trainer" class="btn" style="font-size: x-large"/>
+        </form>
+    </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+    <div class="col-6 d-flex justify-content-center">
+        <form id="registerTrainer" th:action="@{/registerTrainerPage}" method="post">
+            <input type="submit" value="Register a new trainer" class="btn" style="font-size: x-large"/>
+        </form>
+    </div>
+
+        <div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
