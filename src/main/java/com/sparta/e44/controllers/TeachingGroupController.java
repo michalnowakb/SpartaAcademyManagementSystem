@@ -33,7 +33,7 @@ public class TeachingGroupController {
         return "";
     }
 
-    @PutMapping("/teachingGroup/editTeachingGroup/{id}")
+    @GetMapping("/teachingGroup/editTeachingGroup/{id}")
     public String editTeachingGroup(@PathVariable("id") int id, @Valid TeachingGroupEntity teachingGroup){
         teachingGroupService.editTeachingGroup(teachingGroup,id);
         return "";
