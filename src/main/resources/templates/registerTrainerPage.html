@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">
     <title>Title</title>
+
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body>
 <h1> Register a Trainer</h1>
-<th:form>
-
+<form th:action="@{/trainer/addTrainer}"  method="post">
+<!--    th:object="${trainers}"-->
     <table>
         <tr>
             <td> First Name </td>
-            <td> <input type="text" name=""></td>
+            <td> <input type="text" name="firstName"></td>
         </tr>
         <tr>
             <td> Surname </td>
-            <td> <input type="text" name=""></td>
+            <td> <input type="text" name="lastName"></td>
         </tr>
         <tr>
             <td> Date Of Birth </td>
-            <td> <input type="date" name=""></td>
+            <td> <input type="date" name="dateOfBirth" required pattern="\y{4}-\m{2}-\d{2}"></td>
         </tr>
         <tr>
             <td> Email </td>
-            <td> <input type="email" name=""></td>
+            <td> <input type="email" name="email"></td>
         </tr>
         <tr>
             <td> Contact Number </td>
-            <td> <input type="tel" name=""></td>
+            <td> <input type="tel" name="contactNumber"></td>
         </tr>
         <tr>
             <td> Gender </td>
@@ -42,7 +43,7 @@
         </tr>
         <tr>
             <td> Start Date </td>
-            <td> <input type="date" name=""></td>
+            <td> <input type="date" name="" required pattern="\y{4}-\m{2}-\d{2}"></td>
         </tr>
         <tr>
             <td> Specialization </td>
@@ -62,15 +63,9 @@
             </td>
         </tr>
     </table>
-</th:form>
-
-<div th:replace="fragments/footer :: footer"></div>
-
-
-<!--This form below will be changed once bean is created, only keeping so i can change later-->
-<form action="#" th:action="@{trainer/addTrainer}" method="post">
-    <input type="submit" value="Add Trainer">
+        <input type="submit" value="Add Trainer">
 </form>
 
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
