@@ -35,7 +35,7 @@ public class TraineeController {
     }
 
     @GetMapping("/trainee/editTrainee/{id}")
-    public String editTrainee(@RequestBody TraineeEntity editedTrainee, @PathVariable("id") int id) {
+    public String editTrainee(@Valid TraineeEntity editedTrainee, @PathVariable("id") int id) {
         traineeService.editTrainee(editedTrainee, id);
         return "";
     }
