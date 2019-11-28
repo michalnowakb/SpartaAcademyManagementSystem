@@ -1,13 +1,17 @@
 package com.sparta.e44.controllers;
 
+import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.entities.TrainerEntity;
 import com.sparta.e44.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
-@RestController
+
+@Controller
 public class TrainerController {
 
     @Autowired
@@ -15,29 +19,47 @@ public class TrainerController {
 
 
     @GetMapping("trainer/getTrainers")
-    public List<TrainerEntity> getTrainers() {
-        return trainerService.getAll();
+    public String getTrainers(Model model) {
+        model.addAttribute("trainers", trainerService.getAll());
+        return "";
     }
 
     @GetMapping("trainer/getTrainer/{id}")
-    public TrainerEntity getTrainer(@PathVariable int id) {
-        return trainerService.getById(id);
-    }
+    public String getTrainer(@PathVariable("id") int id, Model model) {
 
+        model.addAttribute("trainer", trainerService.getById(id));
+        return "";
+    }
 
     @PostMapping("trainer/addTrainer")
-    public void addTrainer(@RequestBody TrainerEntity newTrainer) {
-        trainerService.addTrainer(newTrainer);
+    public String addTrainer(@Valid TrainerEntity trainer) {
+        trainerService.addTrainer(trainer);
+        return "";
     }
 
-    @PutMapping("/trainer/editTrainer/{id}")
-    public TrainerEntity editTrainee(@RequestBody TrainerEntity editedTrainer, @PathVariable int id) {
-        trainerService.editTrainer(editedTrainer, id);
-        return trainerService.getById(id);
+    @GetMapping("/trainer/editTrainer/{id}")
+    public String editTrainee(@PathVariable("id") int id, @Valid TrainerEntity trainer) {
+        trainerService.editTrainer(trainer, id);
+        return "";
     }
 
-    @DeleteMapping("trainer/deleteTrainer/{id}")
-    public void removeTrainer(@PathVariable int id) {
+    @GetMapping("trainer/removeTrainer/{id}")
+    public String removeTrainer(@PathVariable("id") int id) {
         trainerService.removeTrainer(id);
+        return "";
     }
+
+    @PutMapping("trainer/addQualifiedModule/{trainerId},{moduleId}")
+    public TrainerEntity addQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
+        trainerService.addQualifiedModule(trainerId, moduleId);
+        return trainerService.getById(trainerId);
+    }
+
+    @PutMapping("trainer/removeQualifiedModule/{trainerId},{moduleId}")
+    public TrainerEntity removeQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
+        trainerService.removeQualifiedModule(trainerId, moduleId);
+        return trainerService.getById(trainerId);
+    }
+
+
 }
