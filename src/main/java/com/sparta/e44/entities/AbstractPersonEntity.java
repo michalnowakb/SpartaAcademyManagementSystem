@@ -2,6 +2,8 @@ package com.sparta.e44.entities;
 
 import com.sparta.e44.entities.state.Gender;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDate;
 
@@ -13,6 +15,8 @@ public abstract class AbstractPersonEntity {
     private LocalDate dateOfBirth;
     private String email;
     private String contactNumber;
+
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private LocalDate startDate;
 
