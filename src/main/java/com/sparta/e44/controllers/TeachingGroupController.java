@@ -39,4 +39,15 @@ public class TeachingGroupController {
     public void removeTeachingGroup(@PathVariable int id){
         teachingGroupService.removeTeachingGroup(id);
     }
+
+    @PutMapping("/teachingGroup/addClassroom/{groupId}/{classroomId}")
+    public TeachingGroupEntity addClassroom(@PathVariable int groupId, @PathVariable int classroomId){
+        return teachingGroupService.addClassroom(groupId,classroomId);
+    }
+
+    @PutMapping("/teachingGroup/removeClassroom/{id}")
+    public TeachingGroupEntity removeClassroom(@PathVariable int id){
+        return teachingGroupService.removeClassroom(id);
+    }
+
 }

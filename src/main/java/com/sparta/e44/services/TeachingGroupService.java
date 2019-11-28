@@ -1,6 +1,8 @@
 package com.sparta.e44.services;
 
+import com.sparta.e44.entities.ClassroomEntity;
 import com.sparta.e44.entities.TeachingGroupEntity;
+import com.sparta.e44.entities.TraineeEntity;
 import com.sparta.e44.entities.TrainerEntity;
 import com.sparta.e44.repositories.ClassroomRepository;
 import com.sparta.e44.repositories.TeachingGroupRepository;
@@ -60,4 +62,22 @@ public class TeachingGroupService {
         teachingGroup.removeTrainer(trainer);
         teachingGroupRepository.save(teachingGroup);
     }
+
+    public TeachingGroupEntity addClassroom(int groupId, int classroomId){
+        ClassroomEntity newRoom = classroomRepository.findById(classroomId).get();
+        TeachingGroupEntity group = teachingGroupRepository.findById(groupId).get();
+        group.setClassroomEntity(newRoom);
+        teachingGroupRepository.save(group);
+        return group;
+    }
+
+    public TeachingGroupEntity removeClassroom(int groupId){
+        TeachingGroupEntity group = teachingGroupRepository.findById(groupId).get();
+        group.setClassroomEntity(null);
+        teachingGroupRepository.save(group);
+        return group;
+    }
+
+
+
 }

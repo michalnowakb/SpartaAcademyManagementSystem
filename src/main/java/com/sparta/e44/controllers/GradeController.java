@@ -13,25 +13,25 @@ public class GradeController {
     @Autowired
     private GradeService gradeService;
 
-    @GetMapping("/grade/allGrades")
-    public List<GradeEntity> getAllGrades(){
+    @GetMapping("/grade/getGrades")
+    public List<GradeEntity> getGrades(){
         return gradeService.getAllGrades();
     }
 
-    @GetMapping("/grade/{traineeId}/{moduleId}")
+    @GetMapping("/grade/getGrade/{traineeId}/{moduleId}")
     public GradeEntity getGrade(@PathVariable int traineeId, @PathVariable int moduleId) {
         return gradeService.getById(traineeId,moduleId);
     }
 
 
 
-    @PostMapping("/grade/newGrade")
+    @PostMapping("/grade/addGrade")
     public String addGrade(@RequestBody GradeEntity newGrade){
         gradeService.addGrade(newGrade);
         return "New grade added";
     }
 
-    @PostMapping("/grade/newGrade/alt")
+    @PostMapping("/grade/addGrade/alt")
     public String addGrade(@RequestBody GradeHolder gradeHolder){
         gradeService.addGrade(gradeHolder);
         return "added Grade";
@@ -42,4 +42,11 @@ public class GradeController {
         gradeService.removeGrade(traineeId,moduleId);
         return "removed Grade";
     }
+
+    @PutMapping("/grade/editGrage/{traineeId}/{moduleId}")
+    public GradeEntity editGrade(@RequestBody GradeHolder grade, @PathVariable int traineeId, @PathVariable int moduleId){
+        return gradeService.editGrade(grade.getGrade(),traineeId,moduleId);
+
+    }
+
 }

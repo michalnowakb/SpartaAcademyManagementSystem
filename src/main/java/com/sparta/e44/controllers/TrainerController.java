@@ -36,7 +36,7 @@ public class TrainerController {
         return trainerService.getById(id);
     }
 
-    @DeleteMapping("trainer/deleteTrainer/{id}")
+    @DeleteMapping("trainer/removeTrainer/{id}")
     public void removeTrainer(@PathVariable int id) {
         trainerService.removeTrainer(id);
     }

@@ -44,10 +44,7 @@ public class GradeService {
         int traineeId = gradeHolder.getTraineeId();
         int moduleId = gradeHolder.getModuleId();
         String grade = gradeHolder.getGrade();
-        TraineeEntity trainee = traineeRepository.findById(traineeId).get();
-        ModuleEntity module = moduleRepository.findById(moduleId).get();
-        GradeId gradeId = new GradeId(trainee,module);
-        GradeEntity newGrade = new GradeEntity(gradeId,grade);
+        GradeEntity newGrade = getGrade(grade,traineeId,moduleId);
         gradeRepository.save(newGrade);
     }
 
@@ -61,4 +58,23 @@ public class GradeService {
         gradeRepository.delete(toRemove);
     }
 
+    public GradeEntity editGrade(String grade, int traineeId, int moduleId) {
+        GradeEntity newGrade = getGrade(grade,traineeId,moduleId);
+        gradeRepository.save(newGrade);
+        return newGrade;
+    }
+
+    public void addGrade(String grade, int traineeId, int moduleId){
+        GradeEntity newGrade = getGrade(grade,traineeId,moduleId);
+        gradeRepository.save(newGrade);
+    }
+
+
+    private GradeEntity getGrade(String grade, int traineeId, int moduleId){
+        TraineeEntity trainee = traineeRepository.findById(traineeId).get();
+        ModuleEntity module = moduleRepository.findById(moduleId).get();
+        GradeId gradeId = new GradeId(trainee,module);
+        GradeEntity newGrade = new GradeEntity(gradeId,grade);
+        return newGrade;
+    }
 }

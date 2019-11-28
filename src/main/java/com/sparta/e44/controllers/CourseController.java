@@ -12,17 +12,17 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @GetMapping("/course")
+    @GetMapping("/course/getCourses")
     public List<CourseEntity> getCourses() {
         return courseService.getAllCourses();
     }
 
-    @GetMapping("/course/{id}")
+    @GetMapping("/course/getCourse/{id}")
     public CourseEntity getCourse(@PathVariable int id) {
         return courseService.getById(id);
     }
 
-    @PostMapping("/course/newCourse")
+    @PostMapping("/course/addCourse")
     public String addCourse(@RequestBody CourseEntity newCourse) {
         courseService.addCourse(newCourse);
         return "Added course";
@@ -34,7 +34,7 @@ public class CourseController {
         return "Removed course";
     }
 
-    @PutMapping("/course/updateCourse/{id}")
+    @PutMapping("/course/editCourse/{id}")
     public void editCourse(@PathVariable int id, @RequestBody CourseEntity editCourse) {
         courseService.editCourse(editCourse, id);
     }
