@@ -1,5 +1,6 @@
 package com.sparta.e44.controllers;
 
+import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.entities.TrainerEntity;
 import com.sparta.e44.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,22 @@ public class TrainerController {
     @DeleteMapping("trainer/removeTrainer/{id}")
     public void removeTrainer(@PathVariable int id) {
         trainerService.removeTrainer(id);
+    }
+
+    @GetMapping("trainer/addQualifiedModule/{trainerId},{moduleId}")
+    public TrainerEntity addQualifiedModule(@PathVariable int trainerId,@PathVariable int moduleId ){
+        trainerService.addQualifiedModule(trainerId,moduleId);
+        return trainerService.getById(trainerId);
+    }
+
+    @DeleteMapping("trainer/removeQualifiedModule/{trainerId},{moduleId}")
+    public TrainerEntity removeQualifiedModule(@PathVariable int trainerId,@PathVariable int moduleId ){
+        trainerService.removeQualifiedModule(trainerId,moduleId);
+        return trainerService.getById(trainerId);
+    }
+
+    @GetMapping("trainer/getAllQualifiedModules/{trainerId}")
+    public List<ModuleEntity> getAllQualifiedModules(@PathVariable int trainerId){
+       return trainerService.getAllQualifiedModules(trainerId);
     }
 }
