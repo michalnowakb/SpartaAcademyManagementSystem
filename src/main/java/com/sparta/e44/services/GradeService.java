@@ -1,9 +1,6 @@
 package com.sparta.e44.services;
 
-import com.sparta.e44.entities.GradeEntity;
-import com.sparta.e44.entities.GradeId;
-import com.sparta.e44.entities.ModuleEntity;
-import com.sparta.e44.entities.TraineeEntity;
+import com.sparta.e44.entities.*;
 import com.sparta.e44.entities.holders.GradeHolder;
 import com.sparta.e44.repositories.GradeRepository;
 import com.sparta.e44.repositories.ModuleRepository;
@@ -73,6 +70,19 @@ public class GradeService {
         GradeEntity newGrade = getGrade(grade,traineeId,moduleId);
         gradeRepository.save(newGrade);
         return newGrade;
+    }
+
+    public GradeEntity editGrade(GradeEntity grade, TraineeEntity traineeId, ModuleEntity moduleId){
+        GradeId gradeId = new GradeId(traineeId, moduleId);
+        grade.setGradeId(gradeId);
+        gradeRepository.save(grade);
+        return grade;
+    }
+
+    public GradeEntity editGrade(GradeEntity grade, int traineeId, int moduleId){
+        TraineeEntity trainee = traineeRepository.findById(traineeId).get();
+        ModuleEntity module = moduleRepository.findById(moduleId).get();
+        return editGrade(grade, trainee, module);
     }
 
     public void addGrade(String grade, int traineeId, int moduleId){
