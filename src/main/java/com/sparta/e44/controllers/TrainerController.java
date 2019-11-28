@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
+
 
 @Controller
 public class TrainerController {
@@ -61,8 +61,5 @@ public class TrainerController {
         return trainerService.getById(trainerId);
     }
 
-//    @GetMapping("trainer/getAllQualifiedModules/{trainerId}")
-//    public List<ModuleEntity> getAllQualifiedModules(@PathVariable int trainerId) {
-//        return trainerService.getAllQualifiedModules(trainerId);
-//    }
+
 }
