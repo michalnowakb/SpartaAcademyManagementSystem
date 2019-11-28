@@ -8,7 +8,7 @@
 <body>
     <h1>Register Trainee</h1>
 
-    <form method="post">
+    <th:form>
         <table>
 
             <tr>
@@ -46,17 +46,17 @@
             <tr>
                 <td>Gender</td>
                 <td>
-                    <select th:field="">
+                    <select>
                         <option value="">Select Gender</option>
                         <option value="M">Male</option>
                         <option value="F">Female</option>
                     </select>
                 </td>
             </tr>
-
-            <input type="submit" value="Submit" />
         </table>
-    </form>
+
+        <input type="submit" value="Submit" />
+    </th:form>
     <div th:replace="fragments/footer :: footer"></div>
 
 </body>
