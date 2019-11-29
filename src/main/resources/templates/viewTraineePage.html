@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trainee Page</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body>
+<h1>Trainee's Information</h1></br>
+
+<table class="table" border="2">
+
+    <tr>
+        <td>First Name</td>
+        <td>Surname</td>
+        <td>Email</td>
+        <td>Contact Number</td>
+        <td>Date Of Birth</td>
+        <td>Gender</td>
+        <td>Start Date</td>
+    </tr>
+
+    <tr th:each="trainee : ${trainees}">
+        <td th:text="${trainee.id()}">Trainee ID</td>
+        <td th:text="${trainee.firstName}">First Name</td>
+        <td th:text="${trainee.lastName}">Surname</td>
+        <td th:text="${trainee.email}">Email</td>
+        <td th:text="${trainee.contactNumber}">Contact Number</td>
+        <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
+        <td th:text="${trainee.gender}">Gender</td>
+        <td th:text="${trainee.startDate()}">Start Date</td>
+    </tr>
+</table>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

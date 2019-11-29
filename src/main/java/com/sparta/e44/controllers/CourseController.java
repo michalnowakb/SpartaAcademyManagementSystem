@@ -57,4 +57,5 @@ public class CourseController {
         courseService.removeModule(courseId,moduleId);
         return "";
     }
+
 }
