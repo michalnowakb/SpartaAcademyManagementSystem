@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>ViewTrainerPage</title>
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
-<h1 style="text-align: center; margin: 10px 0px 20px 0px">Trainers</h1>
+<h1>Trainers Information</h1></br>
 
-<table class="table" border="2" style="width: 90%" align="center">
+<table class="table" border="2">
+
     <tr>
-        <td width="10%">First Name</td>
+        <td>Trainer ID</td>
+        <td>First Name</td>
         <td>Surname</td>
         <td>Email</td>
-        <td width="12%">Contact Number</td>
-        <td width="8%">Date Of Birth</td>
-        <td width="5%">Gender</td>
-        <td width="10%">Start Date</td>
-        <td>Specialization</td>
-        <td width="10%">Employment Type</td>
-
+        <td>Contact Number</td>
+        <td>Date Of Birth</td>
+        <td>Gender</td>
+        <td>Start Date</td>
+        <td>Delete</td>
     </tr>
-
     <tr th:each="trainer : ${trainers}">
-        <td th:text="${trainer.id}">Trainee ID</td>
+        <td th:text="${trainer.trainerId}">Trainer ID</td>
         <td th:text="${trainer.firstName}">First Name</td>
         <td th:text="${trainer.lastName}">Surname</td>
         <td th:text="${trainer.email}">Email</td>
@@ -31,10 +30,11 @@
         <td th:text="${trainer.dateOfBirth}">Date Of Birth</td>
         <td th:text="${trainer.gender}">Gender</td>
         <td th:text="${trainer.startDate}">Start Date</td>
-        <td th:text="${trainer.qualifiedModules}">Specialization</td>
-        <td th:text="${trainer.employmentType}">Employment type</td>
+        <td><form th:action="@{'/trainer/getTrainers' + ${trainer.trainerId}}"><input type="submit" value="Update"></form>
+            <form th:action="@{'trainer/removeTrainer/' + ${trainer.trainerId}}"> <input type="submit" value="Delete"></form></td>
     </tr>
-    </table>
 
+</table>
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
