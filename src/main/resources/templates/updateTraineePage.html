@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<form th:action="@{'/trainee/editTrainee/' + ${trainee.traineeId}}" th:object="${trainee}" enctype="multipart/form-data">
+    <div>
+        Id: <input name="id" th:field="*{traineeId}"/>
+    </div>
+    <div>
+        First name: <input name="firstName" th:field="*{firstName}"/>
+    </div>
+    <div>
+        Last name: <input name="lastName" th:field="*{lastName}"/>
+    </div>
+    <div>
+    <input type="submit" value="Save updates" name="button"/>
+</div>
+</form>
 </body>
 </html>
