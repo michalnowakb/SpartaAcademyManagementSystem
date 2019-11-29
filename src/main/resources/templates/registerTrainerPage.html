@@ -12,8 +12,8 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-center"  style="border: solid 2px black; padding: 10% 0 5% 0">
 
-            <form th:action="@{/trainer/addTrainer}" th:object="${trainer}" method="post">
-            <div class="form-row">
+            <form th:action="@{/trainer/addTrainer}" method="post">
+                <div class="form-row">
                     <div class="form-group col-6 ">
                         <input type="text" name="firstName" placeholder="First Name"/>
                     </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6 ">
-                        <select name="gender" class="custom-select">
+                        <select name="" class="custom-select">
                             <option selected>Select Gender</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
