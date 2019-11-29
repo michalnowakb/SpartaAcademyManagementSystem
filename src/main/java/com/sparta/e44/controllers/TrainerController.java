@@ -21,14 +21,14 @@ public class TrainerController {
     @GetMapping("/trainer/getTrainers")
     public String getTrainers(Model model) {
         model.addAttribute("trainers", trainerService.getAll());
-        return "";
+        return "viewTrainerPage";
     }
 
     @GetMapping("/trainer/getTrainer/{id}")
     public String getTrainer(@PathVariable("id") int id, Model model) {
 
         model.addAttribute("trainer", trainerService.getById(id));
-        return "";
+        return "updateTrainerPage";
     }
 
     @PostMapping("/trainer/addTrainer")
@@ -46,7 +46,7 @@ public class TrainerController {
     @GetMapping("trainer/removeTrainer/{id}")
     public String removeTrainer(@PathVariable("id") int id) {
         trainerService.removeTrainer(id);
-        return "";
+        return "viewTrainerPage";
     }
 
     @PutMapping("/trainer/addQualifiedModule/{trainerId},{moduleId}")

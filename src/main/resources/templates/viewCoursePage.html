@@ -11,7 +11,8 @@
 <table class="table table-striped" border="2">
     <thead class="thead-custom">
     <tr>
-        <td>Course name</td>
+        <td>Course ID</td>
+        <td>Course Name</td>
         <td>Description</td>
         <td>Duration</td>
         <td>Modules</td>
@@ -19,14 +20,15 @@
     </thead>
     <tbody class="tbody-custom">
     <tr th:each="course : ${courses}">
-        <td th:text="${course.courseId}">Course Name</td>
+        <td th:text="${course.courseId}">Course ID</td>
+        <td th:text="${course.courseName}">Course Name</td>
         <td th:text="${course.courseDescription}">Description</td>
         <td th:text="${course.durationInWeeks}">Duration</td>
-        <!--        get list of modules will go here-->
+
         <td><form id="View Modules" th:action="@{'/course/viewModules/' + ${course.courseId}}" method="get">
             <input type="submit" value="View Modules" />
         </form> </td>
-        <td><form th:action="@{'/course/getCourses' + ${course.courseId}}"><input type="submit" value="Update"></form>
+        <td><form th:action="@{'/course/getCourse/' + ${course.courseId}}"><input type="submit" value="Update"></form>
             <form th:action="@{'/course/removeCourse/' + ${course.courseId}}"> <input type="submit" value="Delete"></form></td>
     </tr>
     </tbody>
