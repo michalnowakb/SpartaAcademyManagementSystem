@@ -1,5 +1,7 @@
 package com.sparta.e44.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -14,8 +16,9 @@ public class TeachingGroupEntity {
 
     //private int classroomId;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
     public TeachingGroupEntity(int groupId, String groupName, int classroomId, LocalDate startDate, LocalDate endDate) {

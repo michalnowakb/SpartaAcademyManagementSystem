@@ -26,7 +26,6 @@ public class TrainerController {
 
     @GetMapping("/trainer/getTrainer/{id}")
     public String getTrainer(@PathVariable("id") int id, Model model) {
-
         model.addAttribute("trainer", trainerService.getById(id));
         return "updateTrainerPage";
     }
@@ -38,14 +37,16 @@ public class TrainerController {
     }
 
     @GetMapping("/trainer/editTrainer/{id}")
-    public String editTrainee(@PathVariable("id") int id, @Valid TrainerEntity trainer) {
+    public String editTrainee(@PathVariable("id") int id, @Valid TrainerEntity trainer, Model model) {
         trainerService.editTrainer(trainer, id);
-        return "";
+        model.addAttribute("trainers", trainerService.getAll());
+        return "viewTrainerPage";
     }
 
-    @GetMapping("trainer/removeTrainer/{id}")
-    public String removeTrainer(@PathVariable("id") int id) {
+    @GetMapping("/trainer/removeTrainer/{id}")
+    public String removeTrainer(@PathVariable("id") int id, Model model) {
         trainerService.removeTrainer(id);
+        model.addAttribute("trainers", trainerService.getAll());
         return "viewTrainerPage";
     }
 
