@@ -1,23 +1,29 @@
 package com.sparta.e44.entities;
 
 import com.sparta.e44.entities.state.Gender;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDate;
+import java.util.regex.Pattern;
 
 @MappedSuperclass
 public abstract class AbstractPersonEntity {
 
     private String firstName;
     private String lastName;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
     private String email;
     private String contactNumber;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     public AbstractPersonEntity(String firstName, String lastName, LocalDate dateOfBirth, String email, String contactNumber, Gender gender, LocalDate startDate) {

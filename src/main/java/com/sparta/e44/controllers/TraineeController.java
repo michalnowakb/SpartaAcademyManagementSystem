@@ -18,9 +18,8 @@ public class TraineeController {
 
     @GetMapping("/trainee/getTrainees")
     public String getTrainees(Model model) {
-
         model.addAttribute("trainees", traineeService.getAll());
-        return "";
+        return "viewTraineePage";
     }
 
     @GetMapping("/trainee/getTrainee/{id}")

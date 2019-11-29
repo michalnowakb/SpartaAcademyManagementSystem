@@ -19,16 +19,15 @@
         <td>Gender</td>
         <td>Start Date</td>
     </tr>
-
     <tr th:each="trainee : ${trainees}">
-        <td th:text="${trainee.id()}">Trainee ID</td>
+        <td th:text="${trainee.traineeId}">Trainee ID</td>
         <td th:text="${trainee.firstName}">First Name</td>
         <td th:text="${trainee.lastName}">Surname</td>
         <td th:text="${trainee.email}">Email</td>
         <td th:text="${trainee.contactNumber}">Contact Number</td>
         <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
         <td th:text="${trainee.gender}">Gender</td>
-        <td th:text="${trainee.startDate()}">Start Date</td>
+        <td th:text="${trainee.startDate}">Start Date</td>
     </tr>
 </table>
 <div th:replace="fragments/footer :: footer"></div>
