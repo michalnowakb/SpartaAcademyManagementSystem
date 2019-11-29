@@ -23,14 +23,14 @@ public class ModuleController {
     @GetMapping("/module/getModule/{id}")
     public String getModule(@PathVariable("id") int id, Model model) {
         model.addAttribute("module", moduleService.getById(id));
-        return "";
+        return "/updateModulePage";
     }
 
 
     @PostMapping("/module/addModule")
     public String addModule(@Valid ModuleEntity newModule, Model model) {
         moduleService.addModule(newModule);
-        return getModules(model);
+        return "registerModulePage";
     }
 
     @GetMapping("/module/editModule/{id}")
@@ -40,9 +40,9 @@ public class ModuleController {
     }
 
     @GetMapping("/module/removeModule/{id}")
-    public String removeModule(@PathVariable("id") int id) {
+    public String removeModule(@PathVariable("id") int id,Model model) {
         moduleService.removeModule(id);
-        return "";
+        return getModules(model);
     }
 
 }
