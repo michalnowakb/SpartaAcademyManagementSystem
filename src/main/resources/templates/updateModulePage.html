@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Module Page</title>
+</head>
+<body>
+<form th:action="@{'/module/editModule/' + ${module.moduleId}}" th:object="${module}" enctype="multipart/form-data">
+    <div>
+        Module Name: <input name="moduleName" th:field="*{moduleName}"/>
+    </div>
+    <div>
+        Description: <input name="moduleDescription" th:field="*{moduleDescription}"/>
+    </div>
+    <div>
+        <input type="submit" value="Save updates" name="button"/>
+    </div>
+</form>
+</body>
+</html>

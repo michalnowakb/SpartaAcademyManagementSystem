@@ -34,7 +34,7 @@ public class CourseController {
     @PostMapping("/course/addCourse")
     public String addCourse(@Valid CourseEntity newCourse) {
         courseService.addCourse(newCourse);
-        return "";
+        return "registerCoursePage+";
     }
 
     @GetMapping("/course/removeCourse/{id}")
