@@ -5,13 +5,13 @@
     <title>Title</title>
 </head>
 <div th:replace="fragments/header :: header"></div>
-<body>
+<body class="backgroundImage">
 
 <h1 style="text-align: center; margin-top: 5%"> Register a Trainer</h1>
 <div class="container">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center"  style="border: solid 2px black; padding: 10% 0 5% 0">
-
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5" style="border: solid 2px black;">
+            <div class="card-body">
             <form th:action="@{/trainer/addTrainer}" method="post">
             <div class="form-row">
                     <div class="form-group col-6 ">
@@ -66,6 +66,8 @@
                     <input type="submit" value="Add Trainer" class="btn btn-danger"/>
                 </div>
             </form>
+            </div>
+        </div>
         </div>
     </div>
 </div>
