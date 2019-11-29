@@ -1,0 +1,27 @@
+.navbar-custom {
+    background-color: mediumvioletred; !important;
+}
+body { padding-top: 70px;
+    padding-buttom: 70px;
+    color: white;
+}
+
+.backgroundImage{
+    background-image: linear-gradient(rgba(1, 1, 1, 0.75), rgba(1, 1, 1, 0.75)), url("../images/brick-background-1.jpg");
+    background-size: 100%;
+}
+.dropdown-menu{
+    position: fixed;
+    width: 100%;
+    background-color: mediumvioletred;
+    border: none;
+
+}
+a{
+    color: white;
+
+}
+a:hover{
+    color: rgba(255, 255, 255, 0.52);
+}
+

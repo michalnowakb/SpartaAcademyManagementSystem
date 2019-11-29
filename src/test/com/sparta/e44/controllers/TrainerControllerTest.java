@@ -42,7 +42,17 @@ public class TrainerControllerTest {
     @Test
     public void testAddTrainer() throws Exception{
         mockMvc.perform(
-                MockMvcRequestBuilders.get(("/trainer/addTrainer/{id}"))
+                MockMvcRequestBuilders.get(("/trainer/addTrainer"))
+        )
+                .andExpect(status().isOk());
+//                .andExpect(MockMvcResultMatchers.);
+
+    }
+
+    @Test
+    public void testGetTrainer() throws Exception{
+        mockMvc.perform(
+                MockMvcRequestBuilders.get(("/trainer/getTrainer/1"))
         )
                 .andExpect(status().isOk());
 //                .andExpect(MockMvcResultMatchers.);
