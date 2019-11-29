@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header"></div>
 <head>
     <meta charset="UTF-8">
     <title>View Trainee Page</title>
 </head>
-<div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
 <h1>Trainee's Information</h1></br>
 
@@ -19,7 +19,7 @@
         <td>Date Of Birth</td>
         <td>Gender</td>
         <td>Start Date</td>
-        <td>Delete</td>
+        <td>Update/Delete</td>
     </tr>
     <tr th:each="trainee : ${trainees}">
         <td th:text="${trainee.traineeId}">Trainee ID</td>
