@@ -25,7 +25,7 @@ public class TraineeController {
     @GetMapping("/trainee/getTrainee/{id}")
     public String getTrainee(@PathVariable("id") int id, Model model) {
         model.addAttribute("trainee", traineeService.getById(id));
-        return "";
+        return "updateTraineePage";
     }
 
     @PostMapping("/trainee/addTrainee")
@@ -35,14 +35,17 @@ public class TraineeController {
     }
 
     @GetMapping("/trainee/editTrainee/{id}")
-    public String editTrainee(@Valid TraineeEntity editedTrainee, @PathVariable("id") int id) {
+    public String editTrainee(@Valid TraineeEntity editedTrainee, @PathVariable("id") int id, Model model) {
         traineeService.editTrainee(editedTrainee, id);
-        return "";
+        model.addAttribute("trainees", traineeService.getAll());
+        return "viewTraineePage";
     }
 
+
     @GetMapping("/trainee/removeTrainee/{id}")
-    public String removeCourse(@PathVariable("id") int id) {
+    public String removeCourse(@PathVariable("id") int id, Model model) {
         traineeService.removeTrainee(id);
-        return "";
+        model.addAttribute("trainees", traineeService.getAll());
+        return "viewTraineePage";
     }
 }
