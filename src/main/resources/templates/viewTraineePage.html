@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/header :: header"></div>
 <head>
     <meta charset="UTF-8">
-    <title>Trainee Page</title>
+    <title>View Trainee Page</title>
 </head>
-<div th:replace="fragments/header :: header"></div>
-<body>
-<h1>Trainee's Information</h1></br>
-
-<table class="table" border="2">
-
+<body class="backgroundImage">
+<div class="container">
+<h1 style="text-align: center; margin: 2% 0 2% 0">Trainee's Information</h1>
+<table class="table table-striped" border="2">
+<thead class="thead-custom">
     <tr>
         <td>Trainee ID</td>
         <td>First Name</td>
@@ -19,8 +19,10 @@
         <td>Date Of Birth</td>
         <td>Gender</td>
         <td>Start Date</td>
-        <td>Delete</td>
+        <td>Action</td>
     </tr>
+</thead>
+    <tbody class="tbody-custom">
     <tr th:each="trainee : ${trainees}">
         <td th:text="${trainee.traineeId}">Trainee ID</td>
         <td th:text="${trainee.firstName}">First Name</td>
@@ -30,11 +32,12 @@
         <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
         <td th:text="${trainee.gender}">Gender</td>
         <td th:text="${trainee.startDate}">Start Date</td>
-        <td><form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update"></form>
-            <form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"> <input type="submit" value="Delete"></form></td>
+        <td><form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update" class="btn btn-success"></form> <br>
+            <form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
     </tr>
-
+    </tbody>
 </table>
+</div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

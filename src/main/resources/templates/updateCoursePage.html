@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Updating Course Page</title>
 </head>
 <body>
 
+<form th:action="@{'/course/editCourse/' + ${course.courseId}}" th:object="${course}" enctype="multipart/form-data">
+    <div>
+        Course Name: <input name="courseName" th:field="*{courseName}"/>
+    </div>
+
+    <div>
+        Course Description: <input name="courseDescription" th:field="*{courseDescription}" />
+    </div>
+
+    <div>
+        Course Duration: <input name="durationInWeeks" th:field="*{durationInWeeks}" />
+    </div>
+
+    <div>
+        <input type="submit" value="Save updates" name="button" />
+    </div>
+</form>
 </body>
 </html>
