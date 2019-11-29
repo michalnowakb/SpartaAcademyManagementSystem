@@ -13,6 +13,7 @@
         <td>Module Id</td>
         <td>Module Name</td>
         <td>Module Description</td>
+        <td></td>
     </tr>
     <tr th:each="module : ${course.modules}">
         <td th:text="${module.moduleId}">Module ID</td>
@@ -29,6 +30,7 @@
         <td>Module Id</td>
         <td>Module Name</td>
         <td>Module Description</td>
+        <td></td>
     </tr>
     <tr th:each="module : ${modules}">
         <span th:if="${!course.modules.contains(module)}">
