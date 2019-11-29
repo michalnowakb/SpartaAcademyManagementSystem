@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Register Course Page</title>
+    <title>Sparta Academy Management System - Register a new course</title>
     <!-- Latest compiled and minified CSS -->
 </head>
 
@@ -16,31 +16,29 @@
     <div class="row d-flex justify-content-center">
             <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
                 <div class="card-body">
-            <th:form th:action="@{/course/addCourse}">
-                <div class="form-row">
-                    <div class="form-group col-4 ">
-                        <label>First Name</label>
-                        <input class="form-control" type="text" placeholder="First Name"/>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-4 ">
-                        <label>Course Description</label>
-                        <input class="form-control" type="text" placeholder="Description"/>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-4 ">
-                        <label>Course Duration</label>
-                        <input class="form-control" type="text" placeholder="Duration"/>
-                    </div>
-                </div>
-                <div class="form-row justify-content-center">
-                    <input type="submit" value="Submit" class="btn btn-custom"/>
-                </div>
-
-<!--                STILL NEED TO ADD MODULES-->
-            </th:form>
+                    <form th:action="@{/course/addCourse}" method="post">
+                        <div class="form-row">
+                            <div class="form-group col-4 ">
+                                <label>Course Description</label>
+                                <input class="form-control" type="text" name="courseDescription" placeholder="Course Description"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-4 ">
+                                <label>Course Name</label>
+                                <input class="form-control" type="text" name="courseName" placeholder="Course Name"/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-4 ">
+                                <label>Course Duration</label>
+                                <input class="form-control" type="text" name="durationInWeeks" placeholder="Course Duration"/>
+                            </div>
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <input type="submit" value="Submit" class="btn btn-custom"/>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
