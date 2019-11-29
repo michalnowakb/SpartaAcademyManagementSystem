@@ -2,6 +2,7 @@ package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.CourseEntity;
 import com.sparta.e44.services.CourseService;
+import com.sparta.e44.services.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,9 @@ import java.util.List;
 public class CourseController {
     @Autowired
     private CourseService courseService;
+
+    @Autowired
+    private ModuleService moduleService;
 
     @GetMapping("/course/getCourses")
     public String getCourses(Model model) {
@@ -47,15 +51,26 @@ public class CourseController {
 
 
     @PostMapping("/course/addModule/{courseId}/{moduleId}")
-    public String addModule(@PathVariable("courseId") int courseId, @PathVariable("moduleId") int moduleId){
+    public String addModule(@PathVariable("courseId") int courseId, @PathVariable("moduleId") int moduleId, Model model){
         courseService.addModule(courseId,moduleId);
-        return "";
+        model.addAttribute("course", courseService.getById(courseId));
+        model.addAttribute("modules", moduleService.getAll());
+        return "/viewCourseModules";
     }
 
     @GetMapping("/course/removeModule/{courseId}/{moduleId}")
-    public String removeModule(@PathVariable("courseId") int courseId, @PathVariable("moduleId") int moduleId){
+    public String removeModule(@PathVariable("courseId") int courseId, @PathVariable("moduleId") int moduleId, Model model){
         courseService.removeModule(courseId,moduleId);
-        return "";
+        model.addAttribute("course", courseService.getById(courseId));
+        model.addAttribute("modules", moduleService.getAll());
+        return "/viewCourseModules";
+    }
+
+    @GetMapping("/course/viewModules/{courseId}")
+    public String viewModulePage(@PathVariable("courseId") int courseId, Model model) {
+        model.addAttribute("course", courseService.getById(courseId));
+        model.addAttribute("modules", moduleService.getAll());
+        return "/viewCourseModules";
     }
 
 }

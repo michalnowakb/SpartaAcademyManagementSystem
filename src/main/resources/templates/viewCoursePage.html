@@ -18,10 +18,13 @@
     </tr>
 
     <tr th:each="course : ${courses}">
-        <td th:text="${course}">Course Name</td>
+        <td th:text="${course.courseId}">Course Name</td>
         <td th:text="${course.courseDescription}">Description</td>
         <td th:text="${course.durationInWeeks}">Duration</td>
         <!--        get list of modules will go here-->
+        <td><form id="View Modules" th:action="@{'/course/viewModules/' + ${course.courseId}}" method="get">
+            <input type="submit" value="View Modules" />
+        </form> </td>
         <td><form th:action="@{'/course/getCourses' + ${course.courseId}}"><input type="submit" value="Update"></form>
             <form th:action="@{'/course/removeCourse/' + ${course.courseId}}"> <input type="submit" value="Delete"></form></td>
     </tr>
