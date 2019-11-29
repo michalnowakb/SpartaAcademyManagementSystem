@@ -26,7 +26,7 @@
                 <div class="form-row">
                     <div class="form-group col-6">
 
-                        <input type="date" name="" placeholder="Date Of Birth" required pattern="\y{4}-\m{2}-\d{2}"/>
+                        <input type="date" name="dateOfBirth" placeholder="Date Of Birth"/>
                     </div>
 
                     <div class="form-group col-6">
@@ -41,16 +41,17 @@
                     </div>
 
                     <div class="form-group col-6">
-                        <input type="date" name="" placeholder="Start Date" required pattern="\y{4}-\m{2}-\d{2}"/>
+                        <input type="date" name="startDate" placeholder="Start Date"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6 ">
-                        <select name="" class="custom-select">
+                        <select name="gender" class="custom-select">
                             <option selected>Select Gender</option>
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                            <option value="O">Other</option>
+                            <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
+                                    th:value="${gen}"
+                                    th:text="${gen}">
+                            </option>
                         </select>
                     </div>
                     <div class="form-group col-6 ">
