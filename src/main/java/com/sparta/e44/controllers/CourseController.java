@@ -18,13 +18,13 @@ public class CourseController {
     @GetMapping("/course/getCourses")
     public String getCourses(Model model) {
         model.addAttribute("courses",courseService.getAllCourses());
-        return "";
+        return "viewCoursePage";
     }
 
     @GetMapping("/course/getCourse/{id}")
     public String getCourse(@PathVariable("id") int id,Model model) {
         model.addAttribute("course",courseService.getById(id));
-        return "";
+        return "updateCoursePage";
     }
 
     @PostMapping("/course/addCourse")
@@ -36,13 +36,13 @@ public class CourseController {
     @GetMapping("/course/removeCourse/{id}")
     public String removeCourse(@PathVariable("id") int id) {
         courseService.removeCourse(id);
-        return "";
+        return "viewCoursePage";
     }
 
     @GetMapping("/course/editCourse/{id}")
     public String editCourse(@PathVariable("id") int id, @Valid CourseEntity editCourse) {
         courseService.editCourse(editCourse, id);
-        return "";
+        return "viewCoursePage";
     }
 
 
