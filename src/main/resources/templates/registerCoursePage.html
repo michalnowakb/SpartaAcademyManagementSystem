@@ -13,22 +13,25 @@
 
 <h1 style="text-align: center; margin-top: 5%">Register a new course</h1>
 <div class="container">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center" style="border: solid 2px black; padding: 10% 0 5% 0">
-
+    <div class="row d-flex justify-content-center">
+            <div class="card col-5" style="border: solid 2px black;">
+                <div class="card-body">
             <th:form th:action="@{/course/addCourse}">
                 <div class="form-row">
                     <div class="form-group col-4 ">
-                        <input type="text" placeholder="Name"/>
+                        <label>First Name</label>
+                        <input type="text" placeholder="First Name"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-4 ">
+                        <label>Course Description</label>
                         <input type="text" placeholder="Description"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-4 ">
+                        <label>Course Duration</label>
                         <input type="text" placeholder="Duration"/>
                     </div>
                 </div>
@@ -38,6 +41,8 @@
 
 <!--                STILL NEED TO ADD MODULES-->
             </th:form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
