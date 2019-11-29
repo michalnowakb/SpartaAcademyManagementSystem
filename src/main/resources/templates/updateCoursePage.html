@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Updating Course Page</title>
 </head>
 <body>
+<!--<td>Course name</td>-->
+<!--<td>Description</td>-->
+<!--<td>Duration</td>-->
+<!--<td>Modules</td>-->
+<form th:action="@{'/course/editCourse/' + ${course.courseId}}" th:object="${course}" enctype="multipart/form-data">
+    <div>
 
+    </div>
+</form>
 </body>
 </html>
