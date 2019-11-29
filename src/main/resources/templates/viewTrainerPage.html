@@ -31,7 +31,7 @@
         <td th:text="${trainer.gender}">Gender</td>
         <td th:text="${trainer.startDate}">Start Date</td>
         <td><form th:action="@{'/trainer/getTrainers' + ${trainer.trainerId}}"><input type="submit" value="Update"></form>
-            <form th:action="@{'trainer/removeTrainer/' + ${trainer.trainerId}}"> <input type="submit" value="Delete"></form></td>
+            <form th:action="@{'/trainer/removeTrainer/' + ${trainer.trainerId}}"> <input type="submit" value="Delete"></form></td>
     </tr>
 
 </table>
