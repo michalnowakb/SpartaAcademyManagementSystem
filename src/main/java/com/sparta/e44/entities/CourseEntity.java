@@ -2,10 +2,9 @@ package com.sparta.e44.entities;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+
 @Entity
 public class CourseEntity
 {
@@ -15,6 +14,15 @@ public class CourseEntity
     private String courseName;
     private String courseDescription;
     private int durationInWeeks;
+
+    @ManyToMany//(targetEntity = ModuleEntity.class)
+    @JoinTable(
+            name = "course_modules",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "module_id")
+    )
+    private List<ModuleEntity> modules;
+
 
     public CourseEntity() {}
 
@@ -54,5 +62,22 @@ public class CourseEntity
 
     public void setCourseId(int courseId) {
         this.courseId = courseId;
+    }
+
+
+    public List<ModuleEntity> getModules() {
+        return modules;
+    }
+
+    public void setModules(List<ModuleEntity> modules) {
+        this.modules = modules;
+    }
+
+    public void addModule(ModuleEntity module){
+        this.modules.add(module);
+    }
+
+    public void removeModule(ModuleEntity module){
+        this.modules.remove(module);
     }
 }
