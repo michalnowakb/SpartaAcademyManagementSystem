@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>View Trainer Page</title>
+    <title>ViewTrainerPage</title>
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
 <h1 style="text-align: center; margin: 2% 0 2% 0">Trainers</h1>
-
 <table class="table table-striped" border="2">
     <thead>
     <tr>
@@ -24,7 +23,7 @@
     </thead>
 <tbody>
     <tr th:each="trainer : ${trainers}">
-        <td th:text="${trainer.id}">Trainee ID</td>
+        <td th:text="${trainer.trainerId}">Trainer ID</td>
         <td th:text="${trainer.firstName}">First Name</td>
         <td th:text="${trainer.lastName}">Surname</td>
         <td th:text="${trainer.email}">Email</td>
@@ -33,10 +32,11 @@
         <td th:text="${trainer.gender}">Gender</td>
         <td th:text="${trainer.startDate}">Start Date</td>
         <td th:text="${trainer.qualifiedModules}">Specialization</td>
-<!--        <td th:text="${trainer.employmentType}">Employment type</td>-->
+        <td><form th:action="@{'/trainer/getTrainers' + ${trainer.trainerId}}"><input type="submit" value="Update" class="btn btn-success"></form>
+            <form th:action="@{'trainer/removeTrainer/' + ${trainer.trainerId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
     </tr>
-</tbody>
-    </table>
-
+ </tbody>
+</table>
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
