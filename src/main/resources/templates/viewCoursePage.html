@@ -28,8 +28,8 @@
         <td><form id="View Modules" th:action="@{'/course/viewModules/' + ${course.courseId}}" method="get">
             <input type="submit" value="View Modules" />
         </form> </td>
-        <td><form th:action="@{'/course/getCourse/' + ${course.courseId}}"><input type="submit" value="Update"></form>
-            <form th:action="@{'/course/removeCourse/' + ${course.courseId}}"> <input type="submit" value="Delete"></form></td>
+        <td><form th:action="@{'/course/getCourse/' + ${course.courseId}}"><input type="submit" value="Update" class="btn btn-success"></form>
+            <form th:action="@{'/course/removeCourse/' + ${course.courseId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
     </tr>
     </tbody>
 </table>
