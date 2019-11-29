@@ -2,13 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Sparta Academy Management System</title>
+    <title>View Course Page</title>
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
 <h1>All courses</h1>
 <br>
-<table>
+<table class="table" border="2">
+
     <tr>
         <td>Course name</td>
         <td>Description</td>
@@ -16,14 +17,13 @@
         <td>Modules</td>
     </tr>
 
-    <tr th:each="course : ${@courses}">
-        <td th:text="${course.courseName}">name</td>
-        <td th:text="${course.courseDescription}">description</td>
-        <td th:text="${course.durationInWeeks}">duration</td>
-        <td th:text="${course.//}">modules</td>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course}">Course Name</td>
+        <td th:text="${course.courseDescription}">Description</td>
+        <td th:text="${course.durationInWeeks}">Duration</td>
         <!--        get list of modules will go here-->
-        <td><button type="button" th:action="">Update course</button></td>
-        <td><button type="button" th:action="">Delete course</button></td>
+        <td><form th:action="@{'/course/getCourses' + ${course.courseId}}"><input type="submit" value="Update"></form>
+            <form th:action="@{'/course/removeCourse/' + ${course.courseId}}"> <input type="submit" value="Delete"></form></td>
     </tr>
 </table>
 <div th:replace="fragments/footer :: footer"></div>
