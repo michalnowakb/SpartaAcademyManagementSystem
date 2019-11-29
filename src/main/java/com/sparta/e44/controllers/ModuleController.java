@@ -16,21 +16,21 @@ public class ModuleController {
 
     @GetMapping("/module/getModules")
     public String getModules(Model model) {
-        model.addAttribute("module", moduleService.getAll());
-        return "";
+        model.addAttribute("modules", moduleService.getAll());
+        return "/viewModulePage";
     }
 
     @GetMapping("/module/getModule/{id}")
     public String getModule(@PathVariable("id") int id, Model model) {
-        model.addAttribute("modules", moduleService.getById(id));
+        model.addAttribute("module", moduleService.getById(id));
         return "";
     }
 
 
     @PostMapping("/module/addModule")
-    public String addModule(@Valid ModuleEntity newModule) {
+    public String addModule(@Valid ModuleEntity newModule, Model model) {
         moduleService.addModule(newModule);
-        return "";
+        return getModules(model);
     }
 
     @GetMapping("/module/editModule/{id}")

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Module Page</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<h1>All courses</h1>
+<br>
+<table class="table" border="2">
+
+    <tr>
+        <td>Module Id</td>
+        <td>Module name</td>
+        <td>Description</td>
+
+    </tr>
+
+    <tr th:each="module : ${modules}">
+        <td th:text="${module.moduleId}">Module Id</td>
+        <td th:text="${module.moduleName}">Name</td>
+        <td th:text="${module.moduleDescription}">Description</td>
+        <!--        get list of qualified trainers will go here-->
+<!--        <td><form id="View Modules" th:action="@{'/course/viewModules/' + ${course.courseId}}" method="get">-->
+<!--            <input type="submit" value="View Modules" />-->
+<!--        </form> </td>-->
+        <td><form th:action="@{'/module/getModule/' + ${module.moduleId}}"><input type="submit" value="Update"></form>
+            <form th:action="@{'/module/removeModule/' + ${module.moduleId}}"> <input type="submit" value="Delete"></form></td>
+    </tr>
+</table>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

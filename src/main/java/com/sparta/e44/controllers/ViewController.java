@@ -62,5 +62,7 @@ public class ViewController {
     public String connectToUpdateTraineePage(){
         return "updateTraineePage";
     }
-
+    //Module Page
+    @RequestMapping("/registerModulePage")
+    public String connectToRegisterModulePage(){return "registerModulePage";}
 }
