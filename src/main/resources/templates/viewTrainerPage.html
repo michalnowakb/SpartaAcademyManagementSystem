@@ -6,9 +6,10 @@
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
-<h1 style="text-align: center; margin: 2% 0 2% 0">Trainers</h1>
+<div class="container">
+<h1 style="text-align: center; margin: 2% 0 2% 0">Trainers Information</h1>
 <table class="table table-striped" border="2">
-    <thead>
+    <thead class="thead-custom">
     <tr>
         <td >First Name</td>
         <td>Surname</td>
@@ -21,7 +22,7 @@
 <!--        <td>Employment Type</td>-->
     </tr>
     </thead>
-<tbody>
+<tbody class="tbody-custom">
     <tr th:each="trainer : ${trainers}">
         <td th:text="${trainer.trainerId}">Trainer ID</td>
         <td th:text="${trainer.firstName}">First Name</td>
@@ -37,6 +38,7 @@
     </tr>
  </tbody>
 </table>
+</div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

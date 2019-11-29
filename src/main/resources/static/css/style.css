@@ -20,6 +20,14 @@ body { padding-top: 70px;
     background-color: mediumvioletred;
     color: white;
 }
+.thead-custom{
+    background-color: #84125D;
+    color: white;
+}
+.tbody-custom{
+    background-color: white;
+    color: black;
+}
 a{
     color: white;
 
