@@ -65,4 +65,7 @@ public class ViewController {
     //Module Page
     @RequestMapping("/registerModulePage")
     public String connectToRegisterModulePage(){return "registerModulePage";}
+    @RequestMapping("/registerClassroomPage")
+    public String connectToRegisterClassroomPage(){ return "registerClassroomPage";}
+
 }
