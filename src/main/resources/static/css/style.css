@@ -15,7 +15,10 @@ body { padding-top: 70px;
     width: 100%;
     background-color: mediumvioletred;
     border: none;
-
+}
+.btn-custom{
+    background-color: mediumvioletred;
+    color: white;
 }
 a{
     color: white;
