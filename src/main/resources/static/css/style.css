@@ -2,3 +2,21 @@
     background-color: mediumvioletred; !important;
 }
 body { padding-top: 70px; }
+
+.navbar-custom {
+    background-color: mediumvioletred; !important;
+}
+.dropdown-menu{
+    position: fixed;
+    width: 100%;
+    background-color: mediumvioletred;
+    border: none;
+    /*margin-right: 10%;*/
+}
+a{
+    color: white;
+
+}
+a:hover{
+    color: rgba(255, 255, 255, 0.52);
+}
