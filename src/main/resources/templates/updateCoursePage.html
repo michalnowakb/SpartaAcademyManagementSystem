@@ -6,24 +6,38 @@
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
-
+<h1 style="text-align: center; margin-top: 5%"> Edit a Course</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
+            <div class="card-body" style="color: black">
 <form th:action="@{'/course/editCourse/' + ${course.courseId}}" th:object="${course}" enctype="multipart/form-data">
-    <div>
-        Course Name: <input name="courseName" th:field="*{courseName}"/>
+    <div class="form-row">
+    <div class="form-group col-6">
+        <label>Course Name</label>
+        <input name="courseName" th:field="*{courseName}"/>
     </div>
 
-    <div>
-        Course Description: <input name="courseDescription" th:field="*{courseDescription}" />
+    <div class="form-group col-6">
+        <label>Description</label>
+        <input name="courseDescription" th:field="*{courseDescription}" />
     </div>
-
-    <div>
-        Course Duration: <input name="durationInWeeks" th:field="*{durationInWeeks}" />
     </div>
-
-    <div>
+    <div class="form-row">
+    <div class="form-group col-6">
+        <label>Duration(Weeks)</label>
+        <input name="durationInWeeks" th:field="*{durationInWeeks}" />
+    </div>
+    </div>
+    <div class="form-row d-flex justify-content-center">
         <input type="submit" value="Save updates" name="button" />
     </div>
 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
