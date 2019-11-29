@@ -54,8 +54,8 @@ public class TrainerService {
     }
 
 
-    public void addQualifiedModule(int traineeId, int moduleId) {
-        TrainerEntity trainer = trainerRepository.findById(traineeId).get();
+    public void addQualifiedModule(int trainerId, int moduleId) {
+        TrainerEntity trainer = trainerRepository.findById(trainerId).get();
         ModuleEntity module = moduleRepository.findById(moduleId).get();
         addQualifiedModule(trainer,module);
 

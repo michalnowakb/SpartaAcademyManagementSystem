@@ -21,10 +21,11 @@
         <td th:text="${module.moduleId}">Module Id</td>
         <td th:text="${module.moduleName}">Name</td>
         <td th:text="${module.moduleDescription}">Description</td>
+
         <!--        get list of qualified trainers will go here-->
-<!--        <td><form id="View Modules" th:action="@{'/course/viewModules/' + ${course.courseId}}" method="get">-->
-<!--            <input type="submit" value="View Modules" />-->
-<!--        </form> </td>-->
+        <td><form id="View Trainers" th:action="@{'/module/viewTrainers/' + ${module.moduleId}}" method="get">
+            <input type="submit" value="View Qualified Trainers" />
+        </form> </td>
         <td><form th:action="@{'/module/getModule/' + ${module.moduleId}}"><input type="submit" value="Update"></form>
             <form th:action="@{'/module/removeModule/' + ${module.moduleId}}"> <input type="submit" value="Delete"></form></td>
     </tr>
