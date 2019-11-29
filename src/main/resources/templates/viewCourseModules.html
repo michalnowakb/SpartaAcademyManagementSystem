@@ -7,14 +7,20 @@
 
 
 <body class="backgroundImage">
-<h1><output th:text="${course.courseName}"></output> </h1></br>
-<table class="table" border="2">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${course.courseName}"></output></h1>
+<!--<h1><output th:text="${course.courseName}"></output> </h1></br>-->
+<h2>Course Modules:</h2>
+<table class="table table-striped" border="2">
+    <thead class="thead-custom">
     <tr>
         <td>Module Id</td>
         <td>Module Name</td>
         <td>Module Description</td>
         <td></td>
     </tr>
+    </thead>
+    <tbody class="tbody-custom">
     <tr th:each="module : ${course.modules}">
         <td th:text="${module.moduleId}">Module ID</td>
         <td th:text="${module.moduleName}">Module Name</td>
@@ -23,15 +29,20 @@
             <input type="submit" value="Remove Module"/>
         </form> </td>
     </tr>
+    </tbody>
 </table>
-
-<table class="table" border="2">
+<br/>
+<h2>Available Modules</h2>
+<table class="table table-striped" border="2">
+    <thead class="thead-custom">
     <tr>
         <td>Module Id</td>
         <td>Module Name</td>
         <td>Module Description</td>
         <td></td>
     </tr>
+    </thead>
+    <tbody class="tbody-custom">
     <tr th:each="module : ${modules}">
         <span th:if="${!course.modules.contains(module)}">
         <td th:text="${module.moduleId}">Module ID</td>
@@ -42,7 +53,8 @@
         </form> </td>
         </span>
     </tr>
+    <tbody class="tbody-custom">
 </table>
+</div>
 </body>
 </html>
-</body>

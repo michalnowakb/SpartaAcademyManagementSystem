@@ -25,6 +25,7 @@ public class CourseController {
         return "viewCoursePage";
     }
 
+
     @GetMapping("/course/getCourse/{id}")
     public String getCourse(@PathVariable("id") int id,Model model) {
         model.addAttribute("course",courseService.getById(id));
@@ -34,19 +35,19 @@ public class CourseController {
     @PostMapping("/course/addCourse")
     public String addCourse(@Valid CourseEntity newCourse) {
         courseService.addCourse(newCourse);
-        return "registerCoursePage+";
+        return "registerCoursePage";
     }
 
     @GetMapping("/course/removeCourse/{id}")
-    public String removeCourse(@PathVariable("id") int id) {
+    public String removeCourse(@PathVariable("id") int id, Model model) {
         courseService.removeCourse(id);
-        return "viewCoursePage";
+        return getCourses(model);
     }
 
     @GetMapping("/course/editCourse/{id}")
-    public String editCourse(@PathVariable("id") int id, @Valid CourseEntity editCourse) {
+    public String editCourse(@PathVariable("id") int id, @Valid CourseEntity editCourse, Model model) {
         courseService.editCourse(editCourse, id);
-        return "viewCoursePage";
+        return getCourses(model);
     }
 
 

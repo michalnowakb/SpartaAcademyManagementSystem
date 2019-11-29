@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>UpdateTrainerPage</title>
 </head>
-<body>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
 <form th:action="@{'/trainer/editTrainer/' + ${trainer.trainerId}}" th:object="${trainer}" enctype="multipart/form-data">
     <div>
         Id: <input name="id" th:field="*{trainerId}"/>
@@ -19,5 +20,6 @@
         <input type="submit" value="Save updates" name="button"/>
     </div>
 </form>
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

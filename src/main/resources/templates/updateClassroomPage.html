@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Update Module Page</title>
 </head>
-<body>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
 <form th:action=@{/classroom/editClassroom/{id}(id=${classroom.classroomId})} th:object="${classroom}" enctype="multipart/form-data">
 
     <div>
@@ -20,6 +21,6 @@
 
 
 </form>
-
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

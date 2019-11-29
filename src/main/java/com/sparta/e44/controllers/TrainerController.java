@@ -33,7 +33,7 @@ public class TrainerController {
     @PostMapping("/trainer/addTrainer")
     public String addTrainer(@Valid TrainerEntity trainer) {
         trainerService.addTrainer(trainer);
-        return "";
+        return "registerTrainerPage";
     }
 
     @GetMapping("/trainer/editTrainer/{id}")

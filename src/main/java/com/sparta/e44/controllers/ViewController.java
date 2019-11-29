@@ -7,62 +7,81 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ViewController {
 
     @RequestMapping("/indexPage")
-    public String viewIndexPage(){
+    public String viewIndexPage() {
         return "indexPage";
     }
 
     //for the main page
     @RequestMapping("/trainerPage")
-    public String connectToTrainerPage(){
+    public String connectToTrainerPage() {
         return "trainerPage";
     }
+
     @RequestMapping("/coursePage")
-    public String connectToCoursePage(){
+    public String connectToCoursePage() {
         return "coursePage";
     }
+
     @RequestMapping("/traineePage")
-    public String connectToTraineePage(){
+    public String connectToTraineePage() {
         return "traineePage";
     }
+
     @RequestMapping("/registerCoursePage")
-    public String connectToRegisterCoursePage(){
+    public String connectToRegisterCoursePage() {
         return "registerCoursePage";
     }
+
     @RequestMapping("/viewCoursePage")
-    public String connectToViewCoursePage(){
+    public String connectToViewCoursePage() {
         return "viewCoursePage";
     }
+
     @RequestMapping("/updateCoursePage")
-    public String connectToUpdateCoursePage(){
+    public String connectToUpdateCoursePage() {
         return "updateCoursePage";
     }
+
     //Trainer Page
     @RequestMapping("/registerTrainerPage")
-    public String connectToRegisterTrainerPage(){
+    public String connectToRegisterTrainerPage() {
         return "registerTrainerPage";
     }
+
     @RequestMapping("/viewTrainerPage")
-    public String connectToViewTrainerPage(){
+    public String connectToViewTrainerPage() {
         return "viewTrainerPage";
     }
+
     @RequestMapping("/updateTrainerPage")
-    public String connectToUpdateTrainerPage(){
+    public String connectToUpdateTrainerPage() {
         return "updateTrainerPage";
     }
+
     // Trainee Page
     @RequestMapping("/registerTraineePage")
-    public String connectToRegisterTraineePage(){
+    public String connectToRegisterTraineePage() {
         return "registerTraineePage";
     }
+
     @RequestMapping("/viewTraineePage")
-    public String connectToViewTraineePage(){
+    public String connectToViewTraineePage() {
         return "viewTraineePage";
     }
+
     @RequestMapping("/updateTraineePage")
-    public String connectToUpdateTraineePage(){
+    public String connectToUpdateTraineePage() {
         return "updateTraineePage";
     }
+
     //Module Page
     @RequestMapping("/registerModulePage")
-    public String connectToRegisterModulePage(){return "registerModulePage";}
+    public String connectToRegisterModulePage() {
+        return "registerModulePage";
+    }
+    //Classroom Page
+    @RequestMapping("/registerClassroomPage")
+    public String connectToRegisterClassroomPage(){
+        return "registerClassroomPage";
+    }
 }

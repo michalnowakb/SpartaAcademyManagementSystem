@@ -19,7 +19,6 @@
         <td>Date Of Birth</td>
         <td>Gender</td>
         <td>Start Date</td>
-        <td>Action</td>
     </tr>
 </thead>
     <tbody class="tbody-custom">
@@ -32,8 +31,8 @@
         <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
         <td th:text="${trainee.gender}">Gender</td>
         <td th:text="${trainee.startDate}">Start Date</td>
-        <td><form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update" class="btn btn-success"></form> <br>
-            <form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
+        <td><form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update" class="btn btn-success"></form> </td>
+        <td><form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
     </tr>
     </tbody>
 </table>
