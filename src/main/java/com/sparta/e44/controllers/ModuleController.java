@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @Controller
 public class ModuleController {
+
     @Autowired
     private ModuleService moduleService;
     @Autowired
@@ -39,7 +40,8 @@ public class ModuleController {
     @GetMapping("/module/editModule/{id}")
     public String editModule(@Valid ModuleEntity editedModule, @PathVariable("id") int id, Model model) {
         moduleService.editModule(editedModule, id);
-        return viewTrainers(id,model);
+        model.addAttribute("modules",moduleService.getAll());
+        return "viewModulePage";
     }
 
     @GetMapping("/module/removeModule/{id}")
