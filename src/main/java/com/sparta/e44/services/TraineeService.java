@@ -71,8 +71,6 @@ public class TraineeService {
     }
 
     public List<TraineeEntity> getByName(String searchQuery) {
-        ArrayList<TraineeEntity> trainees = new ArrayList<>();
-        traineeRepository.getTraineeEntitiesByName(searchQuery).forEach(t->trainees.add(t));
-        return trainees;
+        return traineeRepository.getTraineeEntitiesByName(searchQuery);
     }
 }

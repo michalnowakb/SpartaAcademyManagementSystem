@@ -26,6 +26,13 @@ public class CourseController {
         return "viewCoursePage";
     }
 
+    @GetMapping("/course/getCourses/search")
+    public String getCoursesSearch(Model model, @Valid String searchQuery){
+        model.addAttribute("courses", courseService.getByName(searchQuery));
+        model.addAttribute("searchQuery", searchQuery);
+        return "viewCoursePage";
+    }
+
 
     @GetMapping("/course/getCourse/{id}")
     public String getCourse(@PathVariable("id") int id,Model model) {
