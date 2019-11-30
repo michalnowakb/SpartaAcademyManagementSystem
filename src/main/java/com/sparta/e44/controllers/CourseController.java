@@ -1,6 +1,7 @@
 package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.CourseEntity;
+import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.services.CourseService;
 import com.sparta.e44.services.ModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,12 @@ public class CourseController {
         model.addAttribute("course", courseService.getById(courseId));
         model.addAttribute("modules", moduleService.getAll());
         return "/viewCourseModules";
+    }
+
+    @GetMapping("/course/addNewModule/{courseId}")
+    public String addNewModule(@PathVariable("courseId") int courseId, @Valid ModuleEntity newModule, Model model){
+        moduleService.addModule(newModule);
+        return addModule(courseId,newModule.getModuleId(),model);
     }
 
 }
