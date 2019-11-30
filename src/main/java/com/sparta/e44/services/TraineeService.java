@@ -69,4 +69,10 @@ public class TraineeService {
         trainee.setTeachingGroup(null);
         return trainee;
     }
+
+    public List<TraineeEntity> getByName(String searchQuery) {
+        ArrayList<TraineeEntity> trainees = new ArrayList<>();
+        traineeRepository.getTraineeEntitiesByName(searchQuery).forEach(t->trainees.add(t));
+        return trainees;
+    }
 }

@@ -7,35 +7,64 @@
 </head>
 <body class="backgroundImage">
 <div class="container">
-<h1 style="text-align: center; margin: 2% 0 2% 0">Trainee's Information</h1>
-<table class="table table-striped" border="2">
-<thead class="thead-custom">
-    <tr>
-        <td>Trainee ID</td>
-        <td>First Name</td>
-        <td>Surname</td>
-        <td>Email</td>
-        <td>Contact Number</td>
-        <td>Date Of Birth</td>
-        <td>Gender</td>
-        <td>Start Date</td>
-    </tr>
-</thead>
-    <tbody class="tbody-custom">
-    <tr th:each="trainee : ${trainees}">
-        <td th:text="${trainee.traineeId}">Trainee ID</td>
-        <td th:text="${trainee.firstName}">First Name</td>
-        <td th:text="${trainee.lastName}">Surname</td>
-        <td th:text="${trainee.email}">Email</td>
-        <td th:text="${trainee.contactNumber}">Contact Number</td>
-        <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
-        <td th:text="${trainee.gender}">Gender</td>
-        <td th:text="${trainee.startDate}">Start Date</td>
-        <td><form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update" class="btn btn-success"></form> </td>
-        <td><form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
-    </tr>
-    </tbody>
-</table>
+    <h1 style="text-align: center; margin: 2% 0 2% 0">Trainee's Information</h1>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <form th:action="@{'/trainee/getTrainees/'}" method="get">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Search: </label>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <td><input class="form-control" type="text" name="searchQuery" th:value="${searchQuery}"
+                               placeholder="Search Query"/></td>
+                    <td><input type="submit" value="Search" class="btn btn-custom"/></td>
+                </table>
+            </form>
+        </div>
+    </div>
+
+
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainee ID</td>
+            <td>First Name</td>
+            <td>Surname</td>
+            <td>Email</td>
+            <td>Contact Number</td>
+            <td>Date Of Birth</td>
+            <td>Gender</td>
+            <td>Start Date</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainee : ${trainees}">
+            <td th:text="${trainee.traineeId}">Trainee ID</td>
+            <td th:text="${trainee.firstName}">First Name</td>
+            <td th:text="${trainee.lastName}">Surname</td>
+            <td th:text="${trainee.email}">Email</td>
+            <td th:text="${trainee.contactNumber}">Contact Number</td>
+            <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
+            <td th:text="${trainee.gender}">Gender</td>
+            <td th:text="${trainee.startDate}">Start Date</td>
+            <td>
+                <form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update"
+                                                                                          class="btn btn-success">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"><input type="submit"
+                                                                                             value="Delete"
+                                                                                             class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
