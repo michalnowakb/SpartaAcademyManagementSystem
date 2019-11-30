@@ -22,7 +22,7 @@ public class TraineeController {
         return "viewTraineePage";
     }
 
-    @GetMapping("/trainee/getTrainees/")
+    @GetMapping("/trainee/getTrainees/search")
     public String getTraineesSearch(Model model, @Valid String searchQuery) {
         model.addAttribute("trainees", traineeService.getByName(searchQuery));
         model.addAttribute("searchQuery", searchQuery);
