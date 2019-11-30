@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>View Trainer Modules</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+
+
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${trainer.firstName} + ' ' + ${trainer.lastName}"></output></h1>
+    <!--<h1><output th:text="${course.courseName}"></output> </h1></br>-->
+    <h2>Qualified Modules:</h2>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Module Id</td>
+            <td>Module Name</td>
+            <td>Description</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="module : ${trainer.qualifiedModules}">
+            <td th:text="${module.moduleId}">Module ID</td>
+            <td th:text="${module.moduleName}">Module Name</td>
+            <td th:text="${module.moduleDescription}">Module Description</td>
+            <td> <form id="Remove Module" th:action="@{'/trainer/removeQualifiedModule/' + ${trainer.trainerId} + '/' + ${module.moduleId}}" method="get">
+                <input type="submit" value="Remove Module"/>
+            </form> </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h2>Other Modules</h2>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Module Id</td>
+            <td>Module Name</td>
+            <td>Description</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="module : ${modules}">
+        <span th:if="${!trainer.qualifiedModules.contains(module)}">
+        <td th:text="${module.moduleId}">Module ID</td>
+        <td th:text="${module.moduleName}">Module Name</td>
+        <td th:text="${module.moduleDescription}">Description</td>
+        <td> <form id="Add Module" th:action="@{'/trainer/addQualifiedModule/' + ${trainer.trainerId} + '/' + ${module.moduleId}}" method="get">
+            <input type="submit" value="Add Module"/>
+        </form> </td>
+        </span>
+        </tr>
+        <tbody class="tbody-custom">
+    </table>
+</div>
+</body>
+</html>

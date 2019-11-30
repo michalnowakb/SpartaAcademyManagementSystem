@@ -22,9 +22,9 @@
         </thead>
         <tbody class="tbody-custom">
         <tr th:each="trainer : ${module.trainers}">
-            <td th:text="${trainer.trainerId}">Module ID</td>
-            <td th:text="${trainer.firstName}">Module Name</td>
-            <td th:text="${trainer.lastName}">Module Description</td>
+            <td th:text="${trainer.trainerId}">Trainer ID</td>
+            <td th:text="${trainer.firstName}">First Name</td>
+            <td th:text="${trainer.lastName}">Last Name</td>
             <td> <form id="Remove Trainer" th:action="@{'/module/removeTrainer/' + ${module.moduleId} + '/' + ${trainer.trainerId}}" method="get">
                 <input type="submit" value="Remove Trainer"/>
             </form> </td>

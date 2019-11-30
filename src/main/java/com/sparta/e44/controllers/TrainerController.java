@@ -2,6 +2,7 @@ package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.entities.TrainerEntity;
+import com.sparta.e44.services.ModuleService;
 import com.sparta.e44.services.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,8 @@ public class TrainerController {
 
     @Autowired
     private TrainerService trainerService;
-
+    @Autowired
+    private ModuleService moduleService;
 
     @GetMapping("/trainer/getTrainers")
     public String getTrainers(Model model) {
@@ -50,17 +52,22 @@ public class TrainerController {
         return "viewTrainerPage";
     }
 
-    @PutMapping("/trainer/addQualifiedModule/{trainerId},{moduleId}")
-    public TrainerEntity addQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
+    @GetMapping("/trainer/addQualifiedModule/{trainerId}/{moduleId}")
+    public String addQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId,Model model) {
         trainerService.addQualifiedModule(trainerId, moduleId);
-        return trainerService.getById(trainerId);
+        return viewQualifiedModules(trainerId,model);
     }
 
-    @PutMapping("/trainer/removeQualifiedModule/{trainerId},{moduleId}")
-    public TrainerEntity removeQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId) {
+    @GetMapping("/trainer/removeQualifiedModule/{trainerId}/{moduleId}")
+    public String removeQualifiedModule(@PathVariable("trainerId") int trainerId, @PathVariable("moduleId") int moduleId,Model model) {
         trainerService.removeQualifiedModule(trainerId, moduleId);
-        return trainerService.getById(trainerId);
+        return viewQualifiedModules(trainerId,model);
     }
 
-
+    @GetMapping("/trainer/viewModules/{trainerId}")
+    public String viewQualifiedModules(@PathVariable("trainerId") int trainerId, Model model){
+        model.addAttribute("trainer",trainerService.getById(trainerId));
+        model.addAttribute("modules", moduleService.getAll());
+        return "viewTrainerModulesPage";
+    }
 }
