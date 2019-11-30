@@ -1,6 +1,7 @@
 package com.sparta.e44.services;
 
 import com.sparta.e44.entities.ClassroomEntity;
+import com.sparta.e44.entities.TraineeEntity;
 import com.sparta.e44.repositories.ClassroomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,7 @@ public class ClassroomService {
         return editClassroom;
     }
 
-
+    public List<ClassroomEntity> getByName(String searchQuery) {
+        return classroomRepository.getClassroomEntitiesByName(searchQuery);
+    }
 }
