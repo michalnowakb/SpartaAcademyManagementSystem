@@ -31,7 +31,7 @@
         <td th:text="${trainer.email}">Email</td>
         <td th:text="${trainer.contactNumber}">Contact Number</td>
         <td th:text="${trainer.dateOfBirth}">Date Of Birth</td>
-        <td th:text="${trainer.gender}">Gender</td>
+        <td th:text="${trainer.gender.value}">Gender</td>
         <td th:text="${trainer.startDate}">Start Date</td>
         <td><!--Add button to view/edit specializations here-->
         <form th:action="@{'/trainer/viewModules/' + ${trainer.trainerId}}"><input type="submit" value="Qualified Modules"></form></td>
