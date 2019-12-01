@@ -7,42 +7,53 @@
 
 
 <body class="backgroundImage">
+<div class="container">
 <h1><output th:text="${course.courseName}"></output> </h1></br>
-<table class="table" border="2">
+<table class="table table-striped" border="2">
+    <thead class="thead-custom">
     <tr>
         <td>Module Id</td>
         <td>Module Name</td>
         <td>Module Description</td>
+        <td>Action</td>
         <td></td>
     </tr>
+    </thead>
+    <tbody class="tbody-custom">
     <tr th:each="module : ${course.modules}">
         <td th:text="${module.moduleId}">Module ID</td>
         <td th:text="${module.moduleName}">Module Name</td>
         <td th:text="${module.moduleDescription}">Module Description</td>
         <td> <form id="Remove Modules" th:action="@{'/course/removeModule/' + ${course.courseId} + '/' + ${module.moduleId}}" method="get">
-            <input type="submit" value="Remove Module"/>
+            <input type="submit" value="Remove Module" class="btn btn-danger"/>
         </form> </td>
     </tr>
+    </tbody>
 </table>
 
-<table class="table" border="2">
+<table class="table table-striped" border="2">
+        <thead class="thead-custom">
     <tr>
         <td>Module Id</td>
         <td>Module Name</td>
         <td>Module Description</td>
         <td></td>
     </tr>
+        </thead>
+    <tbody class="tbody-custom">
     <tr th:each="module : ${modules}">
         <span th:if="${!course.modules.contains(module)}">
         <td th:text="${module.moduleId}">Module ID</td>
         <td th:text="${module.moduleName}">Module Name</td>
         <td th:text="${module.moduleDescription}">Module Description</td>
         <td> <form id="Add Modules" th:action="@{'/course/addModule/' + ${course.courseId} + '/' + ${module.moduleId}}" method="post">
-            <input type="submit" value="Add Module"/>
+            <input type="submit" value="Add Module" class="btn btn-success"/>
         </form> </td>
         </span>
     </tr>
+    </tbody>
 </table>
+</div>
 </body>
 </html>
 </body>
