@@ -19,6 +19,9 @@ public class ModuleEntity {
     @OneToMany(mappedBy = "gradeId.module")
     private List<GradeEntity> grades;
 
+    @ManyToMany(mappedBy = "qualifiedModules")
+    private List<TrainerEntity> trainers;
+
     public ModuleEntity(){}
 
     public ModuleEntity(String moduleName) {
@@ -48,5 +51,21 @@ public class ModuleEntity {
 
     public void setModuleDescription(String moduleDescription) {
         this.moduleDescription = moduleDescription;
+    }
+
+    public List<TrainerEntity> getTrainers() {
+        return trainers;
+    }
+
+    public void setTrainers(List<TrainerEntity> trainers) {
+        this.trainers = trainers;
+    }
+
+    public void addTrainer(TrainerEntity trainer){
+        trainers.add(trainer);
+    }
+
+    public void removeTrainer(TrainerEntity trainer){
+        trainers.remove(trainer);
     }
 }

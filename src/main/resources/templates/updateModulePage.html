@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Module Page</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<h1 style="text-align: center; margin-top: 5%"> Edit a Module</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
+            <div class="card-body" style="color: black">
+<form th:action="@{'/module/editModule/' + ${module.moduleId}}" th:object="${module}" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-6">
+        Module Name: <input name="moduleName" th:field="*{moduleName}"/>
+    </div>
+        <div class="form-group col-6">
+        Description: <input name="moduleDescription" th:field="*{moduleDescription}"/>
+    </div>
+    </div>
+    <div class="form-row d-flex justify-content-center">
+        <input type="submit" value="Save updates" name="button"/>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

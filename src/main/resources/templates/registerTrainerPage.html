@@ -2,70 +2,75 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">
-    <title>Title</title>
+    <title>Register Trainer Page</title>
 </head>
 <div th:replace="fragments/header :: header"></div>
-<body>
+<body class="backgroundImage">
 
 <h1 style="text-align: center; margin-top: 5%"> Register a Trainer</h1>
 <div class="container">
-    <div class="row">
-        <div class="col-12 d-flex justify-content-center"  style="border: solid 2px black; padding: 10% 0 5% 0">
-
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
+            <div class="card-body" style="color: black">
             <form th:action="@{/trainer/addTrainer}" method="post">
-            <div class="form-row">
+                <div class="form-row">
                     <div class="form-group col-6 ">
-                        <input type="text" name="firstName" placeholder="First Name"/>
+                        <label>First Name</label>
+                        <input class="form-control" type="text" name="firstName" placeholder="First Name"/>
                     </div>
 
                     <div class="form-group col-6">
-
-                        <input type="text" name="lastName" placeholder="Last Name"/>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-6">
-
-                        <input type="date" name="" placeholder="Date Of Birth" required pattern="\y{4}-\m{2}-\d{2}"/>
-                    </div>
-
-                    <div class="form-group col-6">
-
-                        <input type="email" name="email" placeholder="E-mail"/>
+                        <label>Last Name</label>
+                        <input class="form-control" type="text" name="lastName" placeholder="Last Name"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6">
-
-                        <input type="tel" name="contactNumber" placeholder="Contact Number"/>
+                        <label>Date of Birth</label>
+                        <input class="form-control" type="date" name="dateOfBirth" placeholder="Date Of Birth"/>
                     </div>
 
                     <div class="form-group col-6">
-                        <input type="date" name="" placeholder="Start Date" required pattern="\y{4}-\m{2}-\d{2}"/>
+                        <label>Email</label>
+                        <input class="form-control" type="email" name="email" placeholder="E-mail"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <label>Contact Number</label>
+                        <input class="form-control" type="tel" name="contactNumber" placeholder="Contact Number"/>
+                    </div>
+
+                    <div class="form-group col-6">
+                        <label>Start Date</label>
+                        <input class="form-control" type="date" name="startDate" placeholder="Start Date"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6 ">
                         <select name="gender" class="custom-select">
                             <option selected>Select Gender</option>
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                            <option value="O">Other</option>
+                            <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
+                                    th:value="${gen}"
+                                    th:text="${gen}">
+                            </option>
                         </select>
                     </div>
-                    <div class="form-group col-6 ">
-                        <select name="" class="custom-select">
-                            <option selected>Select Modules</option>
-                            <option value="Java">Java</option>
-                            <option value="AN">Another Module</option>
-                            <option value="AN">Another Module</option>
-                        </select>
-                    </div>
+<!--                    <div class="form-group col-6 ">-->
+<!--                        <select name="" class="custom-select">-->
+<!--                            <option selected>Select Modules</option>-->
+<!--                            <option value="Java">Java</option>-->
+<!--                            <option value="AN">Another Module</option>-->
+<!--                            <option value="AN">Another Module</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
                 </div>
                 <div class="form-row d-flex justify-content-center">
-                    <input type="submit" value="Add Trainer" class="btn btn-danger"/>
+                    <input type="submit" value="Add Trainer" class="btn btn-custom"/>
                 </div>
             </form>
+            </div>
+        </div>
         </div>
     </div>
 </div>

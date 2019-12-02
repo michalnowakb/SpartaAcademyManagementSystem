@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <div th:replace="fragments/header :: header"></div>
+<head>
+    <title>Home</title>
+</head>
 <body class="backgroundImage backgroundColor">
 <div class="container" >
     <h1 style="text-align: center; margin: 5% 0 10% 0">Dashboard</h1>
@@ -25,8 +28,5 @@
     </div>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
-<form th:action="@{/trainee/getTrainees}">
-    <input type="submit" value="submit">
-</form>
 </body>
 </html>

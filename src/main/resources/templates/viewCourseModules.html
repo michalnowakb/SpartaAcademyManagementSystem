@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>View Course Modules</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+
+
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${course.courseName}"></output></h1>
+<!--<h1><output th:text="${course.courseName}"></output> </h1></br>-->
+<h2>Course Modules:</h2>
+<table class="table table-striped" border="2">
+    <thead class="thead-custom">
+    <tr>
+        <td>Module Id</td>
+        <td>Module Name</td>
+        <td>Module Description</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody class="tbody-custom">
+    <tr th:each="module : ${course.modules}">
+        <td th:text="${module.moduleId}">Module ID</td>
+        <td th:text="${module.moduleName}">Module Name</td>
+        <td th:text="${module.moduleDescription}">Module Description</td>
+        <td> <form id="Remove Modules" th:action="@{'/course/removeModule/' + ${course.courseId} + '/' + ${module.moduleId}}" method="get">
+            <input type="submit" value="Remove Module"/>
+        </form> </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<h2>Available Modules</h2>
+<table class="table table-striped" border="2">
+    <thead class="thead-custom">
+    <tr>
+        <td>Module Id</td>
+        <td>Module Name</td>
+        <td>Module Description</td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody class="tbody-custom">
+    <tr th:each="module : ${modules}">
+        <span th:if="${!course.modules.contains(module)}">
+        <td th:text="${module.moduleId}">Module ID</td>
+        <td th:text="${module.moduleName}">Module Name</td>
+        <td th:text="${module.moduleDescription}">Module Description</td>
+        <td> <form id="Add Modules" th:action="@{'/course/addModule/' + ${course.courseId} + '/' + ${module.moduleId}}" method="post">
+            <input type="submit" value="Add Module"/>
+        </form> </td>
+        </span>
+    </tr>
+    <tbody class="tbody-custom">
+</table>
+</div>
+</body>
+</html>
