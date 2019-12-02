@@ -3,14 +3,18 @@ package com.sparta.e44.entities;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class ClassroomEntity {
+public class ClassroomEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int classroomId;
     private String classroomName;
     private int capacity;
+
+    @OneToMany(mappedBy = "classroom")
+    private List<TimeslotEntity> avaliableTimeslots;
 
     public ClassroomEntity(String classroomName, int capacity) {
         this.classroomName = classroomName;

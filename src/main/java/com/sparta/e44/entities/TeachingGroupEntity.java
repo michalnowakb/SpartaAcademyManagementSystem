@@ -3,6 +3,7 @@ package com.sparta.e44.entities;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -45,6 +46,9 @@ public class TeachingGroupEntity {
 
     @OneToMany(mappedBy = "teachingGroup")
     private List<TraineeEntity> trainees;
+
+    @OneToMany(mappedBy = "group")
+    private List<TimeslotEntity> avaliableTimeslots;
 
     public ClassroomEntity getClassroomEntity() {
         return classroomEntity;
