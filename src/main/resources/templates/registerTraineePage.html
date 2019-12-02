@@ -52,7 +52,7 @@
                                 <option selected>Select Gender</option>
                                 <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
                                         th:value="${gen}"
-                                        th:text="${gen.value}">
+                                        th:text="${gen}">
                                 </option>
                             </select>
                         </div>

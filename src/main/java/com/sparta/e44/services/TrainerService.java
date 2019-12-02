@@ -77,8 +77,4 @@ public class TrainerService {
         trainer.removeModule(module);
         trainerRepository.save(trainer);
     }
-
-    public List<TrainerEntity> getByName(String searchQuery) {
-        return trainerRepository.getTrainerEntitiesByName(searchQuery);
-    }
 }

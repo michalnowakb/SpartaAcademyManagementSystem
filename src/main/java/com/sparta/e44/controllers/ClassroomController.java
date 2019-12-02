@@ -23,13 +23,6 @@ public class ClassroomController {
         return "viewClassroomPage";
     }
 
-    @GetMapping("/classroom/getClassrooms/search")
-    public String getClassroomsSearch(Model model, @Valid String searchQuery){
-        model.addAttribute("classrooms", classroomService.getByName(searchQuery));
-        model.addAttribute("searchQuery", searchQuery);
-        return "viewClassroomPage";
-    }
-
     @GetMapping("/classroom/getClassroom/{id}")
     public String getClassroom(@PathVariable int id, Model model) {
         model.addAttribute("classroom", classroomService.getById(id));

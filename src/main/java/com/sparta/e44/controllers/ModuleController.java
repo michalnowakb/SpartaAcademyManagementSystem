@@ -24,13 +24,6 @@ public class ModuleController {
         return "/viewModulePage";
     }
 
-    @GetMapping("/module/getModules/search")
-    public String getCoursesSearch(Model model, @Valid String searchQuery){
-        model.addAttribute("modules", moduleService.getByName(searchQuery));
-        model.addAttribute("searchQuery", searchQuery);
-        return "viewModulePage";
-    }
-
     @GetMapping("/module/getModule/{id}")
     public String getModule(@PathVariable("id") int id, Model model) {
         model.addAttribute("module", moduleService.getById(id));

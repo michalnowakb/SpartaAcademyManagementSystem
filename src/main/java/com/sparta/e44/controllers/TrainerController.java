@@ -26,13 +26,6 @@ public class TrainerController {
         return "viewTrainerPage";
     }
 
-    @GetMapping("/trainer/getTrainers/search")
-    public String getTrainersSearch(Model model, @Valid String searchQuery){
-        model.addAttribute("trainers", trainerService.getByName(searchQuery));
-        model.addAttribute("searchQuery", searchQuery);
-        return "viewTrainerPage";
-    }
-
     @GetMapping("/trainer/getTrainer/{id}")
     public String getTrainer(@PathVariable("id") int id, Model model) {
         model.addAttribute("trainer", trainerService.getById(id));

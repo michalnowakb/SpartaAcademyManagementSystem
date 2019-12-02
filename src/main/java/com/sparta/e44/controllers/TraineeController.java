@@ -22,13 +22,6 @@ public class TraineeController {
         return "viewTraineePage";
     }
 
-    @GetMapping("/trainee/getTrainees/search")
-    public String getTraineesSearch(Model model, @Valid String searchQuery) {
-        model.addAttribute("trainees", traineeService.getByName(searchQuery));
-        model.addAttribute("searchQuery", searchQuery);
-        return "viewTraineePage";
-    }
-
     @GetMapping("/trainee/getTrainee/{id}")
     public String getTrainee(@PathVariable("id") int id, Model model) {
         model.addAttribute("trainee", traineeService.getById(id));

@@ -10,21 +10,19 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
 
-        <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
+        <div class="card col-5" style="border: solid 2px black;">
             <div class="card-body">
                 <form th:action="@{/classroom/addClassroom}" method="post">
-                    <div class="form-row">
-                        <div class="form-group col-6 ">
-                            <label>Room Name</label>
-                            <input type="text" name="classroomName" placeholder="Classroom Name"/>
-                        </div>
-                        <div class="form-group col-6">
-                            <label>Capacity</label>
-                            <input type="text" name="capacity" placeholder="Capacity"/>
-                        </div>
+                    <div class="form-group col-6 ">
+                        <input type="text" name="classroomName" placeholder="Classroom Name"/>
                     </div>
+                    <div class="form-group col-6">
+
+                        <input type="text" name="capacity" placeholder="Capacity"/>
+                    </div>
+
                     <div class="form-row d-flex justify-content-center">
-                        <input type="submit" value="Submit" class="btn btn-custom"/>
+                        <input type="submit" value="Submit" class="btn btn-danger"/>
                     </div>
 
                 </form>
