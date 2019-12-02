@@ -30,7 +30,7 @@ public class TeachingGroupController {
     @PostMapping("/teachingGroup/addTeachingGroup")
     public String addTeachingGroup(@Valid TeachingGroupEntity teachingGroup){
         teachingGroupService.addTeachingGroup(teachingGroup);
-        return "";
+        return "registerTeachingGroupPage";
     }
 
     @GetMapping("/teachingGroup/editTeachingGroup/{id}")
