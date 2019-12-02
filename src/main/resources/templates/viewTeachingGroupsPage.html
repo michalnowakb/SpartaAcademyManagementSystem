@@ -24,9 +24,9 @@
 
 
             <td><form id="View Groups" th:action="@{'/teachingGroup/viewTeachingGroupsPage/' + ${teachingGroup.groupId}}" method="get">
-                <input type="submit" value="View Groups" /> 
+                <input type="submit" value="More info" />
             </form> </td>
-            <td><form th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}"><input type="submit" value="View" class="btn btn-success"></form></td>
+            <td><form th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit" class="btn btn-success"></form></td>
             <td><form th:action="@{'/teachingGroup/removeTeachingGroup/' + ${teachingGroup.groupId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
         </tr>
         </tbody>
