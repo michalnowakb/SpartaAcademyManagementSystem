@@ -18,24 +18,25 @@ public class TeachingGroupController {
     @GetMapping("/teachingGroups/getTeachingGroups")
     public String getTeachingGroups(Model model){
        model.addAttribute("teachingGroups" ,teachingGroupService.getAllTeachingGroups());
-        return "";
+        return "viewTeachingGroupsPage";
     }
 
     @GetMapping("/teachingGroup/getTeachingGroup/{id}")
     public String getTeachingGroup(@PathVariable("id") int id, Model model){
         model.addAttribute("teachingGroup",teachingGroupService.getTeachingGroup(id));
-        return "";
+        return "/updateTeachingGroupPage";
     }
 
     @PostMapping("/teachingGroup/addTeachingGroup")
     public String addTeachingGroup(@Valid TeachingGroupEntity teachingGroup){
         teachingGroupService.addTeachingGroup(teachingGroup);
-        return "";
+        return "registerTeachingGroupPage";
     }
 
     @GetMapping("/teachingGroup/editTeachingGroup/{id}")
-    public String editTeachingGroup(@PathVariable("id") int id, @Valid TeachingGroupEntity teachingGroup){
+    public String editTeachingGroup(@PathVariable("id") int id, @Valid TeachingGroupEntity teachingGroup, Model model){
         teachingGroupService.editTeachingGroup(teachingGroup,id);
+        model.addAttribute("teachingGroups", teachingGroupService.getAllTeachingGroups());
         return "";
     }
 
