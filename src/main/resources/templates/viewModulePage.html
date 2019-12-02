@@ -6,17 +6,21 @@
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
-<h1>All courses</h1>
-<br>
-<table class="table" border="2">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0">Module's Information</h1>
 
+<!--<h1>All Modules</h1>-->
+<br>
+<table class="table table-striped" border="2">
+    <thead class="thead-custom">
     <tr>
         <td>Module Id</td>
         <td>Module name</td>
         <td>Description</td>
 
     </tr>
-
+    </thead>
+    <tbody class="tbody-custom">
     <tr th:each="module : ${modules}">
         <td th:text="${module.moduleId}">Module Id</td>
         <td th:text="${module.moduleName}">Name</td>
@@ -26,10 +30,12 @@
         <td><form id="View Trainers" th:action="@{'/module/viewTrainers/' + ${module.moduleId}}" method="get">
             <input type="submit" value="View Qualified Trainers" />
         </form> </td>
-        <td><form th:action="@{'/module/getModule/' + ${module.moduleId}}"><input type="submit" value="Update"></form>
-            <form th:action="@{'/module/removeModule/' + ${module.moduleId}}"> <input type="submit" value="Delete"></form></td>
+        <td><form th:action="@{'/module/getModule/' + ${module.moduleId}}"><input type="submit" value="Update" class="btn btn-success"></form></td>
+        <td><form th:action="@{'/module/removeModule/' + ${module.moduleId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
     </tr>
+    </tbody>
 </table>
+</div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

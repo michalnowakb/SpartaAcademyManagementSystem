@@ -31,21 +31,20 @@ public class TraineeController {
     @PostMapping("/trainee/addTrainee")
     public String addTrainee(@Valid TraineeEntity newTrainee) {
         traineeService.addTrainee(newTrainee);
-        return "";
+        return "registerTraineePage";
     }
 
     @GetMapping("/trainee/editTrainee/{id}")
     public String editTrainee(@Valid TraineeEntity editedTrainee, @PathVariable("id") int id, Model model) {
         traineeService.editTrainee(editedTrainee, id);
         model.addAttribute("trainees", traineeService.getAll());
-        return "viewTraineePage";
+        return getTrainees(model);
     }
 
 
     @GetMapping("/trainee/removeTrainee/{id}")
     public String removeCourse(@PathVariable("id") int id, Model model) {
         traineeService.removeTrainee(id);
-        model.addAttribute("trainees", traineeService.getAll());
-        return "viewTraineePage";
+        return getTrainees(model);
     }
 }

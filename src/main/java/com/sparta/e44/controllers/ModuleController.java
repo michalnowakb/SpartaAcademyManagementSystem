@@ -12,6 +12,7 @@ import javax.validation.Valid;
 
 @Controller
 public class ModuleController {
+
     @Autowired
     private ModuleService moduleService;
     @Autowired
@@ -37,9 +38,10 @@ public class ModuleController {
     }
 
     @GetMapping("/module/editModule/{id}")
-    public String editModule(@Valid ModuleEntity editedModule, @PathVariable("id") int id) {
+    public String editModule(@Valid ModuleEntity editedModule, @PathVariable("id") int id, Model model) {
         moduleService.editModule(editedModule, id);
-        return "";
+        model.addAttribute("modules",moduleService.getAll());
+        return "viewModulePage";
     }
 
     @GetMapping("/module/removeModule/{id}")
@@ -58,16 +60,12 @@ public class ModuleController {
     @GetMapping("/module/addTrainer/{moduleId}/{trainerId}")
     public String addModuleTrainer(@PathVariable("moduleId") int moduleId, @PathVariable("trainerId") int trainerId, Model model){
         trainerService.addQualifiedModule(trainerId, moduleId);
-        model.addAttribute("trainers", trainerService.getAll());
-        model.addAttribute("module",moduleService.getById(moduleId));
-        return "viewModuleTrainers";
+        return viewTrainers(moduleId,model);
     }
 
     @GetMapping("/module/removeTrainer/{moduleId}/{trainerId}")
     public String removeModuleTrainer(@PathVariable("moduleId") int moduleId, @PathVariable("trainerId") int trainerId, Model model){
         trainerService.removeQualifiedModule(trainerId, moduleId);
-        model.addAttribute("trainers", trainerService.getAll());
-        model.addAttribute("module",moduleService.getById(moduleId));
-        return "viewModuleTrainers";
+        return viewTrainers(moduleId,model);
     }
 }
