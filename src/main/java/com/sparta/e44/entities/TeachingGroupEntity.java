@@ -30,7 +30,8 @@ public class TeachingGroupEntity {
         this.endDate = endDate;
     }
 
-    public TeachingGroupEntity(){}
+    public TeachingGroupEntity() {
+    }
 
     @ManyToMany
     @JoinTable(
@@ -75,11 +76,11 @@ public class TeachingGroupEntity {
         this.trainers = trainers;
     }
 
-    public void addTrainer(TrainerEntity trainer){
+    public void addTrainer(TrainerEntity trainer) {
         this.trainers.add(trainer);
     }
 
-    public void removeTrainer(TrainerEntity trainer){
+    public void removeTrainer(TrainerEntity trainer) {
         this.trainers.remove(trainer);
     }
 
@@ -127,6 +128,15 @@ public class TeachingGroupEntity {
     public List<TraineeEntity> getTrainees() {
         return trainees;
     }
+
+    public void addTrainee(TraineeEntity trainee) {
+        this.trainees.add(trainee);
+    }
+    public void removeTrainee(TraineeEntity trainee){
+        this.trainees.remove(trainee);
+    }
+
+
 
     public void setTrainees(List<TraineeEntity> trainees) {
         this.trainees = trainees;

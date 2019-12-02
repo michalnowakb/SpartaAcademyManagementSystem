@@ -45,6 +45,8 @@ public class TeachingGroupController {
         return "";
     }
 
+
+    //---addClassroom/removeClassroom---//
     @PutMapping("/teachingGroup/addClassroom/{groupId}/{classroomId}")
     public String addClassroom(@PathVariable("groupId") int groupId, @PathVariable("classroomId") int classroomId){
         teachingGroupService.addClassroom(groupId,classroomId);
@@ -57,4 +59,29 @@ public class TeachingGroupController {
         return "";
     }
 
+    //---addTrainee/removeTrainee---//
+    @PutMapping("/teachingGroup/addTrainee/{groupId}/{traineeId}")
+    public String addTrainee(@PathVariable("groupId") int groupId, @PathVariable("traineeId") int traineeId){
+        teachingGroupService.addTrainee(groupId,traineeId);
+        return "";
+    }
+
+    @GetMapping("/teachingGroup/removeTrainee/{groupId}/{traineeId}")
+    public String removeTrainee(@PathVariable("groupId") int groupId, @PathVariable("traineeId") int traineeId){
+        teachingGroupService.removeTrainee(groupId,traineeId);
+        return "";
+    }
+
+    //---addCourse/removeCourse---//
+    @PutMapping("/teachingGroup/addCourse/{groupId}/{courseId}")
+    public String addCourse(@PathVariable("groupId") int groupId, @PathVariable("courseId") int courseId){
+        teachingGroupService.addCourse(groupId,courseId);
+        return "";
+    }
+
+    @GetMapping("/teachingGroup/removeCourse/{groupId}")
+    public String removeCourse(@PathVariable("groupId") int groupId){
+        teachingGroupService.removeCourse(groupId);
+        return "";
+    }
 }
