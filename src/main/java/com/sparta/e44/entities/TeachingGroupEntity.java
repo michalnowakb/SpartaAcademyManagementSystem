@@ -10,6 +10,7 @@ import java.util.List;
 public class TeachingGroupEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int groupId;
     private String groupName;
 
@@ -45,6 +46,18 @@ public class TeachingGroupEntity {
 
     @OneToMany(mappedBy = "teachingGroup")
     private List<TraineeEntity> trainees;
+
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name = "course_id")
+    private CourseEntity course;
+
+    public CourseEntity getCourse() {
+        return course;
+    }
+
+    public void setCourse(CourseEntity course) {
+        this.course = course;
+    }
 
     public ClassroomEntity getClassroomEntity() {
         return classroomEntity;
