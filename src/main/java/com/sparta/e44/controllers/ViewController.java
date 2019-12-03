@@ -84,4 +84,12 @@ public class ViewController {
     public String connectToRegisterClassroomPage(){
         return "registerClassroomPage";
     }
+    @RequestMapping("/registerTeachingGroupPage")
+    public String connectToRegisterTeachingGroupPage(){
+        return "registerTeachingGroupPage";
+    }
+    @RequestMapping("/viewTeachingGroupsPage")
+    public String connectToViewTeachingGroupsPage() {
+        return "viewTeachingGroupsPage";
+    }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teaching Group</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0">Current trainers</h1>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainer ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainer : ${teachingGroup.trainers}">
+            <td th:text="${trainer.trainerId}">Trainer ID</td>
+            <td th:text="${trainer.firstName}">First name</td>
+            <td th:text="${trainer.lastName}">Last name</td>
+            <td><form id="Remove Trainer" th:action="@{'/teachingGroup/removeTrainer/' + ${teachingGroup.groupId} + '/' + ${trainer.trainerId}}">
+            <input type="submit" value="Remove Trainer"/></form></td>
+        </tr>
+        </tbody>
+    </table>
+    <h1 style="text-align: center; margin: 2% 0 2% 0">Available trainers</h1>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainer ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainer : ${trainers}">
+            <span th:if="${!teachingGroup.trainers.contains(trainer)}">
+            <td th:text="${trainer.trainerId}">Trainer ID</td>
+            <td th:text="${trainer.firstName}">First name</td>
+            <td th:text="${trainer.lastName}">Last name</td>
+            <td> <form id="Add Trainer" th:action="@{'/teachingGroup/addTrainer/' + ${teachingGroup.groupId} + '/' + ${trainer.trainerId}}" method="post">
+            <input type="submit" value="Add Trainer"/></form></td>
+            </span>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

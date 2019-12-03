@@ -1,7 +1,5 @@
 package com.sparta.e44.services;
 
-
-import com.sparta.e44.entities.CourseEntity;
 import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.entities.TrainerEntity;
 import com.sparta.e44.repositories.ModuleRepository;
@@ -76,5 +74,9 @@ public class TrainerService {
     public void removeQualifiedModule(TrainerEntity trainer, ModuleEntity module){
         trainer.removeModule(module);
         trainerRepository.save(trainer);
+    }
+
+    public List<TrainerEntity> getByName(String searchQuery) {
+        return trainerRepository.getTrainerEntitiesByName(searchQuery);
     }
 }
