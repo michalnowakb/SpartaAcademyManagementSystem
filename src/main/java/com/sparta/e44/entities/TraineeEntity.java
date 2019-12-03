@@ -26,8 +26,23 @@ public class TraineeEntity extends AbstractPersonEntity {
     @JoinColumn(name = "group_id")
     private TeachingGroupEntity teachingGroup;
 
+    @OneToMany(mappedBy = "attendanceId.trainee")
+    private List<AttendanceEntity> attendanceList;
+
     public TraineeEntity() {
 
+    }
+
+    public List<AttendanceEntity> getAttendance() {
+        return attendanceList;
+    }
+
+    public void setAttendance(List<AttendanceEntity> attendance) {
+        this.attendanceList = attendance;
+    }
+
+    public void addAttendance(AttendanceEntity attendance){
+        this.attendanceList.add(attendance);
     }
 
     public String getPlacement() {

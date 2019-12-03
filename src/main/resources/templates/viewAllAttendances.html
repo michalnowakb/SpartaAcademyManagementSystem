@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<head>
+    <meta charset="UTF-8">
+    <title>Dates</title>
+</head>
+
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${group.course.courseName}"></output></h1>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr >
+            <td>Trainee</td>
+            <td th:each="date:${dates}"><output th:text="${date}"></output> </td>
+        </tr>
+        </thead>
+        <tbody  class="tbody-custom">
+            <tr th:each="trainee:${traineeAttendances.keySet()}">
+                <td th:text="${trainee.firstName + ' ' + trainee.lastName}"></td>
+                <td th:each="dateAttendance:${traineeAttendances.get(trainee)}">
+                    <output th:text="${dateAttendance.isPresent}"></output>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>
