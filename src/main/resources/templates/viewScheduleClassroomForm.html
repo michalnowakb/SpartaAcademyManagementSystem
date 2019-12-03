@@ -35,17 +35,16 @@
                             <input class="form-control" type="date" name="endDate" placeholder="End Date"/>
                         </div>
 
-
-<!--                        <div class="form-group col-6">-->
-<!--                            <label>Classroom:</label>-->
-<!--                                <select name="classroomName" class="custom-select">-->
-<!--                                    <option selected>Select Classroom</option>-->
-<!--                                    <option th:each="classroom : ${T(com.sparta.e44.entities.state.Classrooms.values()}"-->
-<!--                                            th:value="${classroom}"-->
-<!--                                            th:text="${classroom.value}">-->
-<!--                                    </option>-->
-<!--                                </select>-->
-<!--                        </div>-->
+                        <div class="form-group col-6">
+                            <label>Classroom:</label>
+                                <select name="classroomName" class="custom-select">
+                                    <option selected>Select Classroom</option>
+                                    <option th:each="classroom : ${T(com.sparta.e44.entities.state.Classrooms).values()}"
+                                            th:value="${classroom}"
+                                            th:text="${classroom.value}">
+                                    </option>
+                                </select>
+                        </div>
                     </div>
                     <div class="form-row d-flex justify-content-center">
                         <input type="submit" value="Add to Calendar" class="btn btn-custom"/>
