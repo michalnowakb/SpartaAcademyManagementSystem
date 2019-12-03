@@ -13,6 +13,10 @@ public class TimeslotEntity {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    public TimeslotEntity(){
+
+    }
+
     public TimeslotEntity(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
