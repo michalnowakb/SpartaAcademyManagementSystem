@@ -8,8 +8,7 @@ public enum Classrooms {
     Drive("Drive"),
     Diversity("Diversity"),
     Collaboration("Collaboration"),
-    Turing("Turing"),
-    ClassroomNotAvailable("Classroom Not Available");
+    Turing("Turing");
 
 
     private String value;
@@ -38,7 +37,6 @@ public enum Classrooms {
             case "Turing":
                 return Classrooms.Turing;
         }
-        return Classrooms.ClassroomNotAvailable;
-
+        return Classrooms.Turing;
     }
 }
