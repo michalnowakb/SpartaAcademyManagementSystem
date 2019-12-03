@@ -23,13 +23,12 @@ public class TraineeEntity extends AbstractPersonEntity {
     private List<GradeEntity> grades;
 
     @ManyToOne
-    @PrimaryKeyJoinColumn(name = "group_id")
+    @JoinColumn(name = "group_id")
     private TeachingGroupEntity teachingGroup;
 
     public TraineeEntity() {
 
     }
-
 
     public String getPlacement() {
         return placement;

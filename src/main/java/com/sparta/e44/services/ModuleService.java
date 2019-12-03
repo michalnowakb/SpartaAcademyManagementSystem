@@ -1,5 +1,6 @@
 package com.sparta.e44.services;
 
+import com.sparta.e44.entities.CourseEntity;
 import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.entities.TraineeEntity;
 import com.sparta.e44.repositories.ModuleRepository;
@@ -40,6 +41,10 @@ public class ModuleService {
         editedModule.setModuleId(id);
         moduleRepository.save(editedModule);
         return editedModule;
+    }
+
+    public List<ModuleEntity> getByName(String searchQuery){
+        return moduleRepository.getModuleEntitiesByName(searchQuery);
     }
 
 }
