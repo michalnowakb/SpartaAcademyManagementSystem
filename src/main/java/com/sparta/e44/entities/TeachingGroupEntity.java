@@ -11,6 +11,7 @@ import java.util.List;
 public class TeachingGroupEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int groupId;
     private String groupName;
 
@@ -30,7 +31,8 @@ public class TeachingGroupEntity {
         this.endDate = endDate;
     }
 
-    public TeachingGroupEntity(){}
+    public TeachingGroupEntity() {
+    }
 
     @ManyToMany
     @JoinTable(
@@ -47,8 +49,22 @@ public class TeachingGroupEntity {
     @OneToMany(mappedBy = "teachingGroup")
     private List<TraineeEntity> trainees;
 
+
     @OneToMany(mappedBy = "group")
     private List<TimeslotEntity> avaliableTimeslots;
+
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name = "course_id")
+    private CourseEntity course;
+
+    public CourseEntity getCourse() {
+        return course;
+    }
+
+    public void setCourse(CourseEntity course) {
+        this.course = course;
+    }
+
 
     public ClassroomEntity getClassroomEntity() {
         return classroomEntity;
@@ -66,11 +82,11 @@ public class TeachingGroupEntity {
         this.trainers = trainers;
     }
 
-    public void addTrainer(TrainerEntity trainer){
+    public void addTrainer(TrainerEntity trainer) {
         this.trainers.add(trainer);
     }
 
-    public void removeTrainer(TrainerEntity trainer){
+    public void removeTrainer(TrainerEntity trainer) {
         this.trainers.remove(trainer);
     }
 
@@ -117,6 +133,13 @@ public class TeachingGroupEntity {
 
     public List<TraineeEntity> getTrainees() {
         return trainees;
+    }
+
+    public void addTrainee(TraineeEntity trainee) {
+        this.trainees.add(trainee);
+    }
+    public void removeTrainee(TraineeEntity trainee){
+        this.trainees.remove(trainee);
     }
 
     public void setTrainees(List<TraineeEntity> trainees) {
