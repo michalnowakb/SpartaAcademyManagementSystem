@@ -1,8 +1,9 @@
 .navbar-custom {
     background-color: mediumvioletred; !important;
 }
-body { padding-top: 70px;
-    padding-buttom: 70px;
+body {
+    padding-top: 7%;
+    padding-buttom: 5%;
     color: white;
 }
 
@@ -34,5 +35,17 @@ a{
 }
 a:hover{
     color: rgba(255, 255, 255, 0.52);
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.container{
+
+    padding-bottom: 15%;
 }
 
