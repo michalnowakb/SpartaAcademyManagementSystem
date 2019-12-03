@@ -69,4 +69,8 @@ public class CourseService {
         course.removeModule(module);
         courseRepository.save(course);
     }
+
+    public List<CourseEntity> getByName(String searchQuery){
+        return courseRepository.getCourseEntitiesByName(searchQuery);
+    }
 }
