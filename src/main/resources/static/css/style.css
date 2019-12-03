@@ -1,8 +1,9 @@
 .navbar-custom {
     background-color: mediumvioletred; !important;
 }
-body { padding-top: 70px;
-    padding-buttom: 70px;
+body {
+    padding-top: 10%;
+    padding-bottom: 10%;
     color: white;
 }
 
@@ -34,5 +35,9 @@ a{
 }
 a:hover{
     color: rgba(255, 255, 255, 0.52);
+}
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
