@@ -32,6 +32,16 @@
                             <label>End Date</label>
                             <input class="form-control" type="date" name="endDate" placeholder="End Date"/>
                         </div>
+                        <div class="form-group col-6 ">
+                            <label>Course</label>
+                            <select name = "course" class = "custom-select">
+                                <option selected th:value="${null}">Select Course</option>
+                                <option th:each="course : ${courses}"
+                                        th:value="${course.courseId}"
+                                        th:text="${course.courseName}">
+                                </option>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-row justify-content-center">
                         <input type="submit" value="Submit" class="btn btn-custom"/>

@@ -26,6 +26,28 @@
                             <label>End date</label>
                             <input class="form-control" type="date" name="lastName" th:field="*{endDate}"/>
                         </div>
+                        <div class="form-group col-6 ">
+                            <label>Course</label>
+                            <span th:if="${teachingGroup.course!=null}">
+                                <select name = "course" class = "custom-select" th:field="*{course}">
+                                <option selected th:value="${teachingGroup.course.courseId}" th:text="${teachingGroup.course.courseName}" >Select Course</option>
+                                <option th:each="course : ${courses}"
+                                        th:value="${course.courseId}"
+                                        th:text="${course.courseName}">
+                                </option>
+                                <option th:value="${null}" th:text="${'No Course'}"></option>
+                                </select>
+                            </span>
+                            <span th:unless="${teachingGroup.course!=null}">
+                                <select name = "course" class = "custom-select" th:field="*{course}">
+                                <option selected th:value="${null}" th:text="${'No Course'}" >Select Course</option>
+                                <option th:each="course : ${courses}"
+                                        th:value="${course.courseId}"
+                                        th:text="${course.courseName}">
+                                </option>
+                                </select>
+                            </span>
+                        </div>
                     </div>
                     <div class="form-row d-flex justify-content-center">
                         <input type="submit" value="Save Updates" class="btn btn-custom" name="button"/>

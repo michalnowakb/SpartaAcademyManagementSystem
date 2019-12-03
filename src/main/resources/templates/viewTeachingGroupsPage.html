@@ -12,6 +12,7 @@
         <thead class="thead-custom">
         <tr>
             <td>Group Name</td>
+            <td>Course</td>
             <td>Start Date</td>
             <td>End Date</td>
         </tr>
@@ -19,6 +20,17 @@
         <tbody class="tbody-custom">
         <tr th:each="teachingGroup : ${teachingGroups}">
             <td th:text="${teachingGroup.groupName}">Group Name</td>
+            <span th:if="${teachingGroup.course!=null}">
+                            <td th:text="${teachingGroup.course.courseName}">Course</td>
+
+            </span>
+            <span th:unless="${teachingGroup.course!=null}">
+                            <td>None Selected</td>
+
+            </span>
+
+
+
             <td th:text="${teachingGroup.startDate}">Start Date</td>
             <td th:text="${teachingGroup.endDate}">End Date</td>
 
