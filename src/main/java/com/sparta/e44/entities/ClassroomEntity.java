@@ -13,14 +13,13 @@ public class ClassroomEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int classroomId;
 
-    @Enumerated(EnumType.STRING)
-    private Classrooms classroomName;
+    private String classroomName;
     private int capacity;
 
     @OneToMany(mappedBy = "classroom")
     private List<TimeslotEntity> avaliableTimeslots;
 
-    public ClassroomEntity(Classrooms classroomName, int capacity) {
+    public ClassroomEntity(String classroomName, int capacity) {
         this.classroomName = classroomName;
         this.capacity = capacity;
     }
@@ -36,11 +35,11 @@ public class ClassroomEntity{
         this.classroomId = classroomId;
     }
 
-    public Classrooms getClassroomName() {
+    public String getClassroomName() {
         return classroomName;
     }
 
-    public void setClassroomName(Classrooms classroomName) {
+    public void setClassroomName(String classroomName) {
         this.classroomName = classroomName;
     }
 
