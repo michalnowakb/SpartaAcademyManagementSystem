@@ -136,8 +136,6 @@ public class TeachingGroupEntity {
         this.trainees.remove(trainee);
     }
 
-
-
     public void setTrainees(List<TraineeEntity> trainees) {
         this.trainees = trainees;
     }

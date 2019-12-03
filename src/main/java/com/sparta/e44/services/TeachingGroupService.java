@@ -114,9 +114,12 @@ public class TeachingGroupService {
         return addTraineeAction(group,newTrainee);
 
     }
+
     public TeachingGroupEntity addTraineeAction(TeachingGroupEntity group, TraineeEntity newTrainee){
-        group.addTrainee(newTrainee);
-        teachingGroupRepository.save(group);
+        newTrainee.setTeachingGroup(group);
+//        group.addTrainee(newTrainee);
+//        teachingGroupRepository.save(group);
+        traineeRepository.save(newTrainee);
         return group;
     }
 

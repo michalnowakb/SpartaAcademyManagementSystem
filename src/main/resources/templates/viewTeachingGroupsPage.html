@@ -23,7 +23,7 @@
             <td th:text="${teachingGroup.endDate}">End Date</td>
 
 
-            <td><form id="View Groups" th:action="@{'/teachingGroup/viewTeachingGroupsPage/' + ${teachingGroup.groupId}}" method="get">
+            <td><form id="View info" th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}" method="get">
                 <input type="submit" value="More info" />
             </form> </td>
             <td><form th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit" class="btn btn-success"></form></td>
