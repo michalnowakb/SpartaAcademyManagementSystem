@@ -1,5 +1,6 @@
 package com.sparta.e44.controllers;
 
+import com.sparta.e44.entities.CourseEntity;
 import com.sparta.e44.entities.TeachingGroupEntity;
 import com.sparta.e44.services.CourseService;
 import com.sparta.e44.services.TeachingGroupService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.List;
 
 
 @Controller
@@ -42,7 +44,11 @@ public class TeachingGroupController {
 
     @GetMapping("/teachingGroup/getUpdateTeachingGroup/{id}")
     public String getUpdateTeachingGroup(@PathVariable("id") int id, Model model){
-        model.addAttribute("teachingGroup", teachingGroupService.getTeachingGroup(id));
+        TeachingGroupEntity teachingGroup = teachingGroupService.getTeachingGroup(id);
+        model.addAttribute("teachingGroup", teachingGroup);
+        List<CourseEntity> courses = courseService.getAllCourses();
+        courses.remove(teachingGroup.getCourse());
+        model.addAttribute("courses", courses);
         return "updateTeachingGroupPage";
     }
 
@@ -106,15 +112,15 @@ public class TeachingGroupController {
     }
     //---addCourse/removeCourse---//
     @PostMapping("/teachingGroup/addCourse/{groupId}/{courseId}")
-    public String addCourse(@PathVariable("groupId") int groupId, @PathVariable("courseId") int courseId){
+    public String addCourse(@PathVariable("groupId") int groupId, @PathVariable("courseId") int courseId, Model model){
         teachingGroupService.addCourse(groupId,courseId);
-        return "";
+        return editCoursesPage(groupId,model);
     }
 
     @GetMapping("/teachingGroup/removeCourse/{groupId}")
-    public String removeCourse(@PathVariable("groupId") int groupId){
+    public String removeCourse(@PathVariable("groupId") int groupId, Model model){
         teachingGroupService.removeCourse(groupId);
-        return "";
+        return editCoursesPage(groupId,model);
     }
 
     //--redirect to teachingGroupTrainerEditPage--//
@@ -135,4 +141,17 @@ public class TeachingGroupController {
         return "updateTeachingGroupTrainees";
     }
 
+    //--redirect to teachingGroupCoursesEditPage--//
+    @GetMapping("/teachingGroup/editCourses/{groupId}")
+    public String editCoursesPage(@PathVariable("groupId") int groupId, Model model){
+        model.addAttribute("teachingGroup",teachingGroupService.getTeachingGroup(groupId));
+        model.addAttribute("courses", courseService.getAllCourses());
+        return "updateTeachingGroupCourses";
+    }
+
+    @GetMapping("/teachingGroup/registerNewGroupPage")
+    public String registerTeachingGroupPage(Model model){
+        model.addAttribute("courses", courseService.getAllCourses());
+        return "/registerTeachingGroupPage";
+    }
 }
