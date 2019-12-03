@@ -92,4 +92,16 @@ public class ViewController {
     public String connectToViewTeachingGroupsPage() {
         return "viewTeachingGroupsPage";
     }
+
+    @RequestMapping("/viewSchedulePage")
+    public String connectToViewSchedulePage() {
+        return "viewSchedulePage";
+    }
+
+
+    @RequestMapping("/viewScheduleClassroomForm")
+    public String connectToViewScheduleClassroomForm(){
+        return "viewScheduleClassroomForm";
+    }
+
 }

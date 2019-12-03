@@ -1,7 +1,5 @@
 package com.sparta.e44.services;
 
-
-import com.sparta.e44.entities.CourseEntity;
 import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.entities.TrainerEntity;
 import com.sparta.e44.repositories.ModuleRepository;

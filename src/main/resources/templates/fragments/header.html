@@ -61,10 +61,16 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/teachingGroups/getTeachingGroups}">View</a></li>
-                        <li><a  href="/registerTeachingGroupPage">Register</a></li>
+                        <li><a  th:href="@{/teachingGroup/registerNewGroupPage}">Register</a></li>
                     </ul>
                 </li>
-
+                <li class="dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">Schedule Group
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a  href="/viewScheduleClassroomForm">Add Group</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </div>

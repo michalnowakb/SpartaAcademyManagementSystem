@@ -143,4 +143,7 @@ public class TeachingGroupEntity {
     public void setTrainees(List<TraineeEntity> trainees) {
         this.trainees = trainees;
     }
+
+
+
 }

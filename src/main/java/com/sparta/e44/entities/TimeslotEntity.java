@@ -10,12 +10,14 @@ public class TimeslotEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int timeslotId;
 
-    private String title;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public TimeslotEntity(String title, LocalDate startDate, LocalDate endDate) {
-        this.title = title;
+    public TimeslotEntity(){
+
+    }
+
+    public TimeslotEntity(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
     }
