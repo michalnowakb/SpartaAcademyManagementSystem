@@ -40,9 +40,10 @@
                             <label>Classroom:</label>
                                 <select name="classroomName" class="custom-select">
                                     <option selected>Select Classroom</option>
-                                    <option value="A">CLASS A</option>
-                                    <option value="B">CLASS B</option>
-                                    <option value="C">CLASS C</option>
+                                    <option th:each="classroom : ${T(com.sparta.e44.entities.state.Classrooms.values()}"
+                                            th:value="${classroom}"
+                                            th:text="${classroom.value}">
+                                    </option>
                                 </select>
                         </div>
                     </div>
