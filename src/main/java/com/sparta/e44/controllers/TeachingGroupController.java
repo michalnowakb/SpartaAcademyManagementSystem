@@ -37,11 +37,15 @@ public class TeachingGroupController {
     @GetMapping("/teachingGroup/getTeachingGroup/{id}")
     public String getTeachingGroup(@PathVariable("id") int id, Model model){
         model.addAttribute("teachingGroup",teachingGroupService.getTeachingGroup(id));
-        model.addAttribute("trainers", trainerService.getAll());
-        model.addAttribute("trainees", traineeService.getAll()) ;
-        model.addAttribute("course", courseService.getAllCourses());
         return "viewIndividualTeachingGroup";
     }
+
+    @GetMapping("/teachingGroup/getUpdateTeachingGroup/{id}")
+    public String getUpdateTeachingGroup(@PathVariable("id") int id, Model model){
+        model.addAttribute("teachingGroup", teachingGroupService.getTeachingGroup(id));
+        return "updateTeachingGroupPage";
+    }
+
 
     @PostMapping("/teachingGroup/addTeachingGroup")
     public String addTeachingGroup(@Valid TeachingGroupEntity teachingGroup){
@@ -53,13 +57,13 @@ public class TeachingGroupController {
     public String editTeachingGroup(@PathVariable("id") int id, @Valid TeachingGroupEntity teachingGroup, Model model){
         teachingGroupService.editTeachingGroup(teachingGroup,id);
         model.addAttribute("teachingGroups", teachingGroupService.getAllTeachingGroups());
-        return "";
+        return "viewTeachingGroupsPage";
     }
 
     @GetMapping("/teachingGroup/removeTeachingGroup/{id}")
-    public String removeTeachingGroup(@PathVariable("id") int id){
+    public String removeTeachingGroup(@PathVariable("id") int id, Model model){
         teachingGroupService.removeTeachingGroup(id);
-        return "";
+        return getTeachingGroups(model);
     }
 
     //---addClassroom/removeClassroom---//

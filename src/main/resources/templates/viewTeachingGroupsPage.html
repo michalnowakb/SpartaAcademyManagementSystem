@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>View Course Page</title>
+    <title>Teaching Group</title>
 </head>
 <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
@@ -26,8 +26,8 @@
             <td><form id="View info" th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}" method="get">
                 <input type="submit" value="More info" />
             </form> </td>
-            <td><form th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit" class="btn btn-success"></form></td>
-            <td><form th:action="@{'/teachingGroup/removeTeachingGroup/' + ${teachingGroup.groupId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
+            <td><form th:action="@{'/teachingGroup/getUpdateTeachingGroup/' + ${teachingGroup.groupId}}"><input type="submit" value="Update" class="btn btn-success"></form></td>
+            <td><form th:action="@{/teachingGroup/removeTeachingGroup/{id}(id=${teachingGroup.groupId})}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
         </tr>
         </tbody>
     </table>
