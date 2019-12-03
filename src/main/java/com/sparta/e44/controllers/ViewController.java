@@ -98,4 +98,10 @@ public class ViewController {
         return "viewSchedulePage";
     }
 
+
+    @RequestMapping("/viewScheduleClassroomForm")
+    public String connectToViewScheduleClassroomForm(){
+        return "viewScheduleClassroomForm";
+    }
+
 }
