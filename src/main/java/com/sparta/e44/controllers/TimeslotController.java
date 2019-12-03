@@ -1,7 +1,6 @@
 package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.TimeslotEntity;
-import com.sparta.e44.entities.TraineeEntity;
 import com.sparta.e44.services.TimeslotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,9 +28,16 @@ public class TimeslotController {
     }
 
     @PostMapping("/schedule/addTimeslot")
-    public String addEvent(@Valid TimeslotEntity newtimeslot) {
-        timeslotService.addTimeslot(newtimeslot);
+    public String addEvent(@Valid TimeslotEntity newTimeslot) {
+        timeslotService.addTimeslot(newTimeslot);
         return "scheduleViewPage";
+    }
+
+    @GetMapping("/trainee/editTimeslot/{id}")
+    public String editTimeslot(@Valid TimeslotEntity editedTimeslot, @PathVariable("id") int id, Model model) {
+        timeslotService.editTimeslot(editedTimeslot, id);
+        model.addAttribute("timeslots", timeslotService.getAllTimeslots());
+        return getAllTimeslots(model);
     }
 
 }
