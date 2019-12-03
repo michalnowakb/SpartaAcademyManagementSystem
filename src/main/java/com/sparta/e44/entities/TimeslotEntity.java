@@ -1,5 +1,7 @@
 package com.sparta.e44.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -10,7 +12,9 @@ public class TimeslotEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int timeslotId;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
     public TimeslotEntity(){
