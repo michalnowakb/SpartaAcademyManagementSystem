@@ -19,13 +19,13 @@
                         <div class="form-group col-6 ">
                             <label>Group Name:</label>
                             <input class="form-control" type="text" name="groupName" placeholder="Group Name"/>
-<!--                            <select name="groupName" class="custom-select">-->
-<!--                                <option selected>Select Classroom</option>-->
-<!--                                <option th:each="group : ${T(com.sparta.e44.entities.TeachingGroupEntity).values()}"-->
-<!--                                        th:value="${group.groupId}"-->
-<!--                                        th:text="${group.groupName}">-->
-<!--                                </option>-->
-<!--                            </select>-->
+                            <select name="group" class="custom-select">
+                                <option selected th:value="${null}">Select Group Name</option>
+                                <option th:each="groupName : ${groups}"
+                                        th:value="${groupName.groupId}"
+                                        th:text="${groupName.groupName}">
+                                </option>
+                            </select>
                         </div>
 
 
