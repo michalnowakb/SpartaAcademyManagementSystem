@@ -15,18 +15,18 @@
     <div class="form-row">
     <div class="form-group col-6">
         <label>Course Name</label>
-        <input type="text" pattern="[a-zA-Z]+" name="courseName" th:field="*{courseName}"/>
+        <input type="text" pattern="[a-zA-Z]+" name="courseName" th:field="*{courseName}" required/>
     </div>
 
     <div class="form-group col-6">
         <label>Description</label>
-        <input type="text" pattern="[a-zA-Z]+" name="courseDescription" th:field="*{courseDescription}" />
+        <input type="text" pattern="[a-zA-Z]+" name="courseDescription" th:field="*{courseDescription}" required />
     </div>
     </div>
     <div class="form-row">
     <div class="form-group col-6">
         <label>Duration(Weeks)</label>
-        <input type="number" name="durationInWeeks" th:field="*{durationInWeeks}" />
+        <input type="number" name="durationInWeeks" th:field="*{durationInWeeks}" required/>
     </div>
     </div>
     <div class="form-row d-flex justify-content-center">
