@@ -46,9 +46,11 @@
             <td th:text="${trainee.lastName}">Surname</td>
             <td th:text="${trainee.email}">Email</td>
             <td th:text="${trainee.contactNumber}">Contact Number</td>
-            <td th:text="${trainee.dateOfBirth}">Date Of Birth</td>
+            <td th:text="${trainee.dateOfBirth}"
+                class ="fitwidth">Date Of Birth</td>
             <td th:text="${trainee.gender.value}">Gender</td>
-            <td th:text="${trainee.startDate}">Start Date</td>
+            <td th:text="${trainee.startDate}"
+                class ="fitwidth" >Start Date</td>
             <td>
                 <form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update"
                                                                                           class="btn btn-success">
