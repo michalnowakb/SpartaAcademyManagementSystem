@@ -41,11 +41,10 @@ footer{
     position: absolute;
     width: 100%;
     color: white;
-    text-align: center;
+    bottom:0;
 }
 
 .container{
-
-    padding-bottom: 15%;
+    padding-bottom: 100px;
 }
 
