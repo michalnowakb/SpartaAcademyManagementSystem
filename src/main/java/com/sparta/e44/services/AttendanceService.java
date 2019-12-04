@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -40,5 +41,9 @@ public class AttendanceService {
 
     public List<AttendanceEntity> getAttendances(TraineeEntity trainee){
         return attendanceRepository.findAttendanceEntitiesByTrainee(trainee);
+    }
+
+    public void addAttendance(Collection<AttendanceEntity> attendance) {
+        attendanceRepository.saveAll(attendance);
     }
 }

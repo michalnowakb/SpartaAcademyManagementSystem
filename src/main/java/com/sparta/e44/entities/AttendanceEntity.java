@@ -2,6 +2,7 @@ package com.sparta.e44.entities;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import java.time.LocalDate;
 
 @Entity
 public class AttendanceEntity {
@@ -17,6 +18,10 @@ public class AttendanceEntity {
     }
 
     public AttendanceEntity(){}
+
+    public AttendanceEntity(TraineeEntity trainee, LocalDate date) {
+        attendanceId = new AttendanceId(trainee,date);
+    }
 
     public boolean getIsPresent() {
         return isPresent;
