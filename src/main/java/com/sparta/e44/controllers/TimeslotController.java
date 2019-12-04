@@ -1,6 +1,7 @@
 package com.sparta.e44.controllers;
 
 import com.sparta.e44.entities.TimeslotEntity;
+import com.sparta.e44.services.ClassroomService;
 import com.sparta.e44.services.TimeslotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ public class TimeslotController {
 
     @Autowired
     private TimeslotService timeslotService;
+
+    @Autowired
+    private ClassroomService classroomService;
 
     @GetMapping("/schedule/getAllTimeslots")
     public String getAllTimeslots(Model model) {
@@ -39,5 +43,12 @@ public class TimeslotController {
         model.addAttribute("timeslots", timeslotService.getAllTimeslots());
         return getAllTimeslots(model);
     }
+
+    @GetMapping("/schedule/addTimeslotPage")
+    public String addTimeSlotPage(Model model) {
+        model.addAttribute("classes", classroomService.getAll());
+        return "viewScheduleClassroomForm";
+    }
+
 
 }
