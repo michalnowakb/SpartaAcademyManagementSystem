@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <title>Dates</title>
 </head>
+    <div th:replace="fragments/header :: header"></div>
 
 <body class="backgroundImage">
 <div class="container">
     <h1 style="text-align: center; margin: 2% 0 2% 0">
         <output th:text="${group.groupName}"></output>
     </h1>
+
     <table class="table table-striped" border="2">
         <thead class="thead-custom">
         <tr >
             <td>Trainee</td>
-            <td th:each="date:${dates}"><output th:text="${date}"></output> </td>
+            <td th:each="date:${dates}"><output th:text="${date}"></output>
+                <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId} + '/' + ${date}}">
+                    <input type="submit" value="Edit" class="btn btn-custom"/>
+                </form>
+            </td>
         </tr>
         </thead>
         <tbody  class="tbody-custom">
@@ -34,5 +40,7 @@
 
     </table>
 </div>
+<div th:replace="fragments/footer :: footer"></div>
+
 </body>
 </html>
