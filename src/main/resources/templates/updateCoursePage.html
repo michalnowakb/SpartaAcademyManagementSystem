@@ -15,7 +15,7 @@
     <div class="form-row">
     <div class="form-group col-6">
         <label>Course Name</label>
-        <input type="text" pattern="[a-zA-Z]+" name="courseName" th:field="*{courseName}" required/>
+        <input type="text" pattern="([\w ]+)" name="courseName" th:field="*{courseName}" required/>
     </div>
 
     <div class="form-group col-6">
