@@ -16,10 +16,15 @@
         </tr>
         </thead>
         <tbody  class="tbody-custom">
-            <tr th:each="trainee:${traineeAttendances.keySet()}">
+            <tr th:each="trainee:${group.trainees}">
                 <td th:text="${trainee.firstName + ' ' + trainee.lastName}"></td>
-                <td th:each="dateAttendance:${traineeAttendances.get(trainee)}">
-                    <output th:text="${dateAttendance.isPresent}"></output>
+                <td th:each="date:${dates}">
+                    <span th:if="${trainee.getAttendanceOnDate(date)!=null}">
+                        <output th:text="${trainee.getAttendanceOnDate(date).isPresent}"></output>
+                    </span>
+                    <span th:unless="${trainee.getAttendanceOnDate(date)!=null}">
+                        <output th:text="${'-'}"></output>
+                    </span>
                 </td>
             </tr>
 

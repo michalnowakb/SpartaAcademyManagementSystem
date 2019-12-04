@@ -42,14 +42,7 @@ public class AttendanceController {
     public String viewAllAttendancePerGroup(@PathVariable("groupId") int groupId, Model model) {
 
         TeachingGroupEntity teachingGroup = teachingGroupService.getTeachingGroup(groupId);
-        List<TraineeEntity> traineesList = teachingGroup.getTrainees();
-        Map<TraineeEntity,List<AttendanceEntity>> traineeAttendances = new HashMap<>();
-
-        for(TraineeEntity trainee : traineesList){
-            traineeAttendances.put(trainee,attendanceService.getAttendances(trainee));
-        }
         model.addAttribute("group", teachingGroup);
-        model.addAttribute("traineeAttendances",traineeAttendances);
 
         List<LocalDate> dates = new ArrayList<>();
         dates.add(teachingGroup.getStartDate());
@@ -57,9 +50,6 @@ public class AttendanceController {
             LocalDate holder = dates.get(dates.size()-1);
             dates.add(holder.plusDays(1));
         }
-
-
-
         model.addAttribute("dates",dates);
         return "/viewAllAttendances";
     }
