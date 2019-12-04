@@ -36,6 +36,10 @@ a{
 a:hover{
     color: rgba(255, 255, 255, 0.52);
 }
+.dropdown:hover>.dropdown-menu {
+
+    display: block;
+}
 #calendar {
     max-width: 900px;
     margin: 0 auto;
