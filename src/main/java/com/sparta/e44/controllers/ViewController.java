@@ -100,7 +100,7 @@ public class ViewController {
 
     @RequestMapping("/viewScheduleClassroomForm")
     public String connectToViewScheduleClassroomForm(){
-        return "viewScheduleClassroomForm";
+        return "registerTimeslotPage";
     }
 
 }
