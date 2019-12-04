@@ -19,38 +19,38 @@
                     <div class="form-row">
                         <div class="form-group col-6 ">
                             <label>First Name</label>
-                            <input class="form-control" name="firstName" th:field="*{firstName}"/>
+                            <input type="text" pattern="[a-zA-Z]+" class="form-control" name="firstName" th:field="*{firstName}" required/>
                         </div>
                         <div class="form-group col-6">
                             <label>Last Name</label>
-                            <input class="form-control" name="lastName" th:field="*{lastName}"/>
+                            <input type="text" pattern="[a-zA-Z]+"  class="form-control" name="lastName" th:field="*{lastName}"required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label>Date of Birth</label>
-                            <input class="form-control" type="date" name="dateOfBirth" th:field="*{dateOfBirth}"/>
+                            <input class="form-control" type="date" name="dateOfBirth" th:field="*{dateOfBirth}" required/>
                         </div>
                         <div class="form-group col-6">
                             <label>Email</label>
-                            <input class="form-control" type="text" name="email" th:field="*{email}"/>
+                            <input class="form-control" type="text" name="email" th:field="*{email}" required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label>Contact Number</label>
-                            <input class="form-control" type="text" name="contactNumber" th:field="*{contactNumber}"/>
+                            <input type="text" pattern="^(?:0|\+?44)(?:\d\s?){9,10}$" class="form-control" type="text" name="contactNumber" th:field="*{contactNumber}" required/>
                         </div>
 
                         <div class="form-group col-6">
                             <label>Start Date</label>
-                            <input class="form-control" type="date" name="startDate" th:field="*{startDate}"/>
+                            <input class="form-control" type="date" name="startDate" th:field="*{startDate}" required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label>Gender</label>
-                            <input class="form-control" type="text" name="gender" th:field="*{gender}"/>
+                            <input class="form-control" type="text" name="gender" th:field="*{gender}" required/>
                         </div>
                     </div>
                     <div class="form-row d-flex justify-content-center">
