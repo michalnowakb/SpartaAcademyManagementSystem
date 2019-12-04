@@ -22,7 +22,7 @@ public class TimeslotController {
     @GetMapping("/schedule/getAllTimeslots")
     public String getAllTimeslots(Model model) {
         model.addAttribute("timeslots", timeslotService.getAllTimeslots());
-        return "/viewAllTimeslots";
+        return "viewSchedulePage";
     }
 
     @GetMapping("/schedule/removeTimeslot")
@@ -34,7 +34,7 @@ public class TimeslotController {
     @PostMapping("/schedule/addTimeslot")
     public String addEvent(@Valid TimeslotEntity newTimeslot) {
         timeslotService.addTimeslot(newTimeslot);
-        return "scheduleViewPage";
+        return "viewSchedulePage";
     }
 
     @GetMapping("/trainee/editTimeslot/{id}")
@@ -47,7 +47,7 @@ public class TimeslotController {
     @GetMapping("/schedule/addTimeslotPage")
     public String addTimeSlotPage(Model model) {
         model.addAttribute("classes", classroomService.getAll());
-        return "viewScheduleClassroomForm";
+        return "registerTimeslotPage";
     }
 
 
