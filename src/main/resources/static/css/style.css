@@ -49,3 +49,12 @@ footer{
     padding-bottom: 15%;
 }
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.fitwidth{
+     width: 1px;
+    white-space: nowrap; !important;
+}
