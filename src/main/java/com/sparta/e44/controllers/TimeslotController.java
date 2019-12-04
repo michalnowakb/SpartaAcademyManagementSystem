@@ -21,7 +21,7 @@ public class TimeslotController {
 
     @GetMapping("/schedule/getAllTimeslots")
     public String getAllTimeslots(Model model) {
-        model.addAttribute("timeslots", timeslotService.getAllTimeslots());
+        model.addAttribute("timeslotss", timeslotService.getAllTimeslots());
         return "viewSchedulePage";
     }
 
