@@ -73,4 +73,6 @@ public class TimeslotEntity {
     public void setClassroom(ClassroomEntity classroom) {
         this.classroom = classroom;
     }
+
+
 }

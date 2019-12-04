@@ -25,7 +25,7 @@ public class TimeslotController {
 
     @GetMapping("/schedule/getAllTimeslots")
     public String getAllTimeslots(Model model) {
-        model.addAttribute("timeslotss", timeslotService.getAllTimeslots());
+        model.addAttribute("timeslots", timeslotService.getAllTimeslots());
         return "viewSchedulePage";
     }
 
@@ -38,7 +38,7 @@ public class TimeslotController {
     @PostMapping("/schedule/addTimeslot")
     public String addEvent(@Valid TimeslotEntity newTimeslot) {
         timeslotService.addTimeslot(newTimeslot);
-        return "viewSchedulePage";
+        return "registerTimeslotPage";
     }
 
     @GetMapping("/trainee/editTimeslot/{id}")
