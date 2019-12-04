@@ -45,9 +45,15 @@
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-6">
+        <div class="form-group col-6 ">
             <label>Gender</label>
-            <input class="form-control" type="text" name="gender" th:field="*{gender}"/>
+            <select name="gender" class="custom-select" required>
+                <option th:value="${null}" selected>Select Gender</option>
+                <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
+                        th:value="${gen}"
+                        th:text="${gen.value}">
+                </option>
+            </select>
         </div>
     </div>
     <div class="form-row d-flex justify-content-center">
