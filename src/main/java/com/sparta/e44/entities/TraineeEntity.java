@@ -2,6 +2,7 @@ package com.sparta.e44.entities;
 
 
 import com.sparta.e44.entities.state.Gender;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -78,4 +79,14 @@ public class TraineeEntity extends AbstractPersonEntity {
     public void setTeachingGroup(TeachingGroupEntity teachingGroup) {
         this.teachingGroup = teachingGroup;
     }
+
+    public AttendanceEntity getAttendanceOnDate(LocalDate localDate){
+        for(AttendanceEntity attendance:attendanceList){
+            if(attendance.getAttendanceId().getDate().isEqual(localDate)){
+                return attendance;
+            }
+        }
+        return null;
+    }
+
 }
