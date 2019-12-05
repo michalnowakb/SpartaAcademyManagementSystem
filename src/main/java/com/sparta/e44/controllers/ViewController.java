@@ -74,6 +74,7 @@ public class ViewController {
         return "updateTraineePage";
     }
 
+
     //Module Page
     @RequestMapping("/registerModulePage")
     public String connectToRegisterModulePage() {

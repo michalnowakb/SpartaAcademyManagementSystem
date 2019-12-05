@@ -31,7 +31,7 @@ public class TimeslotEntity {
     private TeachingGroupEntity group;
 
     @ManyToOne
-    @JoinColumn(name="classroom_id")
+    @PrimaryKeyJoinColumn(name="classroom_id")
     private ClassroomEntity classroom;
 
     public int getTimeslotId() {

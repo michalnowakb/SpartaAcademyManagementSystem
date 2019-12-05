@@ -36,4 +36,8 @@ public class TimeslotService {
         timeslotRepository.save(editedTimeslot);
         return editedTimeslot;
     }
+    public TimeslotEntity getById(int id){
+      return  timeslotRepository.findById(id).get();
+
+    }
 }

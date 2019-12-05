@@ -16,8 +16,8 @@ public class ClassroomEntity{
     private String classroomName;
     private int capacity;
 
-    @OneToMany(mappedBy = "classroom")
-    private List<TimeslotEntity> avaliableTimeslots;
+//    @OneToMany(mappedBy = "classroom")
+//    private List<TimeslotEntity> avaliableTimeslots;
 
     public ClassroomEntity(String classroomName, int capacity) {
         this.classroomName = classroomName;
