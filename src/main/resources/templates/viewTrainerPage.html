@@ -19,9 +19,9 @@
                         </td>
                         <td></td>
                     </tr>
-                    <td><input class="form-control" type="text" name="searchQuery" th:value="${searchQuery}"
-                               placeholder="Search Query"/></td>
-                    <td><input type="submit" value="Search" class="btn btn-custom"/></td>
+                    <td><input class="form-control" name="searchQuery" placeholder="Search Query" th:value="${searchQuery}"
+                               type="text"/></td>
+                    <td><input class="btn btn-custom" type="submit" value="Search"/></td>
                 </table>
             </form>
         </div>
@@ -58,14 +58,14 @@
                 </form>
             </td>
             <td>
-                <form th:action="@{'/trainer/getTrainer/' + ${trainer.trainerId}}"><input type="submit" value="Update"
-                                                                                          class="btn btn-success">
+                <form th:action="@{'/trainer/getTrainer/' + ${trainer.trainerId}}"><input class="btn btn-success" type="submit"
+                                                                                          value="Update">
                 </form>
             </td>
             <td>
-                <form th:action="@{'/trainer/removeTrainer/' + ${trainer.trainerId}}"><input type="submit"
-                                                                                             value="Delete"
-                                                                                             class="btn btn-danger">
+                <form th:action="@{'/trainer/removeTrainer/' + ${trainer.trainerId}}"><input class="btn btn-danger"
+                                                                                             type="submit"
+                                                                                             value="Delete">
                 </form>
             </td>
         </tr>

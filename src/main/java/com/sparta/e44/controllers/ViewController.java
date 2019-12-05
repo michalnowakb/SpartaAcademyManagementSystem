@@ -46,4 +46,3 @@ public class ViewController {
     public String connectToRegisterTeachingGroupPage(){
         return "registerTeachingGroupPage";
     }
-   }
