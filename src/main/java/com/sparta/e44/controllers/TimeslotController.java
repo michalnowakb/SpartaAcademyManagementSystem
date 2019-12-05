@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class TimeslotController {
     }
 
     @GetMapping("/timeslot/updateTimeslot/{id}")
-    public String getAllTimeslots(Model model,@PathVariable("id") int id) {
+    public String getUpdateTimeslot(Model model,@PathVariable("id") int id) {
         TimeslotEntity timeslot =  timeslotService.getById(id);
         List<TeachingGroupEntity> teachingGroups = new ArrayList<>();
         if (teachingGroupService.getAllTeachingGroups()!= null) {
@@ -68,9 +67,9 @@ public class TimeslotController {
     }
 
     @PostMapping("/timeslot/addTimeslot")
-    public String addEvent(@Valid TimeslotEntity newTimeslot, Model model) {
+    public String addEvent(@Valid TimeslotEntity newTimeslot) {
         timeslotService.addTimeslot(newTimeslot);
-        return addTimeSlotPage((model));
+        return "registerTimeslotPage";
     }
 
     @GetMapping("/timeslot/editTimeslot/{id}")
@@ -81,38 +80,8 @@ public class TimeslotController {
 
     @GetMapping("/timeslot/addTimeslotPage")
     public String addTimeSlotPage(Model model) {
-        //List of all recorded timeslots
-        List<TimeslotEntity> allTimeslots =  timeslotService.getAllTimeslots();
-
-        //Check classrooms in use
-        List<ClassroomEntity> availabeClasrooms =  new ArrayList<>();
-        List<TeachingGroupEntity> availableGroups = new ArrayList<>();
-
-        for(TeachingGroupEntity group : teachingGroupService.getAllTeachingGroups()){
-            boolean isPresent = true;
-            for(TimeslotEntity timeslot : allTimeslots){
-                if(timeslot.getGroup().getGroupId() == group.getGroupId()){
-                    isPresent = false;
-                }
-                if(isPresent){
-                    availableGroups.add(group);
-                }
-            }
-        }
-
-        for(ClassroomEntity classroom : classroomService.getAll()){
-            boolean isPresent = true;
-            for(TimeslotEntity timeslot : allTimeslots){
-                if(timeslot.getClassroom().getClassroomId()== classroom.getClassroomId()){
-                    isPresent = false;
-                }
-                if(isPresent){
-                    availabeClasrooms.add(classroom);
-                }
-            }
-        }
-        model.addAttribute("classes", availabeClasrooms);
-        model.addAttribute("groups", availableGroups);
+        model.addAttribute("classes", classroomService.getAll());
+        model.addAttribute("groups", teachingGroupService.getAllTeachingGroups());
         return "registerTimeslotPage";
     }
 
