@@ -89,4 +89,15 @@ public class TraineeEntity extends AbstractPersonEntity {
         return null;
     }
 
+    public String colorAttendanceOnDate(LocalDate localDate){
+        AttendanceEntity attendanceEntity = getAttendanceOnDate(localDate);
+        if(attendanceEntity==null){
+            return "orange";
+        }else if(attendanceEntity.getIsPresent()){
+            return "green";
+        }else{
+            return "red";
+        }
+    }
+
 }

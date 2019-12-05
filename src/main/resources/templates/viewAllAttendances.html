@@ -1,47 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Dates</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dates</title>
+    </head>
     <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
 <div class="container">
     <h1 style="text-align: center; margin: 2% 0 2% 0">
         <output th:text="${group.groupName}"></output>
-    </h1>g
-    <table class="table table-striped" border="2">
-        <thead class="rotate">
-        <tr>
-            <th>Trainee</th>
-            <th class="rotate" th:each="date:${dates}"><div><output th:text="${date}"></output></div></th>
+    </h1>
+
+    <table>
         <thead class="thead-custom">
-        <tr >
-            <td>Trainee</td>
-            <td th:each="date:${dates}"><output th:text="${date}"></output>
+        <tr>
+            <td>Date</td>
+            <td class="rotate" th:each="trainee:${group.trainees}">
+                <!--            <td style="writing-mode: vertical-rl;text-orientation: mixed;transform: rotate(270deg);" th:each="trainee:${group.trainees}"  >-->
+                <output th:text="${trainee.firstName + ' ' + trainee.lastName}"></output>
+            </td>
+
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="date:${dates}">
+            <td>
+                <output th:text="${date}"></output>
+            </td>
+            <!--            <td th:each="trainee:${group.trainees}" th:style="${trainee.getAttendanceOnDate(date)==null} ? 'background-color : orange' : ${trainee.getAttendanceOnDate(date).isPresent} ? 'background-color : green':'background-color : red'">-->
+            <td th:each="trainee:${group.trainees}"
+                th:style="'background-color : ' + ${trainee.colorAttendanceOnDate(date)} + ';    border-style: solid;'">
+
+
+            </td>
+            <td>
                 <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId} + '/' + ${date}}">
                     <input type="submit" value="Edit" class="btn btn-custom"/>
                 </form>
             </td>
->>>>>>> d8a6ac67fa5476e01dcb970eb25bb24bc689bca7
         </tr>
-        </thead>
-        <tbody  class="tbody-custom">
-            <tr th:each="trainee:${group.trainees}">
-                <td th:text="${trainee.firstName + ' ' + trainee.lastName}"></td>
-                <td th:each="date:${dates}">
-                    <span th:if="${trainee.getAttendanceOnDate(date)!=null}">
-                        <output th:text="${trainee.getAttendanceOnDate(date).isPresent}"></output>
-                    </span>
-                    <span th:unless="${trainee.getAttendanceOnDate(date)!=null}">
-                        <output th:text="${'-'}"></output>
-                    </span>
-                </td>
-            </tr>
-
         </tbody>
 
     </table>
+
+
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 
