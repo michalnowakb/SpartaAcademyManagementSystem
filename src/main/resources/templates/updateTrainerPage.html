@@ -26,7 +26,7 @@
     <div class="form-row">
         <div class="form-group col-6">
             <label>Date of Birth</label>
-            <input class="form-control" type="date" name="dateOfBirth" th:field="*{dateOfBirth}" required/>
+            <input class="form-control" type="date" max="2030-01-01" name="dateOfBirth" th:field="*{dateOfBirth}" required/>
         </div>
         <div class="form-group col-6">
             <label>Email</label>
@@ -41,15 +41,17 @@
 
         <div class="form-group col-6">
             <label>Start Date</label>
-            <input class="form-control" type="date" name="startDate" th:field="*{startDate}" required/>
+            <input class="form-control" type="date" max="2030-01-01"  name="startDate" th:field="*{startDate}" required/>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-6 ">
             <label>Gender</label>
             <select name="gender" class="custom-select" required>
-                <option th:text="${trainer.gender.value}"></option>
-                <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
+                <option th:text="${trainer.gender.value}"
+                        th:value="${trainer.gender}">
+                </option>
+                <option th:each="gen : ${trainer.gender.valuesWithoutCurrent(trainer.getGender())}"
                         th:value="${gen}"
                         th:text="${gen.value}">
                 </option>

@@ -26,6 +26,15 @@ public enum Gender {
         }
         return Gender.OTHER;
     }
+    public Gender[] valuesWithoutCurrent(Gender gender){
+        Gender[] genderList = values();
+        Gender[] filteredGenderList = new Gender[values().length-1];
+        int filteredIndex = 0;
+        for(int i=0;i<values().length;i++){
+            if(!genderList[i].equals(gender)) filteredGenderList[filteredIndex++] = genderList[i];
+        }
+        return filteredGenderList;
+    }
 
 
 }
