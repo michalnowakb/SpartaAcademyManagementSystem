@@ -5,63 +5,61 @@
                 aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarToggler" style="margin-left: 3%">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/indexPage" style="color: honeydew" >Home </a>
+                    <a class="nav-link" href="/indexPage" style="color: honeydew">Home</a>
                 </li>
                 <li class="dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Trainers
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a  th:href="@{/trainer/getTrainers}">View</a></li>
-                    <li><a  th:href="@{/registerTrainerPage}">Register</a></li>
-                </ul>
-            </li>
+                    <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Trainers
+                        <span class="fas fa-angle-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a  th:href="@{/trainer/getTrainers}" method="get">View</a></li>
+                        <li><a  href="/registerTrainerPage">Register</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Trainees
-                        <span class="caret"></span></a>
+                        <span class="fas fa-angle-down"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/trainee/getTrainees}">View</a></li>
-                        <li><a  th:href="@{/registerTraineePage}">Register</a></li>
+                        <li><a  href="/registerTraineePage">Register</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Courses
-                        <span class="caret"></span></a>
+                        <span class="fas fa-angle-down"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/course/getCourses}">View</a></li>
-                        <li><a  th:href="@{/registerCoursePage}">Register</a></li>
+                        <li><a  href="/registerCoursePage">Register</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Modules
-                        <span class="caret"></span></a>
+                        <span class="fas fa-angle-down"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/module/getModules}">View</a></li>
-                        <li><a  th:href="@{/registerModulePage}">Register</a></li>
+                        <li><a  href="/registerModulePage">Register</a></li>
                     </ul>
                 </li>
-
                 <li class="dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Classroom
-                        <span class="caret"></span></a>
+                        <span class="fas fa-angle-down"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/classroom/getClassrooms}">View</a></li>
-                        <li><a  th:href="@{/registerClassroomPage}">Register</a></li>
+                        <li><a  href="/registerClassroomPage">Register</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Teaching Group
-                        <span class="caret"></span></a>
+                        <span class="fas fa-angle-down"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/teachingGroups/getTeachingGroups}">View</a></li>
                         <li><a  th:href="@{/teachingGroup/registerNewGroupPage}">Register</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">Schedule Group
+                    <a class="nav-link" data-toggle="dropdown" href="#" style="color: honeydew">Schedule Group
                         <span class="fas fa-angle-down"></span></a>
                     <ul class="dropdown-menu">
                         <li><a  th:href="@{/timeslot/getAllTimeslots}">View Schedule</a></li>
@@ -71,7 +69,6 @@
             </ul>
         </div>
     </nav>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -95,7 +92,5 @@
             th:src="@{/webjars/fullcalendar/2.2.5/fullcalendar.min.js}" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-
     <link th:href="@{/css/style.css}" rel="stylesheet"/>
-
 </header>
