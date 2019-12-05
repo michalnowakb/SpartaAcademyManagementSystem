@@ -51,7 +51,7 @@
                         <div class="form-group col-6 ">
                             <label> Gender</label>
                             <select name="gender" class="custom-select" required>
-                                <option th:value="${null}" selected>Select Gender</option>
+                                <option th:text="${trainee.gender.value}"></option>
                                 <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
                                         th:value="${gen}"
                                         th:text="${gen.value}">
