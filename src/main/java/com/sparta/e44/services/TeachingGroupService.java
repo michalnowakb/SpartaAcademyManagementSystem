@@ -158,4 +158,8 @@ public class TeachingGroupService {
         teachingGroupRepository.save(group);
         return group;
     }
+
+    public List<TeachingGroupEntity> getByGroupName(String searchQuery) {
+        return teachingGroupRepository.getTeachingGroupEntityByGroupName(searchQuery);
+    }
 }

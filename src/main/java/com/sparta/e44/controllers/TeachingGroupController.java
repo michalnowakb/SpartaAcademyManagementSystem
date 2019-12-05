@@ -42,6 +42,13 @@ public class TeachingGroupController {
         return "viewIndividualTeachingGroup";
     }
 
+    @GetMapping("/teachingGroup/getTeachingGroup/search")
+    public String getTeachingGroupSearch(Model model, @Valid String searchQuery) {
+        model.addAttribute("teachingGroups", teachingGroupService.getByGroupName(searchQuery));
+        model.addAttribute("searchQuery", searchQuery);
+        return "viewTeachingGroupsPage";
+    }
+
     @GetMapping("/teachingGroup/getUpdateTeachingGroup/{id}")
     public String getUpdateTeachingGroup(@PathVariable("id") int id, Model model){
         TeachingGroupEntity teachingGroup = teachingGroupService.getTeachingGroup(id);

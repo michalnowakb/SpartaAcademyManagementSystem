@@ -8,6 +8,22 @@
 <body class="backgroundImage">
 <div class="container">
     <h1 style="text-align: center; margin: 2% 0 2% 0">Group Information</h1>
+
+    <div class="row d-flex justify-content-center">
+        <form th:action="@{'/teachingGroup/getTeachingGroup/search'}" method="get" style="padding-bottom: 3%">
+            <table>
+                <tr>
+                    <td>
+                        <label>Search: </label>
+                    </td>
+                    <td></td>
+                </tr>
+                <td><input class="form-control" type="text" name="searchQuery" th:value="${searchQuery}"
+                           placeholder="Search Query"/></td>
+                <td><input type="submit" value="Search" class="btn btn-custom"/></td>
+            </table>
+        </form>
+    </div>
     <table class="table table-striped" border="2">
         <thead class="thead-custom">
         <tr>
