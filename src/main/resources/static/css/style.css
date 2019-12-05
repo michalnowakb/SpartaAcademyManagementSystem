@@ -18,6 +18,10 @@ body {
     border: none;
 }
 .btn-custom{
+     background-color: mediumvioletred;
+     color: white;
+ }
+.btn{
     background-color: mediumvioletred;
     color: white;
 }
