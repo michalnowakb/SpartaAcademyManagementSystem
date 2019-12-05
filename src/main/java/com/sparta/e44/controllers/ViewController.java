@@ -38,11 +38,12 @@ public class ViewController {
     //Classroom Page
 
     @GetMapping("/registerClassroomPage")
-    public String connectToRegisterClassroomPage(){
+    public String connectToRegisterClassroomPage() {
         return "registerClassroomPage";
     }
 
     @GetMapping("/registerTeachingGroupPage")
-    public String connectToRegisterTeachingGroupPage(){
+    public String connectToRegisterTeachingGroupPage() {
         return "registerTeachingGroupPage";
     }
+}
