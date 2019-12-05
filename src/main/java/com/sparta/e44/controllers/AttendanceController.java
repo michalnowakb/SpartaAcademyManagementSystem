@@ -87,18 +87,6 @@ public class AttendanceController {
             date = teachingGroup.getEndDate();
         }
         model.addAttribute("date",date);
-
-//        Map<TraineeEntity,AttendanceEntity> attendanceMap = new HashMap<>();
-//        for(TraineeEntity trainee:teachingGroup.getTrainees()){
-//            if(trainee.getAttendanceOnDate(date)!=null){
-//                attendanceMap.put(trainee,trainee.getAttendanceOnDate(date));
-//            }else{
-//                attendanceMap.put(trainee,new AttendanceEntity(trainee,date));
-//            }
-//        }
-//
-//
-//        model.addAttribute("attendanceMap",attendanceMap);
         return "registerAttendancePage";
     }
 
