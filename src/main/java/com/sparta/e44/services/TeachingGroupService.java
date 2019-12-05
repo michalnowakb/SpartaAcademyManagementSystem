@@ -135,8 +135,8 @@ public class TeachingGroupService {
     }
 
     public TeachingGroupEntity removeTraineeAction(TeachingGroupEntity group, TraineeEntity trainee){
-        group.removeTrainee(trainee);
-        teachingGroupRepository.save(group);
+        trainee.setTeachingGroup(null);
+        traineeRepository.save(trainee);
         return group;
     }
 
