@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 @Controller
 @SessionAttributes("attendanceMap")
 public class AttendanceController {
@@ -42,8 +44,8 @@ public class AttendanceController {
         return registerAttendancePage(groupId, date, model);
     }
 
-    @GetMapping("/attendance/viewAttendancePerGroup/{groupId}")
-    public String viewAllAttendancePerGroup(@PathVariable("groupId") int groupId, Model model) {
+    @GetMapping("/attendance/viewAttendancePerGroup/{groupId}/{pageNumber}")
+    public String viewAllAttendancePerGroup(@PathVariable("groupId") int groupId, Model model, @PathVariable("pageNumber") int pageNumber) {
 
         TeachingGroupEntity teachingGroup = teachingGroupService.getTeachingGroup(groupId);
         model.addAttribute("group", teachingGroup);
@@ -51,19 +53,26 @@ public class AttendanceController {
         List<LocalDate> dates = new ArrayList<>();
         dates.add(teachingGroup.getStartDate());
 
-//        int dayCount = teachingGroup.getStartDate().until(teachingGroup.getEndDate(),DAYS);
-//        int maxWeek = dayCount/7;
-//        if(dayCount%7>0){
-//            maxWeek++;
-//        }
-//        if(pageNumber>maxWeek)
+        int dayCount = (int)teachingGroup.getStartDate().until(teachingGroup.getEndDate(),DAYS);
+        int maxWeek = dayCount/7;
+        if(dayCount%7>0){
+            maxWeek++;
+        }
+        if(pageNumber>maxWeek){
+            pageNumber=maxWeek;
+        }
+        else if(pageNumber<0){
+            pageNumber=1;
+        }
 
         while(dates.get(dates.size()-1).isBefore(teachingGroup.getEndDate())){
             LocalDate holder = dates.get(dates.size()-1);
             dates.add(holder.plusDays(1));
 
         }
-        model.addAttribute("dates",dates);
+        model.addAttribute("week",pageNumber);
+        model.addAttribute("maxWeek",maxWeek);
+        model.addAttribute("dates",dates.subList(((pageNumber-1)*7), Math.min(((pageNumber * 7) ), dates.size()-1)));
         return "/viewAllAttendances";
     }
 

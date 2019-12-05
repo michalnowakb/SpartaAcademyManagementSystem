@@ -11,6 +11,38 @@
     <h1 style="text-align: center; margin: 2% 0 2% 0">
         <output th:text="${group.groupName}"></output>
     </h1>
+
+
+    <table class="table table-striped" border="0">
+
+        <tr>
+            <td style="text-align: center">
+                            <span th:if="${week>1}">
+                            <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/' + ${week-1}}"
+                                  method="get">
+                                <input type="submit" value="< Previous Week" class="btn btn-custom"/>
+                            </form>
+                            </span>
+            </td>
+            <td style="text-align: center">
+                <h2 style="text-align: center; margin: 2% 0 2% 0">
+                    <output th:text="${'Attendance for week ' + week}"></output>
+                </h2>
+            </td>
+            <td style="text-align: center">
+                            <span th:if="${week<maxWeek}">
+                            <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/' + ${week+1}}"
+                                  method="get">
+                                <input type="submit" value="Next Week >" class="btn btn-custom"/>
+                            </form>
+                            </span>
+            </td>
+        </tr>
+    </table>
+
+
+
+
     <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId}}" style="text-align: center; margin: 2% 0 2% 0">
         <input type="submit" value="Register Attendance" class="btn btn-custom" />
     </form>
@@ -20,6 +52,7 @@
     <table>
         <thead class="thead-custom">
         <tr>
+            <td>Day</td>
             <td>Date</td>
             <td class="rotate" th:each="trainee:${group.trainees}">
                 <!--            <td style="writing-mode: vertical-rl;text-orientation: mixed;transform: rotate(270deg);" th:each="trainee:${group.trainees}"  >-->
@@ -30,6 +63,9 @@
         </thead>
         <tbody class="tbody-custom">
         <tr th:each="date:${dates}">
+            <td>
+                <output th:text="${date.getDayOfWeek().name()}"></output>
+            </td>
             <td>
                 <output th:text="${date}"></output>
             </td>
