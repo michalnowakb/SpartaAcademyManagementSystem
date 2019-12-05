@@ -42,6 +42,7 @@ public class TraineeService {
 
     public TraineeEntity editTrainee(TraineeEntity editedTrainee, int id){
         editedTrainee.setTraineeId(id);
+        editedTrainee.setTeachingGroup(traineeRepository.findById(id).get().getTeachingGroup());
         traineeRepository.save(editedTrainee);
         return editedTrainee;
     }

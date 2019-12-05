@@ -2,6 +2,7 @@ package com.sparta.e44.entities;
 
 
 import com.sparta.e44.entities.state.Gender;
+import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -26,8 +27,23 @@ public class TraineeEntity extends AbstractPersonEntity {
     @JoinColumn(name = "group_id")
     private TeachingGroupEntity teachingGroup;
 
+    @OneToMany(mappedBy = "attendanceId.trainee")
+    private List<AttendanceEntity> attendanceList;
+
     public TraineeEntity() {
 
+    }
+
+    public List<AttendanceEntity> getAttendance() {
+        return attendanceList;
+    }
+
+    public void setAttendance(List<AttendanceEntity> attendance) {
+        this.attendanceList = attendance;
+    }
+
+    public void addAttendance(AttendanceEntity attendance){
+        this.attendanceList.add(attendance);
     }
 
     public String getPlacement() {
@@ -63,4 +79,25 @@ public class TraineeEntity extends AbstractPersonEntity {
     public void setTeachingGroup(TeachingGroupEntity teachingGroup) {
         this.teachingGroup = teachingGroup;
     }
+
+    public AttendanceEntity getAttendanceOnDate(LocalDate localDate){
+        for(AttendanceEntity attendance:attendanceList){
+            if(attendance.getAttendanceId().getDate().isEqual(localDate)){
+                return attendance;
+            }
+        }
+        return null;
+    }
+
+    public String colorAttendanceOnDate(LocalDate localDate){
+        AttendanceEntity attendanceEntity = getAttendanceOnDate(localDate);
+        if(attendanceEntity==null){
+            return "orange";
+        }else if(attendanceEntity.getIsPresent()){
+            return "green";
+        }else{
+            return "red";
+        }
+    }
+
 }

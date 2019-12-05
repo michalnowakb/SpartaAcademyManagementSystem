@@ -1,107 +1,48 @@
 package com.sparta.e44.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ViewController {
 
-    @RequestMapping("/indexPage")
+    @GetMapping("/indexPage")
     public String viewIndexPage() {
         return "indexPage";
     }
 
     //for the main page
-    @RequestMapping("/trainerPage")
-    public String connectToTrainerPage() {
-        return "trainerPage";
-    }
 
-    @RequestMapping("/coursePage")
-    public String connectToCoursePage() {
-        return "coursePage";
-    }
-
-    @RequestMapping("/traineePage")
-    public String connectToTraineePage() {
-        return "traineePage";
-    }
-
-    @RequestMapping("/registerCoursePage")
+    @GetMapping("/registerCoursePage")
     public String connectToRegisterCoursePage() {
         return "registerCoursePage";
     }
 
-    @RequestMapping("/viewCoursePage")
-    public String connectToViewCoursePage() {
-        return "viewCoursePage";
-    }
-
-    @RequestMapping("/updateCoursePage")
-    public String connectToUpdateCoursePage() {
-        return "updateCoursePage";
-    }
-
     //Trainer Page
-    @RequestMapping("/registerTrainerPage")
+    @GetMapping("/registerTrainerPage")
     public String connectToRegisterTrainerPage() {
         return "registerTrainerPage";
     }
 
-    @RequestMapping("/viewTrainerPage")
-    public String connectToViewTrainerPage() {
-        return "viewTrainerPage";
-    }
-
-    @RequestMapping("/updateTrainerPage")
-    public String connectToUpdateTrainerPage() {
-        return "updateTrainerPage";
-    }
-
     // Trainee Page
-    @RequestMapping("/registerTraineePage")
+    @GetMapping("/registerTraineePage")
     public String connectToRegisterTraineePage() {
         return "registerTraineePage";
     }
-
-    @RequestMapping("/viewTraineePage")
-    public String connectToViewTraineePage() {
-        return "viewTraineePage";
-    }
-
-    @RequestMapping("/updateTraineePage")
-    public String connectToUpdateTraineePage() {
-        return "updateTraineePage";
-    }
-
-
     //Module Page
-    @RequestMapping("/registerModulePage")
+
+    @GetMapping("/registerModulePage")
     public String connectToRegisterModulePage() {
         return "registerModulePage";
     }
     //Classroom Page
-    @RequestMapping("/registerClassroomPage")
+
+    @GetMapping("/registerClassroomPage")
     public String connectToRegisterClassroomPage(){
         return "registerClassroomPage";
     }
-    @RequestMapping("/registerTeachingGroupPage")
+
+    @GetMapping("/registerTeachingGroupPage")
     public String connectToRegisterTeachingGroupPage(){
         return "registerTeachingGroupPage";
     }
-    @RequestMapping("/viewTeachingGroupsPage")
-    public String connectToViewTeachingGroupsPage() {
-        return "viewTeachingGroupsPage";
-    }
-
-    @RequestMapping("/viewSchedulePage")
-    public String connectToViewSchedulePage() {
-        return "viewSchedulePage";
-    }
-
-    @RequestMapping("/viewScheduleClassroomForm")
-    public String connectToViewScheduleClassroomForm(){
-        return "registerTimeslotPage";
-    }
-
-}

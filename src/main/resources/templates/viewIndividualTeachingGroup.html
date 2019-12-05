@@ -58,7 +58,7 @@
                                                                                           class="btn btn-success">
     </form>
 
-    <br>
+
     <!--    <h1 style="text-align: center; margin: 2% 0 2% 0">Courses</h1>-->
     <!--    <table class="table table-striped" border="2">-->
     <!--        <thead class="thead-custom">-->
@@ -78,7 +78,13 @@
     <!--    </table>-->
 <!--    <form th:action="@{'/teachingGroup/editCourses/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit"-->
 <!--                                                                                         class="btn btn-success"></form>-->
+    <br/>
+    <form id="backButton" th:action="@{/teachingGroups/getTeachingGroups}" method="get">
+        <input type="submit" value="Back" style=" font-size: large" class="btn"/>
+    </form>
+    <br/>
 </div>
+
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>
