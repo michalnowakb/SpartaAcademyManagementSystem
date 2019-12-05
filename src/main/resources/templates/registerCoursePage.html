@@ -14,17 +14,17 @@
                 <div class="card-body">
                     <form th:action="@{/course/addCourse}" method="post">
                         <div class="form-row">
-                            <div class="form-group col-6 ">
+                            <div class="form-group col-6">
                                 <label>Course Name</label>
                                 <input class="form-control" type="text" pattern="[a-zA-Z]+" name="courseName" placeholder="Course Name" required/>
                             </div>
-                            <div class="form-group col-6 ">
+                            <div class="form-group col-6">
                                 <label>Course Description</label>
                                 <input class="form-control" type="text" name="courseDescription" placeholder="Course Description" required/>
                             </div>
                         </div>
                         <div class="form-rows">
-                            <div class="form-group col-6 ">
+                            <div class="form-group col-7">
                                 <label>Course Duration(Weeks)</label>
                                 <input class="form-control" type="number" name="durationInWeeks" placeholder="Course Duration" required/>
                             </div>
