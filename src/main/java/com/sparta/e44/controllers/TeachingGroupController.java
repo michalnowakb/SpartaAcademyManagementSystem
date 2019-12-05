@@ -62,9 +62,17 @@ public class TeachingGroupController {
 
     @PostMapping("/teachingGroup/addTeachingGroup")
     public String addTeachingGroup(@Valid TeachingGroupEntity teachingGroup){
-        teachingGroupService.addTeachingGroup(teachingGroup);
-        return "registerTeachingGroupPage";
+        return teachingGroupService.addTeachingGroup(teachingGroup);
+
     }
+
+    @GetMapping("/teachingGroup/usedGroupNamePage/{groupName}")
+    public String addTeachingGroupFail(@PathVariable("groupName") String groupName, Model model){
+        model.addAttribute("groupName",groupName);
+        model.addAttribute("courses", courseService.getAllCourses());
+        return "/registerTeachingGroupPageFailed";
+    }
+
 
     @GetMapping("/teachingGroup/editTeachingGroup/{id}")
     public String editTeachingGroup(@PathVariable("id") int id, @Valid TeachingGroupEntity teachingGroup, Model model){

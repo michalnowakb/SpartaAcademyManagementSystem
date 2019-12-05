@@ -38,9 +38,10 @@
                         </td>
                     </tr>
                 </table>
+
 <!--        <form th:action="@{'/attendance/saveAttendanceOnDay/' + ${group.groupId} + '/' + ${date}}">-->
                 <table class="table table-striped" border="2">
-                    <thead class="thead-custom">
+                    <thead class="thead-custom" style="horiz-align: center">
                         <tr>
                             <td>
                                 Trainee
@@ -56,7 +57,7 @@
                             </td>
                         </tr>
                     </thead>
-                    <tbody class="tbody-custom">
+                    <tbody class="tbody-custom" style="horiz-align: center">
                         <tr th:each="trainee:${group.trainees}">
                             <td>
                                 <output th:text="${trainee.firstName + ' ' + trainee.lastName}"></output>
@@ -100,6 +101,10 @@
 
 <!--        </form>-->
 
+
+        <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId}}" style="text-align: center; margin: 2% 0 2% 0">
+            <input type="submit" value="Back to View" class="btn btn-custom" />
+        </form>
     </div>
 
 

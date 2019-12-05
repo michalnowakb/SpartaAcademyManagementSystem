@@ -12,4 +12,7 @@ import java.util.List;
 public interface TeachingGroupRepository extends CrudRepository<TeachingGroupEntity,Integer> {
     @Query("SELECT g FROM TeachingGroupEntity g WHERE (g.groupName) LIKE CONCAT('%',:groupName,'%')")
     public List<TeachingGroupEntity> getTeachingGroupEntityByGroupName(@Param("groupName") String groupName);
+
+    @Query("SELECT g FROM TeachingGroupEntity g WHERE g.groupName LIKE :groupName")
+    public List<TeachingGroupEntity> getTeachingGroupByName(@Param("groupName") String groupName);
 }

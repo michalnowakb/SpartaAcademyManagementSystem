@@ -11,6 +11,11 @@
     <h1 style="text-align: center; margin: 2% 0 2% 0">
         <output th:text="${group.groupName}"></output>
     </h1>
+    <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId}}" style="text-align: center; margin: 2% 0 2% 0">
+        <input type="submit" value="Register Attendance" class="btn btn-custom" />
+    </form>
+
+
 
     <table>
         <thead class="thead-custom">
@@ -36,7 +41,7 @@
             </td>
             <td>
                 <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId} + '/' + ${date}}">
-                    <input type="submit" value="Edit" class="btn btn-custom"/>
+                    <input type="submit" value="Manage" class="btn btn-custom"/>
                 </form>
             </td>
         </tr>
