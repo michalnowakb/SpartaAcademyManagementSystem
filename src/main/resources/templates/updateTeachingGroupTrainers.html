@@ -47,6 +47,10 @@
         </tr>
         </tbody>
     </table>
+
+    <form id="backButton" th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}" method="get">
+        <input type="submit" value="Back" style=" font-size: large" class="btn"/>
+    </form>
 </div>
 </body>
 </html>
