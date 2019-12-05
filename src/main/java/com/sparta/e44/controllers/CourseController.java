@@ -4,6 +4,8 @@ import com.sparta.e44.entities.CourseEntity;
 import com.sparta.e44.entities.ModuleEntity;
 import com.sparta.e44.services.CourseService;
 import com.sparta.e44.services.ModuleService;
+import com.sparta.e44.services.TeachingGroupService;
+import com.sparta.e44.services.TraineeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +22,15 @@ public class CourseController {
     @Autowired
     private ModuleService moduleService;
 
+    @Autowired
+    private TeachingGroupService teachingGroupService;
+
     @GetMapping("/course/getCourses")
     public String getCourses(Model model) {
         model.addAttribute("courses",courseService.getAllCourses());
+
+
+
         return "viewCoursePage";
     }
 

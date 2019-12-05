@@ -4,6 +4,7 @@ import com.sparta.e44.entities.ClassroomEntity;
 import com.sparta.e44.entities.TeachingGroupEntity;
 import com.sparta.e44.entities.TimeslotEntity;
 import com.sparta.e44.entities.TraineeEntity;
+import com.sparta.e44.repositories.TimeslotRepository;
 import com.sparta.e44.services.ClassroomService;
 import com.sparta.e44.services.TeachingGroupService;
 import com.sparta.e44.services.TimeslotService;
@@ -26,6 +27,9 @@ public class TimeslotController {
 
     @Autowired
     private TeachingGroupService teachingGroupService;
+
+    @Autowired
+    private TimeslotRepository timeslotRepository;
 
     private TeachingGroupEntity teachingGroupEntity;
 
@@ -63,17 +67,12 @@ public class TimeslotController {
         for (TraineeEntity trainer : numberOfTrainers) {
             capacity+=1;
         }
-        if (capacity <= searchForCapacityOfId(classroomEntity.getClassroomName())){
+        if (capacity <= timeslotService.getCapacityOfClassroom()){
             model.addAttribute("classes", classroomService.getAll());
             model.addAttribute("groups", teachingGroupService.getAllTeachingGroups());
         }
 
         return "registerTimeslotPage";
-    }
-
-    public int searchForCapacityOfId(String classroomName){
-        int capacity =0;
-        return capacity;
     }
 
 }

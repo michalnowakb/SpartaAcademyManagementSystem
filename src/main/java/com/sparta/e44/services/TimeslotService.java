@@ -1,5 +1,6 @@
 package com.sparta.e44.services;
 
+import com.sparta.e44.entities.ClassroomEntity;
 import com.sparta.e44.entities.TimeslotEntity;
 import com.sparta.e44.entities.TraineeEntity;
 import com.sparta.e44.repositories.TimeslotRepository;
@@ -16,6 +17,8 @@ public class TimeslotService {
 
     @Autowired
     private TimeslotRepository timeslotRepository;
+
+    private ClassroomEntity classroomEntity;
 
     public List<TimeslotEntity> getAllTimeslots(){
         ArrayList<TimeslotEntity> timeslots = new ArrayList<>();
@@ -35,5 +38,9 @@ public class TimeslotService {
         editedTimeslot.setTimeslotId(id);
         timeslotRepository.save(editedTimeslot);
         return editedTimeslot;
+    }
+
+    public int getCapacityOfClassroom(){
+        return timeslotRepository.getCapacityByName(classroomEntity.getClassroomName());
     }
 }
