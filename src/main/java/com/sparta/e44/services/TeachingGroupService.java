@@ -42,7 +42,7 @@ public class TeachingGroupService {
             return "redirect:/teachingGroup/usedGroupNamePage/" + teachingGroupEntity.getGroupName();
         }else{
             teachingGroupRepository.save(teachingGroupEntity);
-            return "registerTeachingGroupPage";
+            return "redirect:/teachingGroup/registerNewGroupPage";
         }
     }
 
