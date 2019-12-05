@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,11 +51,8 @@ public class TimeslotController {
             for(ClassroomEntity classroom: classroomService.getAll()){
                 if(classroom.getClassroomId() !=  timeslot.getClassroom().getClassroomId()){
                     classrooms.add(classroom);
-
                 }
-
             }
-
         }
 
         model.addAttribute("teachingGroups" ,teachingGroups);
@@ -70,9 +68,9 @@ public class TimeslotController {
     }
 
     @PostMapping("/timeslot/addTimeslot")
-    public String addEvent(@Valid TimeslotEntity newTimeslot) {
+    public String addEvent(@Valid TimeslotEntity newTimeslot, Model model) {
         timeslotService.addTimeslot(newTimeslot);
-        return "registerTimeslotPage";
+        return addTimeSlotPage((model));
     }
 
     @GetMapping("/timeslot/editTimeslot/{id}")
@@ -88,24 +86,31 @@ public class TimeslotController {
 
         //Check classrooms in use
         List<ClassroomEntity> availabeClasrooms =  new ArrayList<>();
-        for(TimeslotEntity timeslot: allTimeslots){
-            for(ClassroomEntity classroom : classroomService.getAll()){
-                if(timeslot.getClassroom().getClassroomId()!= classroom.getClassroomId()){
-                    availabeClasrooms.add(classroom);
-                }
-            }
-        }
-
-        //Check for allocated groups
         List<TeachingGroupEntity> availableGroups = new ArrayList<>();
-        for(TimeslotEntity timeslot: allTimeslots){
-            for(TeachingGroupEntity group : teachingGroupService.getAllTeachingGroups()){
-                if(timeslot.getClassroom().getClassroomId()!= group.getGroupId()){
+
+        for(TeachingGroupEntity group : teachingGroupService.getAllTeachingGroups()){
+            boolean isPresent = true;
+            for(TimeslotEntity timeslot : allTimeslots){
+                if(timeslot.getGroup().getGroupId() == group.getGroupId()){
+                    isPresent = false;
+                }
+                if(isPresent){
                     availableGroups.add(group);
                 }
             }
         }
 
+        for(ClassroomEntity classroom : classroomService.getAll()){
+            boolean isPresent = true;
+            for(TimeslotEntity timeslot : allTimeslots){
+                if(timeslot.getClassroom().getClassroomId()== classroom.getClassroomId()){
+                    isPresent = false;
+                }
+                if(isPresent){
+                    availabeClasrooms.add(classroom);
+                }
+            }
+        }
         model.addAttribute("classes", availabeClasrooms);
         model.addAttribute("groups", availableGroups);
         return "registerTimeslotPage";
