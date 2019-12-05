@@ -8,21 +8,6 @@
 <body class = "backgroundImage">
 <div class="container">
 <h1 style="text-align: center; margin: 2% 0 2% 0">List of Schedule Information</h1>
-    <div class="row d-flex justify-content-center">
-        <form method="get" th:action="@{'/trainer/getTrainers/search'}">
-            <table>
-                <tr>
-                    <td>
-                        <label>Search: </label>
-                    </td>
-                    <td></td>
-                </tr>
-                <td><input class="form-control" name="searchQuery" placeholder="Search Query" th:value="${searchQuery}"
-                           type="text"/></td>
-                <td><input class="btn btn-custom" type="submit" value="Search"/></td>
-            </table>
-        </form>
-    </div>
 </div>
 
 <table border="2" class="table table-striped">
