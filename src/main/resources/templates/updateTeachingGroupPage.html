@@ -17,7 +17,7 @@
                         <div class="form-group col-6 ">
                             <label>Group name</label>
 
-                            <input  class="form-control" type="text" name="groupName" th:field="*{groupName}" required/>
+                            <input  class="form-control" type="text" pattern="([\w ]+)" name="groupName" th:field="*{groupName}" required/>
                         </div>
                         <div class="form-group col-6">
                             <label>Start date</label>

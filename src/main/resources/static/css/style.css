@@ -24,7 +24,11 @@ body {
 .thead-custom{
     background-color: #84125D;
     color: white;
+    height: 140px;
+    white-space: nowrap;
 }
+
+
 .tbody-custom{
     background-color: white;
     color: black;
@@ -59,4 +63,15 @@ footer{
 .fitwidth{
      width: 1px;
     white-space: nowrap; !important;
+}
+
+.rotate {
+    height: 140px;
+    white-space: nowrap;
+}
+.rotate > output{
+    transform:
+            translate(25px,51px)
+            rotate(315deg);
+    width: 30px;
 }

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>Dates</title>
 </head>
-
+    <div th:replace="fragments/header :: header"></div>
 <body class="backgroundImage">
 <div class="container">
     <h1 style="text-align: center; margin: 2% 0 2% 0">
         <output th:text="${group.groupName}"></output>
     </h1>
     <table class="table table-striped" border="2">
-        <thead class="thead-custom">
-        <tr >
-            <td>Trainee</td>
-            <td th:each="date:${dates}"><output th:text="${date}"></output> </td>
+        <thead class="rotate">
+        <tr>
+            <th>Trainee</th>
+            <th class="rotate" th:each="date:${dates}"><div><output th:text="${date}"></output></div></th>
         </tr>
         </thead>
         <tbody  class="tbody-custom">
