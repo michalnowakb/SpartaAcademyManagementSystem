@@ -32,6 +32,8 @@
         <td>Classname</td>
         <td>Start Date</td>
         <td>End Date</td>
+        <td>Update</td>
+        <td>Delete</td>
     </tr>
     </thead>
     <tbody class="tbody-custom">
@@ -41,22 +43,18 @@
         <td th:text="${timeslot.startDate}">Start Date/td>
         <td th:text="${timeslot.endDate}">End Date</td>
 
-<!--        <td>&lt;!&ndash;Add button to view/edit specializations here&ndash;&gt;-->
-<!--            <form th:action="@{'/trainer/viewModules/' + ${trainer.trainerId}}"><input type="submit"-->
-<!--                                                                                       value="Qualified Modules">-->
-<!--            </form>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <form th:action="@{'/trainer/getTrainer/' + ${trainer.trainerId}}"><input class="btn btn-success" type="submit"-->
-<!--                                                                                      value="Update">-->
-<!--            </form>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <form th:action="@{'/trainer/removeTrainer/' + ${trainer.trainerId}}"><input class="btn btn-danger"-->
-<!--                                                                                         type="submit"-->
-<!--                                                                                         value="Delete">-->
-<!--            </form>-->
-<!--        </td>-->
+
+        <td>
+            <form th:action="@{'/timeslot/updateTimeslot/' + ${timeslot.timeslotId}}"><input class="btn btn-success" type="submit"
+                                                                                      value="Update">
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/timeslot/removeTimeslot/' + ${timeslot.timeslotId}}"><input class="btn btn-danger"
+                                                                                         type="submit"
+                                                                                         value="Delete">
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
