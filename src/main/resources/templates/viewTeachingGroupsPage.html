@@ -57,7 +57,7 @@
             <td><form id="View info" th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}" method="get">
                 <input type="submit" value="More info" />
             </form> </td>
-            <td><form id="View Attendance" th:action="@{'/attendance/viewAttendancePerGroup/' + ${teachingGroup.groupId}}" method="get">
+            <td><form id="View Attendance" th:action="@{'/attendance/viewAttendancePerGroup/' + ${teachingGroup.groupId}+'/1'}" method="get">
                 <input type="submit" value="View Attendance" />
             </form> </td>
             <td><form class="twoButtons" th:action="@{'/teachingGroup/getUpdateTeachingGroup/' + ${teachingGroup.groupId}}"><input type="submit" value="Update" class="btn btn-success"></form>
