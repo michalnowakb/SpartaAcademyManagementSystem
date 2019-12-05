@@ -34,7 +34,7 @@ public class TimeslotController {
     }
 
     @GetMapping("/timeslot/updateTimeslot/{id}")
-    public String getAllTimeslots(Model model,@PathVariable("id") int id) {
+    public String getUpdateTimeslot(Model model,@PathVariable("id") int id) {
         TimeslotEntity timeslot =  timeslotService.getById(id);
         List<TeachingGroupEntity> teachingGroups = new ArrayList<>();
         if (teachingGroupService.getAllTeachingGroups()!= null) {
@@ -50,11 +50,8 @@ public class TimeslotController {
             for(ClassroomEntity classroom: classroomService.getAll()){
                 if(classroom.getClassroomId() !=  timeslot.getClassroom().getClassroomId()){
                     classrooms.add(classroom);
-
                 }
-
             }
-
         }
 
         model.addAttribute("teachingGroups" ,teachingGroups);
@@ -83,31 +80,8 @@ public class TimeslotController {
 
     @GetMapping("/timeslot/addTimeslotPage")
     public String addTimeSlotPage(Model model) {
-        //List of all recorded timeslots
-        List<TimeslotEntity> allTimeslots =  timeslotService.getAllTimeslots();
-
-        //Check classrooms in use
-        List<ClassroomEntity> availabeClasrooms =  new ArrayList<>();
-        for(TimeslotEntity timeslot: allTimeslots){
-            for(ClassroomEntity classroom : classroomService.getAll()){
-                if(timeslot.getClassroom().getClassroomId()!= classroom.getClassroomId()){
-                    availabeClasrooms.add(classroom);
-                }
-            }
-        }
-
-        //Check for allocated groups
-        List<TeachingGroupEntity> availableGroups = new ArrayList<>();
-        for(TimeslotEntity timeslot: allTimeslots){
-            for(TeachingGroupEntity group : teachingGroupService.getAllTeachingGroups()){
-                if(timeslot.getClassroom().getClassroomId()!= group.getGroupId()){
-                    availableGroups.add(group);
-                }
-            }
-        }
-
-        model.addAttribute("classes", availabeClasrooms);
-        model.addAttribute("groups", availableGroups);
+        model.addAttribute("classes", classroomService.getAll());
+        model.addAttribute("groups", teachingGroupService.getAllTeachingGroups());
         return "registerTimeslotPage";
     }
 

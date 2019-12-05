@@ -16,9 +16,8 @@
 
 
                     <div class="form-row">
-                        <div class="form-group col-6 ">
+                        <div  class="form-group col-6" th:object="${teachingGroupEntity}">
                             <label>Group Name:</label>
-<!--                            <input class="form-control" type="text" name="groupName" placeholder="Group Name"/>-->
                             <select required name="group" class="custom-select">
                                 <option selected th:value="${null}">Select Group Name</option>
                                 <option th:each="groupName : ${groups}"
@@ -42,7 +41,7 @@
                             <input class="form-control" type="date" name="endDate" placeholder="End Date" required/>
                         </div>
 
-                        <div class="form-group col-6" th:object="${classroom}">
+                        <div class="form-group col-6" th:object="${classroomEntity}">
                             <label>Classroom:</label>
                             <select name = "classroom" class = "custom-select" required>
                                 <option selected th:value="${null}">Select Classroom</option>
