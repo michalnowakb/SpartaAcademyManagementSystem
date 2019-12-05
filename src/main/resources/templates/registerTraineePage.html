@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
+    <script>
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+
+        today = yyyy+'-'+mm+'-'+dd;
+        document.getElementById("datefield").setAttribute("max", today);
+    </script>
     <meta charset="UTF-8"  xmlns:th="http://www.w3.org/1999/html">
     <title>Register Trainee Page</title>
 </head>
@@ -16,54 +31,46 @@
                     <div class="form-row">
                         <div class="form-group col-6 ">
                             <label>First Name</label>
-                            <input class="form-control" type="text" name="firstName" placeholder="First Name"/>
+                            <input class="form-control" pattern="[a-zA-Z]+" type="text" name="firstName" placeholder="First Name" required/>
                         </div>
 
                         <div class="form-group col-6">
                             <label>Last Name</label>
-                            <input class="form-control" type="text" name="lastName" placeholder="Last Name"/>
+                            <input class="form-control" type="text" pattern="[a-zA-Z]+" name="lastName" placeholder="Last Name" required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label>Date of Birth</label>
-                            <input class="form-control" type="date" name="dateOfBirth" placeholder="Date Of Birth"/>
+                            <input class="form-control" type="date" max="2030-01-01"  name="dateOfBirth" placeholder="Date Of Birth" required/>
                         </div>
 
                         <div class="form-group col-6">
                             <label>Email</label>
-                            <input class="form-control" type="email" name="email" placeholder="E-mail"/>
+                            <input class="form-control" type="email" name="email" placeholder="E-mail" required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6">
                             <label>Contact Number</label>
-                            <input class="form-control" type="tel" name="contactNumber" placeholder="Contact Number"/>
+                            <input class="form-control" type="text" pattern="^(?:0|\+?44)(?:\d\s?){9,10}$" name="contactNumber" placeholder="Contact Number" required/>
                         </div>
 
                         <div class="form-group col-6">
                             <label>Start Date</label>
-                            <input class="form-control" type="date" name="startDate" placeholder="Start Date"/>
+                            <input  class="form-control" type="date" max="2030-01-01" name="startDate" placeholder="Start Date" required/>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-6 ">
-                            <select name="gender" class="custom-select">
-                                <option selected>Select Gender</option>
+                            <select name="gender" class="custom-select" required>
+                                <option th:value="${null}" selected>Select Gender</option>
                                 <option th:each="gen : ${T(com.sparta.e44.entities.state.Gender).values()}"
                                         th:value="${gen}"
                                         th:text="${gen.value}">
                                 </option>
                             </select>
                         </div>
-                        <!--                    <div class="form-group col-6 ">-->
-                        <!--                        <select name="" class="custom-select">-->
-                        <!--                            <option selected>Select Modules</option>-->
-                        <!--                            <option value="Java">Java</option>-->
-                        <!--                            <option value="AN">Another Module</option>-->
-                        <!--                            <option value="AN">Another Module</option>-->
-                        <!--                        </select>-->
-                        <!--                    </div>-->
                     </div>
                     <div class="form-row d-flex justify-content-center">
                         <input type="submit" value="Add Trainee" class="btn btn-custom"/>

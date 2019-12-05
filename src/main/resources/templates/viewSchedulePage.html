@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Schedule Page</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class = "backgroundImage">
+<div class="container">
+<h1 style="text-align: center; margin: 2% 0 2% 0">List of Schedule Information</h1>
+    <div class="row d-flex justify-content-center">
+        <form method="get" th:action="@{'/trainer/getTrainers/search'}">
+            <table>
+                <tr>
+                    <td>
+                        <label>Search: </label>
+                    </td>
+                    <td></td>
+                </tr>
+                <td><input class="form-control" name="searchQuery" placeholder="Search Query" th:value="${searchQuery}"
+                           type="text"/></td>
+                <td><input class="btn btn-custom" type="submit" value="Search"/></td>
+            </table>
+        </form>
+    </div>
+</div>
+
+<table border="2" class="table table-striped">
+    <thead class="thead-custom">
+    <tr>
+        <td>Group Name</td>
+        <td>Classname</td>
+        <td>Start Date</td>
+        <td>End Date</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody class="tbody-custom">
+    <tr th:each="timeslot : ${timeslots}">
+        <td th:text="${timeslot.group.groupName}">Group Name</td>
+        <td th:text="${timeslot.classroom.classroomName}">Classname</td>
+        <td th:text="${timeslot.startDate}">Start Date/td>
+        <td th:text="${timeslot.endDate}">End Date</td>
+
+
+        <td>
+            <form th:action="@{'/timeslot/updateTimeslot/' + ${timeslot.timeslotId}}"><input class="btn btn-success" type="submit"
+                                                                                      value="Update">
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/timeslot/removeTimeslot/' + ${timeslot.timeslotId}}"><input class="btn btn-danger"
+                                                                                         type="submit"
+                                                                                         value="Delete">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

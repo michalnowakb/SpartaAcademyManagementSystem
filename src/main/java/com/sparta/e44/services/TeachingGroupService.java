@@ -37,8 +37,13 @@ public class TeachingGroupService {
         return teachingGroupRepository.findById(teachingGroupId).get();
     }
 
-    public void addTeachingGroup (TeachingGroupEntity teachingGroupEntity){
-        teachingGroupRepository.save(teachingGroupEntity);
+    public String addTeachingGroup (TeachingGroupEntity teachingGroupEntity){
+        if(teachingGroupRepository.getTeachingGroupByName(teachingGroupEntity.getGroupName()).size()>0){
+            return "redirect:/teachingGroup/usedGroupNamePage/" + teachingGroupEntity.getGroupName();
+        }else{
+            teachingGroupRepository.save(teachingGroupEntity);
+            return "registerTeachingGroupPage";
+        }
     }
 
     public void removeTeachingGroup(int id){
@@ -157,5 +162,9 @@ public class TeachingGroupService {
         group.setCourse(null);
         teachingGroupRepository.save(group);
         return group;
+    }
+
+    public List<TeachingGroupEntity> getByGroupName(String searchQuery) {
+        return teachingGroupRepository.getTeachingGroupEntityByGroupName(searchQuery);
     }
 }

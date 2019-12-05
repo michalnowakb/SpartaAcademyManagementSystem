@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dates</title>
+    </head>
+    <div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0">
+        <output th:text="${group.groupName}"></output>
+    </h1>
+    <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId}}" style="text-align: center; margin: 2% 0 2% 0">
+        <input type="submit" value="Register Attendance" class="btn btn-custom" />
+    </form>
+
+
+
+    <table>
+        <thead class="thead-custom">
+        <tr>
+            <td>Date</td>
+            <td class="rotate" th:each="trainee:${group.trainees}">
+                <!--            <td style="writing-mode: vertical-rl;text-orientation: mixed;transform: rotate(270deg);" th:each="trainee:${group.trainees}"  >-->
+                <output th:text="${trainee.firstName + ' ' + trainee.lastName}"></output>
+            </td>
+
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="date:${dates}">
+            <td>
+                <output th:text="${date}"></output>
+            </td>
+            <!--            <td th:each="trainee:${group.trainees}" th:style="${trainee.getAttendanceOnDate(date)==null} ? 'background-color : orange' : ${trainee.getAttendanceOnDate(date).isPresent} ? 'background-color : green':'background-color : red'">-->
+            <td th:each="trainee:${group.trainees}"
+                th:style="'background-color : ' + ${trainee.colorAttendanceOnDate(date)} + ';    border-style: solid;'">
+
+
+            </td>
+            <td>
+                <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId} + '/' + ${date}}">
+                    <input type="submit" value="Manage" class="btn btn-custom"/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

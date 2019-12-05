@@ -15,11 +15,11 @@
     <div class="form-row">
         <div class="form-group col-6 ">
             <label>Room Name</label>
-            <input name="classroomName" th:field="*{classroomName}"/>
+            <input type="text" pattern="[a-zA-Z]+" name="classroomName" th:field="*{classroomName}" required/>
         </div>
         <div class="form-group col-6 ">
             <label>Capacity</label>
-            <input name="capacity" th:field="*{capacity}"/>
+            <input name="capacity" type="number" th:field="*{capacity}" required/>
         </div>
     </div>
     <div class="form-row d-flex justify-content-center">
