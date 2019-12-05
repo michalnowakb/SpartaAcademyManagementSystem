@@ -55,6 +55,10 @@
         </tr>
         <tbody class="tbody-custom">
     </table>
+
+    <form id="backButton" th:action="@{/trainer/getTrainers}" method="get">
+        <input type="submit" value="Back" style=" font-size: large" class="btn"/>
+    </form>
 </div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
