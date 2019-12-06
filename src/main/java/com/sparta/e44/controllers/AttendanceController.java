@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -70,6 +67,11 @@ public class AttendanceController {
         TeachingGroupEntity teachingGroup = teachingGroupService.getTeachingGroup(groupId);
         model.addAttribute("group", teachingGroup);
 
+        List<TraineeEntity> trainees = teachingGroup.getTrainees();
+        Collections.sort(trainees);
+        model.addAttribute("trainees",trainees);
+
+
         List<LocalDate> dates = new ArrayList<>();
         dates.add(teachingGroup.getStartDate());
 
@@ -116,6 +118,9 @@ public class AttendanceController {
             date = teachingGroup.getEndDate();
         }
         model.addAttribute("date",date);
+        List<TraineeEntity> trainees = teachingGroup.getTrainees();
+        Collections.sort(trainees);
+        model.addAttribute("trainees",trainees);
         return "registerAttendancePage";
     }
 

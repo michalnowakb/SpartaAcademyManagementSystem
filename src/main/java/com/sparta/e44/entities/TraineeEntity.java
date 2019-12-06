@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-public class TraineeEntity extends AbstractPersonEntity {
+public class TraineeEntity extends AbstractPersonEntity implements Comparable<TraineeEntity> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int traineeId;
@@ -100,4 +100,8 @@ public class TraineeEntity extends AbstractPersonEntity {
         }
     }
 
+    @Override
+    public int compareTo(TraineeEntity o) {
+        return (getLastName()+' '+getFirstName()).compareTo(o.getLastName()+' '+o.getFirstName());
+    }
 }
