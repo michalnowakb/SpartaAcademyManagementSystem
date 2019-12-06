@@ -18,6 +18,14 @@
         <tr>
             <td style="text-align: center">
                             <span th:if="${week>1}">
+                            <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/1'}"
+                                  method="get">
+                                <input type="submit" value="<< First Week" class="btn btn-custom"/>
+                            </form>
+                            </span>
+            </td>
+            <td style="text-align: center">
+                            <span th:if="${week>1}">
                             <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/' + ${week-1}}"
                                   method="get">
                                 <input type="submit" value="< Previous Week" class="btn btn-custom"/>
@@ -34,6 +42,14 @@
                             <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/' + ${week+1}}"
                                   method="get">
                                 <input type="submit" value="Next Week >" class="btn btn-custom"/>
+                            </form>
+                            </span>
+            </td>
+            <td style="text-align: center">
+                            <span th:if="${week<maxWeek}">
+                            <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/' + ${maxWeek}}"
+                                  method="get">
+                                <input type="submit" value="Last Week >>" class="btn btn-custom"/>
                             </form>
                             </span>
             </td>

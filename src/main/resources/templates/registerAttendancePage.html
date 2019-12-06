@@ -26,6 +26,7 @@
                             </span>
                         </td>
                         <td style="text-align: center">
+                            <h2><output th:text="${date.getDayOfWeek().name()}"></output> </h2>
                             <h2><output th:text="${date}"></output></h2>
                         </td>
                         <td style="text-align: center">
@@ -103,7 +104,7 @@
 <!--        </form>-->
 
 
-        <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/1'}" style="text-align: center; margin: 2% 0 2% 0">
+        <form th:action="@{'/attendance/viewAttendancePerGroup/fromRegister/' + ${group.groupId} + '/' + ${date}}" style="text-align: center; margin: 2% 0 2% 0">
             <input type="submit" value="Back to View" class="btn btn-custom" />
         </form>
     </div>

@@ -44,6 +44,26 @@ public class AttendanceController {
         return registerAttendancePage(groupId, date, model);
     }
 
+    @GetMapping("/attendance/viewAttendancePerGroup/fromRegister/{groupId}/{date}")
+    public String viewAllAttendancePerGroup(@PathVariable("groupId") int groupId,Model model, @PathVariable("date") String date){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(date,dateTimeFormatter);
+
+        TeachingGroupEntity teachingGroup = teachingGroupService.getTeachingGroup(groupId);
+        List<LocalDate> dates = new ArrayList<>();
+        dates.add(teachingGroup.getStartDate());
+        while(dates.get(dates.size()-1).isBefore(teachingGroup.getEndDate())){
+            LocalDate holder = dates.get(dates.size()-1);
+            dates.add(holder.plusDays(1));
+        }
+
+        int weekNumber = ((dates.indexOf(localDate)+1)%7==0)?(dates.indexOf(localDate)+1)/7:((dates.indexOf(localDate)+1)/7)+1;
+
+
+        return viewAllAttendancePerGroup(groupId,model,weekNumber);
+    }
+
+
     @GetMapping("/attendance/viewAttendancePerGroup/{groupId}/{pageNumber}")
     public String viewAllAttendancePerGroup(@PathVariable("groupId") int groupId, Model model, @PathVariable("pageNumber") int pageNumber) {
 
