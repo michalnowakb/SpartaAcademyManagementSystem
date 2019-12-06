@@ -82,7 +82,7 @@
         <tr>
             <td>Day</td>
             <td>Date</td>
-            <td class="rotate" th:each="trainee:${group.trainees}">
+            <td class="rotate" th:each="trainee:${trainees}">
                 <!--            <td style="writing-mode: vertical-rl;text-orientation: mixed;transform: rotate(270deg);" th:each="trainee:${group.trainees}"  >-->
                 <output th:text="${trainee.firstName + ' ' + trainee.lastName}"></output>
             </td>

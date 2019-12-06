@@ -66,7 +66,7 @@
                         </tr>
                     </thead>
                     <tbody class="tbody-custom" style="horiz-align: center">
-                        <tr th:each="trainee:${group.trainees}">
+                        <tr th:each="trainee:${trainees}">
                             <td>
                                 <output th:text="${trainee.firstName + ' ' + trainee.lastName}"></output>
                             </td>
