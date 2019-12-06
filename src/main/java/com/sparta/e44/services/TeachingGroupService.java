@@ -42,7 +42,7 @@ public class TeachingGroupService {
             return "redirect:/teachingGroup/usedGroupNamePage/" + teachingGroupEntity.getGroupName();
         }else{
             teachingGroupRepository.save(teachingGroupEntity);
-            return "registerTeachingGroupPage";
+            return "redirect:/teachingGroup/registerNewGroupPage";
         }
     }
 
@@ -135,8 +135,8 @@ public class TeachingGroupService {
     }
 
     public TeachingGroupEntity removeTraineeAction(TeachingGroupEntity group, TraineeEntity trainee){
-        group.removeTrainee(trainee);
-        teachingGroupRepository.save(group);
+        trainee.setTeachingGroup(null);
+        traineeRepository.save(trainee);
         return group;
     }
 

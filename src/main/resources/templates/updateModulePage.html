@@ -14,10 +14,12 @@
 <form th:action="@{'/module/editModule/' + ${module.moduleId}}" th:object="${module}" enctype="multipart/form-data">
     <div class="form-row">
         <div  class="form-group col-6">
-        Module Name: <input  type="text" pattern="([\w ]+)" name="moduleName" th:field="*{moduleName}" required/>
+        <label>Module Name:</label>
+            <input  type="text" pattern="([\w ]+)" name="moduleName" th:field="*{moduleName}" required/>
     </div>
         <div class="form-group col-6">
-        Description: <input  type="text" name="moduleDescription" th:field="*{moduleDescription}" required/>
+        <label>Description: </label>
+            <input  type="text" name="moduleDescription" th:field="*{moduleDescription}" required/>
     </div>
     </div>
     <div class="form-row d-flex justify-content-center">
@@ -29,6 +31,6 @@
     </div>
 </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
 </body>
 </html>
