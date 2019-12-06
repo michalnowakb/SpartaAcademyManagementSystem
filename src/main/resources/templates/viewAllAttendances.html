@@ -23,6 +23,9 @@
                                 <input type="submit" value="<< First Week" class="btn btn-custom"/>
                             </form>
                             </span>
+                            <span th:unless="${week>1}">
+                                <input type="submit" value="<< First Week >" class="btn btn-custom" style="background-color: darkgray"/>
+                            </span>
             </td>
             <td style="text-align: center">
                             <span th:if="${week>1}">
@@ -30,6 +33,9 @@
                                   method="get">
                                 <input type="submit" value="< Previous Week" class="btn btn-custom"/>
                             </form>
+                            </span>
+                            <span th:unless="${week>1}">
+                                <input type="submit" value="< Previous Week >" class="btn btn-custom" style="background-color: darkgray"/>
                             </span>
             </td>
             <td style="text-align: center">
@@ -44,13 +50,19 @@
                                 <input type="submit" value="Next Week >" class="btn btn-custom"/>
                             </form>
                             </span>
+                            <span th:unless="${week<maxWeek}">
+                                <input type="submit" value="Next Week >" class="btn btn-custom" style="background-color: darkgray"/>
+                            </span>
             </td>
             <td style="text-align: center">
                             <span th:if="${week<maxWeek}">
                             <form th:action="@{'/attendance/viewAttendancePerGroup/' + ${group.groupId} + '/' + ${maxWeek}}"
                                   method="get">
-                                <input type="submit" value="Final Week >>" class="btn btn-custom"/>
+                                <input type="submit" value="Final Week >>" class="btn btn-custom" />
                             </form>
+                            </span>
+                            <span th:unless="${week<maxWeek}">
+                                <input type="submit" value="Final Week >>" class="btn btn-custom" style="background-color: darkgray"/>
                             </span>
             </td>
         </tr>
@@ -60,7 +72,7 @@
 
 
     <form th:action="@{'/attendance/registerAttendancePage/' + ${group.groupId}}" style="text-align: center; margin: 2% 0 2% 0">
-        <input type="submit" value="Register Attendance" class="btn btn-custom" />
+        <input type="submit" value="Register Today's Attendance" class="btn btn-custom" />
     </form>
 
 

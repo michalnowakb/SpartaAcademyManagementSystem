@@ -24,6 +24,9 @@
                                 <input type="submit" value="< Previous Day" class="btn btn-custom"/>
                             </form>
                             </span>
+                            <span th:unless="${date.isAfter(group.startDate)}">
+                                <input type="submit" value="< Previous Day" class="btn btn-custom" style="background-color: darkgray"/>
+                            </span>
                         </td>
                         <td style="text-align: center">
                             <h2><output th:text="${date.getDayOfWeek().name()}"></output> </h2>
@@ -36,6 +39,9 @@
                                   method="get">
                                 <input type="submit" value="Next Day >" class="btn btn-custom"/>
                             </form>
+                            </span>
+                            <span th:unless="${date.isBefore(group.endDate)}">
+                                <input type="submit" value="Next Day >" class="btn btn-custom" style="background-color: darkgray"/>
                             </span>
                         </td>
                     </tr>

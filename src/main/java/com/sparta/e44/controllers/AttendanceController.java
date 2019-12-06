@@ -92,7 +92,7 @@ public class AttendanceController {
         }
         model.addAttribute("week",pageNumber);
         model.addAttribute("maxWeek",maxWeek);
-        model.addAttribute("dates",dates.subList(((pageNumber-1)*7), Math.min(((pageNumber * 7) ), dates.size()-1)));
+        model.addAttribute("dates",dates.subList(((pageNumber-1)*7), Math.min(((pageNumber * 7) ), dates.size())));
         return "/viewAllAttendances";
     }
 
