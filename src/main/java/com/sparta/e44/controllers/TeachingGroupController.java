@@ -66,9 +66,9 @@ public class TeachingGroupController {
 
     }
 
-    @GetMapping("/teachingGroup/usedGroupNamePage/{groupName}")
-    public String addTeachingGroupFail(@PathVariable("groupName") String groupName, Model model){
-        model.addAttribute("groupName",groupName);
+    @GetMapping("/teachingGroup/invalidInput/{errorMessage}")
+    public String addTeachingGroupFail(@PathVariable("errorMessage") String errorMessage, Model model){
+        model.addAttribute("errorMessage",errorMessage);
         model.addAttribute("courses", courseService.getAllCourses());
         return "/registerTeachingGroupPageFailed";
     }
