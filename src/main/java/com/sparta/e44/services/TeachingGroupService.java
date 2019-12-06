@@ -38,12 +38,20 @@ public class TeachingGroupService {
     }
 
     public String addTeachingGroup (TeachingGroupEntity teachingGroupEntity){
+        String errorMessage = "";
         if(teachingGroupRepository.getTeachingGroupByName(teachingGroupEntity.getGroupName()).size()>0){
-            return "redirect:/teachingGroup/usedGroupNamePage/" + teachingGroupEntity.getGroupName();
+            errorMessage+="Group name " + teachingGroupEntity.getGroupName() + " already in use. ";
+        }
+        if(!teachingGroupEntity.getEndDate().isAfter(teachingGroupEntity.getStartDate())){
+            errorMessage+="Group start date must be before group end date. ";
+        }
+        if(errorMessage.length()>0){
+            return "redirect:/teachingGroup/invalidInput/" + errorMessage;
         }else{
             teachingGroupRepository.save(teachingGroupEntity);
             return "redirect:/teachingGroup/registerNewGroupPage";
         }
+
     }
 
     public void removeTeachingGroup(int id){
