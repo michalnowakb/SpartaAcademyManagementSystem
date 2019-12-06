@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <Title>Course Page</Title>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<h1 style="text-align: center; margin: 5% 0 0 0">Course dashboard</h1>
+<div class="row" style="padding:10% 0 10% 0">
+
+<div class="container">
+<form id="viewCourses" th:action="@{/viewCoursePage}" method="post">
+    <input type="submit" value="View All Courses" class="btn"/>
+</form>
+
+<form id="registerCourses" th:action="@{/registerCoursePage}" method="post">
+    <input type="submit" value="Register a new course" class="btn"/>
+</form>
+</div>
+</div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+
+</body>
+</html>

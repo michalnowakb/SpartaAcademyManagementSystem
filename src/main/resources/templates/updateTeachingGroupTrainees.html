@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teaching Group</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0">Current trainees</h1>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainee ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainee : ${teachingGroup.trainees}">
+            <td th:text="${trainee.traineeId}">Trainer ID</td>
+            <td th:text="${trainee.firstName}">First name</td>
+            <td th:text="${trainee.lastName}">Last name</td>
+            <td><form id="Remove Trainee" th:action="@{'/teachingGroup/removeTrainee/' + ${teachingGroup.groupId} + '/' + ${trainee.traineeId}}">
+                <input type="submit" value="Remove Trainee"/></form></td>
+        </tr>
+        </tbody>
+    </table>
+    <h1 style="text-align: center; margin: 2% 0 2% 0">Available trainees</h1>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainee ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainee : ${trainees}">
+            <span th:if="${!teachingGroup.trainees.contains(trainee)}">
+            <td th:text="${trainee.traineeId}">Trainee ID</td>
+            <td th:text="${trainee.firstName}">First name</td>
+            <td th:text="${trainee.lastName}">Last name</td>
+            <td> <form id="Add Trainee" th:action="@{'/teachingGroup/addTrainee/' + ${teachingGroup.groupId} + '/' + ${trainee.traineeId}}" method="post">
+            <input type="submit" value="Add Trainee"/></form></td>
+            </span>
+        </tr>
+        </tbody>
+    </table>
+
+    <form id="backButton" th:action="@{'/teachingGroup/getTeachingGroup/' + ${teachingGroup.groupId}}" method="get">
+        <input type="submit" value="Back" style=" font-size: large" class="btn"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="UTF-8">
+    <title>View Module Trainers</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+
+
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${module.moduleName}"></output></h1>
+    <!--<h1><output th:text="${course.courseName}"></output> </h1></br>-->
+    <h2>Qualified Trainers:</h2>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainer Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainer : ${module.trainers}">
+            <td th:text="${trainer.trainerId}">Trainer ID</td>
+            <td th:text="${trainer.firstName}">First Name</td>
+            <td th:text="${trainer.lastName}">Last Name</td>
+            <td> <form id="Remove Trainer" th:action="@{'/module/removeTrainer/' + ${module.moduleId} + '/' + ${trainer.trainerId}}" method="get">
+                <input type="submit" value="Remove Trainer"/>
+            </form> </td>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <h2>Other Trainers</h2>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainer Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainer : ${trainers}">
+        <span th:if="${!module.trainers.contains(trainer)}">
+        <td th:text="${trainer.trainerId}">Trainer ID</td>
+        <td th:text="${trainer.firstName}">First Name</td>
+        <td th:text="${trainer.lastName}">Last Name</td>
+        <td> <form id="Add Trainer" th:action="@{'/module/addTrainer/' + ${module.moduleId} + '/' + ${trainer.trainerId}}" method="get">
+            <input type="submit" value="Add Trainer"/>
+        </form> </td>
+        </span>
+        </tr>
+        <tbody class="tbody-custom">
+    </table>
+
+    <form id="backButton" th:action="@{/module/getModules}" method="get">
+        <input type="submit" value="Back" style=" font-size: large" class="btn"/>
+    </form>
+</div>
+</body>
+</html>

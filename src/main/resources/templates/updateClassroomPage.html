@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Module Page</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<h1 style="text-align: center; margin-top: 5%"> Edit a Classroom</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
+            <div class="card-body" style="color: black">
+<form th:action=@{/classroom/editClassroom/{id}(id=${classroom.classroomId})} th:object="${classroom}" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-6 ">
+            <label>Room Name</label>
+            <input type="text" pattern="[a-zA-Z]+" name="classroomName" th:field="*{classroomName}" required/>
+        </div>
+        <div class="form-group col-6 ">
+            <label>Capacity</label>
+            <input name="capacity" type="number" th:field="*{capacity}" required max="100"/>
+        </div>
+    </div>
+    <div class="form-row d-flex justify-content-center">
+        <input type="submit" value="Save updates" name="button"/>
+    </div>
+
+
+
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>

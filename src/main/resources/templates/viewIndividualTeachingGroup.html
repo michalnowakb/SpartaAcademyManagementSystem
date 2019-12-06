@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Teaching Group</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0">
+        <output th:text="${teachingGroup.groupName}"></output>
+    </h1>
+
+    <span th:if="${teachingGroup.course!=null}">
+        <h2 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${teachingGroup.course.courseName}"></output></h2>
+    </span>
+    <br/>
+
+    <h2 style="text-align: center; margin: 2% 0 2% 0">Trainers</h2>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainer ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainer : ${teachingGroup.trainers}">
+            <td th:text="${trainer.trainerId}">Trainer ID</td>
+            <td th:text="${trainer.firstName}">First name</td>
+            <td th:text="${trainer.lastName}">Last name</td>
+        </tr>
+        </tbody>
+    </table>
+    <form th:action="@{'/teachingGroup/editTrainers/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit"
+                                                                                          class="btn btn-success">
+    </form>
+    <br>
+    <h2 style="text-align: center; margin: 2% 0 2% 0">Trainees</h2>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainee ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainee : ${teachingGroup.trainees}">
+            <td th:text="${trainee.traineeId}">Trainee ID</td>
+            <td th:text="${trainee.firstName}">First name</td>
+            <td th:text="${trainee.lastName}">Last name</td>
+        </tr>
+        </tbody>
+    </table>
+    <form th:action="@{'/teachingGroup/editTrainees/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit"
+                                                                                          class="btn btn-success">
+    </form>
+
+
+    <!--    <h1 style="text-align: center; margin: 2% 0 2% 0">Courses</h1>-->
+    <!--    <table class="table table-striped" border="2">-->
+    <!--        <thead class="thead-custom">-->
+    <!--        <tr>-->
+    <!--            <td>Course ID</td>-->
+    <!--            <td>Course Name</td>-->
+    <!--            <td>Duration</td>-->
+    <!--        </tr>-->
+    <!--        </thead>-->
+    <!--        <tbody class="tbody-custom">-->
+    <!--        <tr th:each="course : ${teachingGroup.course}">-->
+    <!--            <td th:text="${course.courseId}">Course ID</td>-->
+    <!--            <td th:text="${course.courseName}">Course Name</td>-->
+    <!--            <td th:text="${course.duration}">Duration</td>-->
+    <!--        </tr>-->
+    <!--        </tbody>-->
+    <!--    </table>-->
+<!--    <form th:action="@{'/teachingGroup/editCourses/' + ${teachingGroup.groupId}}"><input type="submit" value="Edit"-->
+<!--                                                                                         class="btn btn-success"></form>-->
+    <br/>
+    <form id="backButton" th:action="@{/teachingGroups/getTeachingGroups}" method="get">
+        <input type="submit" value="Back" style=" font-size: large" class="btn"/>
+    </form>
+    <br/>
+</div>
+
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>

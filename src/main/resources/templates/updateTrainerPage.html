@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateTrainerPage</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<h1 style="text-align: center; margin-top: 5%"> Edit a Trainer</h1>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card col-5" style="border: solid 2px black; background-color: darkgray">
+            <div class="card-body" style="color: black">
+<form th:action="@{'/trainer/editTrainer/' + ${trainer.trainerId}}" th:object="${trainer}" enctype="multipart/form-data">
+
+    <div class="form-row">
+        <div class="form-group col-6 ">
+            <label>First Name</label>
+            <input type="text" pattern="[a-zA-Z]+" class="form-control" name="firstName" th:field="*{firstName}" required/>
+        </div>
+        <div class="form-group col-6">
+            <label>Last Name</label>
+            <input type="text" pattern="[a-zA-Z]+" class="form-control" name="lastName" th:field="*{lastName}" required/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-6">
+            <label>Date of Birth</label>
+            <input class="form-control" type="date" max="2030-01-01" name="dateOfBirth" th:field="*{dateOfBirth}" required/>
+        </div>
+        <div class="form-group col-6">
+            <label>Email</label>
+            <input class="form-control" type="email" name="email" th:field="*{email}" required/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-6">
+            <label>Contact Number</label>
+            <input type="text" pattern="^(?:0|\+?44)(?:\d\s?){9,10}$" class="form-control" name="contactNumber" th:field="*{contactNumber}" required/>
+        </div>
+
+        <div class="form-group col-6">
+            <label>Start Date</label>
+            <input class="form-control" type="date" max="2030-01-01"  name="startDate" th:field="*{startDate}" required/>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-6 ">
+            <label>Gender</label>
+            <select name="gender" class="custom-select" required>
+                <option th:text="${trainer.gender.value}"
+                        th:value="${trainer.gender}">
+                </option>
+                <option th:each="gen : ${trainer.gender.valuesWithoutCurrent(trainer.getGender())}"
+                        th:value="${gen}"
+                        th:text="${gen.value}">
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row d-flex justify-content-center">
+        <input type="submit" value="Save Updates" class="btn btn-custom" name="button"/>
+    </div>
+
+</form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>

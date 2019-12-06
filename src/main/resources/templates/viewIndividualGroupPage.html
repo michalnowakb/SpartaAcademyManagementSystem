@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Group Page</title>
+</head>
+<div th:replace="fragments/header :: header"></div>
+<body class="backgroundImage">
+<div class="container">
+    <h1 style="text-align: center; margin: 2% 0 2% 0"><output th:text="${teachingGroup.groupName}"></output></h1>
+
+    <br>
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Group Name</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="teachingGroup : ${teachingGroups}">
+            <td th:text="${teachingGroups.groupName}">Group Name</td>
+            <td th:text="${teachingGroups.startDate}">Start Date</td>
+            <td th:text="${teachingGroups.endDate}">End Date</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainee ID</td>
+            <td>First Name</td>
+            <td>Surname</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainee : ${trainees}">
+            <td th:text="${trainee.traineeId}">Trainee ID</td>
+            <td th:text="${trainee.firstName}">First Name</td>
+            <td th:text="${trainee.lastName}">Surname</td>
+            <td><form th:action="@{'/trainee/getTrainee/' + ${trainee.traineeId}}"><input type="submit" value="Update" class="btn btn-success"></form> </td>
+            <td><form th:action="@{'/trainee/removeTrainee/' + ${trainee.traineeId}}"> <input type="submit" value="Delete" class="btn btn-danger"></form></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped" border="2">
+        <thead class="thead-custom">
+        <tr>
+            <td>Trainer ID</td>
+            <td>First Name</td>
+            <td>Surname</td>
+        </tr>
+        </thead>
+        <tbody class="tbody-custom">
+        <tr th:each="trainer : ${trainers}">
+            <td th:text="${trainer.trainerId}">Trainee ID</td>
+            <td th:text="${trainer.firstName}">First Name</td>
+            <td th:text="${trainer.lastName}">Surname</td>
+           </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form id="traineePage" th:action="@{/updateTeachingGroupPage}" method="post">
+        <input type="submit" value="Edit All" style=" font-size: x-large" class="btn"/>
+    </form>
+
+
+</div>
+<!--<div th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>
